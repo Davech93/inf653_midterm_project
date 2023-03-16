@@ -1,0 +1,23 @@
+<?php 
+    class DatabaseLocal {
+        private $host = 'localhost';
+        private $port = '5432';
+        private $dbname = 'quotesdb';
+        private $username = 'quotesdb';
+        private $conn;
+
+        public function connect() {
+            $this->conn = null;
+            $dsn = "pgsql:host={$this->host};port={$this->port};dbname={$this->db_name}";
+
+            try {
+                $this->conn = new PDO($dsn, $this->username);
+
+                $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            } catch(PDOException $e) {
+                echo 'Connect Error: ' . $e->getMessage();
+            }
+            return $this->conn;
+        }
+    }
+    ?>
