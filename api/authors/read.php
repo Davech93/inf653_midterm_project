@@ -9,6 +9,8 @@
     //Instantiate DB & Connect
     $database = new Database();
     $db = $database ->connect();
+    echo '<pre>';
+    var_dump($db);
 
      echo "error 6" . getenv("USERNAME") . getenv("HOST");
 
