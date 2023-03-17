@@ -8,6 +8,7 @@
 
     //Instantiate DB & Connect
     $database = new Database();
+    echo "error 5" . $database;
     $db = $database ->connect();
 
     //Instantiate Author Object
