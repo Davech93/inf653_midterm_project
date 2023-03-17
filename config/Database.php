@@ -18,13 +18,16 @@
 
         public function connect() {
             if ($this->conn){
+                echo "error" . $this->conn;
                 return $this->conn;
             } else{
+                
                 $dsn = "pgsql:host={$this->host};port={$this->port};dbname={$this->dbname};";
-
+                echo " something error" . $dsn;
                 try {
                     $this->conn = new PDO($dsn, $this->username, $this->password);
                     $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    echo "error 2nd" . $this->conn;
                     return $this->conn;
                 } catch(PDOException $e) {
                     echo 'Connection Error: ' . $e->getMessage();
