@@ -15,19 +15,22 @@
             $this->host = getenv('HOST');
             $this->port = getenv('PORT');
         }
+// check connection
 
         public function connect() {
             if ($this->conn){
-                echo "error" . $this->conn;
+                echo "ERROR" . $this->conn;
                 return $this->conn;
             } else{
                 
-                $dsn = "pgsql:host={$this->host};port={$this->port};dbname={$this->dbname};sslmode = require";
-                echo " something error" . $dsn;
+
                 try {
+                    //log all values 
+                    $dsn = "pgsql:host={$this->host};port={$this->port};dbname={$this->dbname};sslmode = require";
+                echo " SOMETHING ERROR" . $dsn;
                     $this->conn = new PDO($dsn, $this->username, $this->password);
                     $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                    echo "error 2nd" . $this->conn;
+                    echo "ERROR 2nd" . $this->conn;
                     return $this->conn;
                 } catch(PDOException $e) {
                     echo 'Connection Error: ' . $e->getMessage();
