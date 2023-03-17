@@ -22,10 +22,10 @@
                 return $this->conn;
             } else{
                 
-                $dsn = "pgsql:host={$this->host};port={$this->port};dbname={$this->dbname};";
+                $dsn = "pgsql:host={$this->host};port={$this->port};dbname={$this->dbname};sslmode = require";
                 echo " something error" . $dsn;
                 try {
-                    $this->conn = new PDO($dsn, $this->username, $this->password, sslmode = require);
+                    $this->conn = new PDO($dsn, $this->username, $this->password);
                     $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                     echo "error 2nd" . $this->conn;
                     return $this->conn;
