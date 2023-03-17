@@ -10,7 +10,7 @@
     $database = new Database();
     $db = $database ->connect();
 
-     echo getenv("USERNAME") . getenv("HOST");
+     echo "error 6" . getenv("USERNAME") . getenv("HOST");
 
     //Instantiate Author Object
     echo "error4" . $db;
