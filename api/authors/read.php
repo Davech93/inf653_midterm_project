@@ -11,6 +11,7 @@
     $db = $database ->connect();
 
     //Instantiate Author Object
+    echo "error4" . $db;
     $authors = new Author($db);
 
     //Author Query
