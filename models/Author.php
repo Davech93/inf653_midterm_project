@@ -20,7 +20,7 @@
         }
 
      //GET authors
-        public function read($db){
+        public function read(){
             //create query
             $query = 'SELECT
             a.id,
