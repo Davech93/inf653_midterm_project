@@ -20,10 +20,10 @@
             if ($this->conn){
                 return $this->conn;
             } else{
-                $dsn = "pgsql:host="dpg-cg8eukqk728pus4qm5q0-a.oregon-postgres.render.com";port="5432";dbname="quotesdb_nu96";";
+                $dsn = "pgsql:host={$this->host};port={$this->port};dbname={$this->dbname};";
 
                 try {
-                    $this->conn = new PDO($dsn, "quotesdb_nu96_user", "ry2c06ulH6Z2UjW3qwkLyOsOF0raAiEJ");
+                    $this->conn = new PDO($dsn, $this->username, $this->password);
                     $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                     return $this->conn;
                 } catch(PDOException $e) {
