@@ -17,7 +17,7 @@
     $author->id = isset($_GET['id']) ? $_GET['id'] : die();
 
     //Get post
-    $post->read_single();
+    $author->read_single();
 
     //create array
     $author_arr = array(
