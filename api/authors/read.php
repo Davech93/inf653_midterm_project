@@ -12,8 +12,6 @@
         // Connect to the database
         $db = $database->connect();
     
-        // Echo a JavaScript script tag to log the value of $conn to the console
-        echo '<script>console.log(' . json_encode($db) . ');</script>';
     } catch (PDOException $e) {
         // Log the error message to the browser console
         echo '<script>console.error(' . json_encode($e->getMessage()) . ');</script>';
