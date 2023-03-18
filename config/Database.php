@@ -14,14 +14,11 @@
             $this->dbname = getenv('DBNAME');
             $this->host = getenv('HOST');
             $this->port = getenv('PORT');
-            echo "<pre>";
-            var_dump($this);
         }
 // check connection
 
         public function connect() {
             if ($this->conn){
-                echo "ERROR" . $this->conn;
                 return $this->conn;
             } else{
                 
@@ -29,7 +26,6 @@
                 try {
                     //log all values 
                     $dsn = "pgsql:host={$this->host};port={$this->port};dbname={$this->dbname};sslmode = require";
-                echo " SOMETHING ERROR" . $dsn;
                     $this->conn = new PDO($dsn, $this->username, $this->password);
                     $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                     return $this->conn;
