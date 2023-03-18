@@ -24,7 +24,9 @@
             //create query
             $query = 'SELECT
             a.id,
-            a.author
+            a.author,
+            a.title,
+            a.body
            FROM 
             ' . $this->table . ' a
             ORDER BY
