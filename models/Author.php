@@ -97,7 +97,7 @@
         public function update() {
             //create query
             $query = 'UPDATE ' . $this->table . '
-            SET (:id, :author)
+            SET (id = :id, author = :author)
                 WHERE
                 id = :id';
 
