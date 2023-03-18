@@ -97,8 +97,8 @@
         public function update() {
             //create query
             $query = 'UPDATE ' . $this->table . '
-            SET id = :id, author = :author
-            WHERE id = :id';
+            SET (id, author) = (:id, :author)
+            WHERE id = :id AND length(author) > 0;';
 
             //prepare statement
             $stmt = $this->conn->prepare($query);
