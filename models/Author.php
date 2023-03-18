@@ -97,7 +97,7 @@
         public function update() {
             //create query
             $query = 'UPDATE ' . $this->table . '
-            SET id = :id, author =  CAST(:author AS TEXT)
+            SET id = :id, author = :author
             WHERE id = :id';
 
             //prepare statement
@@ -110,7 +110,11 @@
 
             //bind data
             $stmt->bindParam(':id', $this->id);
+            if !(':author'){
             $stmt->bindParam(':author', $this->author);
+            } else {
+                return;
+            }
             
 
             //execute query
