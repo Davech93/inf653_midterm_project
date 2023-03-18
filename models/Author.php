@@ -33,7 +33,6 @@
                 a.id DESC';
 
         //Prepare Statement
-        echo "error 3" . $this->conn;
         $stmt = $this->conn->prepare($query);
 
         //Execute Query
