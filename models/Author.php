@@ -45,7 +45,7 @@
         a.author;
 
 
-        FROM ' . $this->$table . '
+        FROM ' . $this->table . '
         WHERE
             a.id = ?
             LIMIT 0, 1';
