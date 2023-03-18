@@ -101,7 +101,8 @@
                 id = :id,
                 author = :author
                 WHERE
-                id = :id';
+                id = :id,
+                author = :author';
 
             //prepare statement
             $stmt = $this->conn->prepare($query);
