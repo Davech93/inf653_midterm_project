@@ -13,7 +13,7 @@
     $db = $database ->connect();
 
     //Instantiate Author Object
-    $author = new Category($db);
+    $category = new Category($db);
 
     // get raw posted data
     $data = json_decode(file_get_contents("php://input"));
