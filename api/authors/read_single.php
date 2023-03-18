@@ -22,9 +22,7 @@
     //create array
     $author_arr = array(
         'author' => $author->author,
-        'id' => $author->id,
-        'title' => $author->title,
-        'body' => $author->body
+        'id' => $author->id
     );
     
     //make json

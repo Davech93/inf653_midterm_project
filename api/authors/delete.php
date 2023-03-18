@@ -20,12 +20,9 @@
     $data = json_decode(file_get_contents("php://input"));
 
     //set id to update
-    $author->id = $data->id;
 
     $author->author = $data->author;
     $author->id = $data->id;
-    $author->title = $data->title;
-    $author->body = $data->body;
 
     //update post
     if($author->update()){
