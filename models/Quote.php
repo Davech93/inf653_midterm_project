@@ -28,10 +28,10 @@
             q.author_id,
             q.category_id
            FROM 
-            ' . $this->table . ' q
-            LEFT JOIN
-            categories c ON q.category_id = c.id;
-            LEFT JOIN
+            ' . $this->table . ' q 
+            LEFT JOIN 
+            categories c ON q.category_id = c.id; 
+            LEFT JOIN 
             authors a ON q.author_id = a.id;
             ORDER BY
                 q.id DESC';
