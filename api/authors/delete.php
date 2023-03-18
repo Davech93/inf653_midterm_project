@@ -21,11 +21,10 @@
 
     //set id to update
 
-    $author->author = $data->author;
     $author->id = $data->id;
 
-    //update post
-    if($author->update()){
+    //delete author
+    if($author->delete()){
         echo json_encode(
             array('message' => 'Author Updated')
         );

@@ -20,6 +20,7 @@
 
     //set id to update
     $author->id = $data->id;
+    $author->author = $data->author;
 
 
     //dalete post

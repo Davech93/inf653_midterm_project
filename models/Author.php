@@ -98,7 +98,7 @@
             //create query
             $query = 'UPDATE ' . $this->table . '
             SET (id, author) = (:id, :author)
-            WHERE id = :id AND length(author) > 0;';
+            WHERE id = :id';
 
             //prepare statement
             $stmt = $this->conn->prepare($query);
@@ -137,7 +137,7 @@
         $this->id = htmlspecialchars(strip_tags($this->id));
 
         //bind data
-        $stmt->bindParam(':id, $this->id');
+        $stmt->bindParam(':id', $this->id);
 
         //execute query
         if($stmt->execute()){
