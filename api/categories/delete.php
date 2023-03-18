@@ -23,7 +23,7 @@
     $category->id = $data->id;
 
     //delete author
-    if($author->delete()){
+    if($category->delete()){
         echo json_encode(
             array('message' => 'Category Deleted')
         );
