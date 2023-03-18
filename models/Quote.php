@@ -55,10 +55,10 @@
         q.category_id
       FROM 
       ' . $this->table . ' q
-        LEFT JOIN
-         categories c ON q.category_id = c.id;
-        LEFT JOIN
-         authors a ON q.author_id = a.id;
+        LEFT JOIN categories c 
+            ON c.id = q.category_id
+        LEFT JOIN authors a 
+            ON a.id = q.author_id
         WHERE
             q.id = ?
             LIMIT 1 OFFSET 0';
