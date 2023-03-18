@@ -13,22 +13,25 @@
     $db = $database ->connect();
 
     //Instantiate Author Object
-    $category = new Category($db);
+    $quote = new Quote($db);
 
     // get raw posted data
     $data = json_decode(file_get_contents("php://input"));
 
-    $category->category = $data->category;
-    $category->id = $data->id;
+    $quote->quote = $data->quote;
+    $quote->id = $data->id;
+    $quote->author_id = $data->author_id;
+    $quote->category_id = $data->category_id;
+
 
     //create post
-    if($category->create()){
+    if($quote->create()){
         echo json_encode(
-            array('message' => 'Category Created')
+            array('message' => 'Quote Created')
         );
     } else {
         echo json_encode(
-            array('message' => 'Category Not Created')    
+            array('message' => 'Quote Not Created')    
         );
     }
 

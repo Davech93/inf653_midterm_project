@@ -13,23 +13,23 @@
     $db = $database ->connect();
 
     //Instantiate Author Object
-    $category = new Category($db);
+    $quote = new Quote($db);
 
     // get raw posted data
     $data = json_decode(file_get_contents("php://input"));
 
     //set id to update
 
-    $category->id = $data->id;
+    $quote->id = $data->id;
 
     //delete author
-    if($category->delete()){
+    if($quote->delete()){
         echo json_encode(
-            array('message' => 'Category Deleted')
+            array('message' => 'Quote Deleted')
         );
     } else {
         echo json_encode(
-            array('message' => 'Category Not Deleted')    
+            array('message' => 'Quote Not Deleted')    
         );
     }
 

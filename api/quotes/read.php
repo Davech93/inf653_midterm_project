@@ -18,34 +18,36 @@
     }
 
     //Instantiate Category Object
-    $category = new Category($db);
+    $quote = new Quote($db);
 
     //Author Query
-    $result = $category->read();
+    $result = $quote->read();
 
     //Get row count
     $num = $result->rowCount();
 
-    //Check if any category
+    //Check if any quote
     if($num > 0){
         //Author Array
-        $category_arr = array();
-        $category_arr['data'] = array();
+        $quote_arr = array();
+        $quote_arr['data'] = array();
 
         while($row = $result->fetch(PDO::FETCH_ASSOC)) {
             extract($row);
 
-            $category_item = array(
-                'category' => $category,
-                'id' => $id
+            $quote_item = array(
+                'quote' => $quote,
+                'id' => $id,
+                'author_id' => $author_id,
+                'category_id' => $category_id
             );
 
             //push to "data
-            array_push($category_arr['data'], $category_item);
+            array_push($quote_arr['data'], $quote_item);
         }
 
         //turn to json & output
-        echo json_encode($category_arr);
+        echo json_encode($quote_arr);
 
     } else {
         //No Authors

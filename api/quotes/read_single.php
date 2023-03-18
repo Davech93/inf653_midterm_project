@@ -11,22 +11,24 @@
     $db = $database ->connect();
 
     //Instantiate Category Object
-    $category = new Category($db);
+    $quote = new Quote($db);
 
     //get ID from url
-    $category->id = isset($_GET['id']) ? $_GET['id'] : die();
+    $quote->id = isset($_GET['id']) ? $_GET['id'] : die();
 
     //Get post
-    $category->read_single();
+    $quote->read_single();
 
     //create array
-    $category_arr = array(
-        'category' => $category->category,
-        'id' => $category->id
+    $quote_arr = array(
+        'quote' => $quote->quote,
+        'id' => $quote->id
+        'author_id' => $quote->author_id;
+        'category_id' => $quote->category_id;
     );
     
     //make json
-    print_r(json_encode($category_arr));
+    print_r(json_encode($quote_arr));
 
 
     ?>
