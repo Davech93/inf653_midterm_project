@@ -43,9 +43,8 @@
         $query = 'SELECT
         a.id,
         a.author;
-
-
-        FROM ' . $this->table . '
+      FROM 
+      ' . $this->table . ' a
         WHERE
             a.id = ?
             LIMIT 0, 1';
