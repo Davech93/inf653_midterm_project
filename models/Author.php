@@ -68,10 +68,7 @@
     //create author
         public function create() {
             //create query
-            $query = 'INSERT INTO ' . $this->table . '
-            SET
-                id = :id,
-                author = :author';
+            $query = 'INSERT INTO ' . $this->table . ' SET id = :id, author = :author';
 
             //prepare statement
             $stmt = $this->conn->prepare($query);
