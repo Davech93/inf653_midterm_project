@@ -1,11 +1,10 @@
 <?php
     //headers
-    header('Access-Control-Allow-Origin: *'); 
-    header("Access-Control-Allow-Credentials: true");
-    header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
-    header('Access-Control-Max-Age: 1000');
-    header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token , Authorization');
-    
+    header('Access-Control-Allow-Origin: *');
+    header('Content-Type: application/json');
+    header('Access-Control-Allow-Methods: DELETE');
+    header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization, X-Requested-With');
+
     include_once '../../config/Database.php';
     include_once '../../models/Author.php';
 
