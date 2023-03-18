@@ -1,5 +1,5 @@
 <?php
-header('Access-Control-Allow-Origin : dpg-cg8eukqk728pus4qm5q0-a.oregon-postgres.render.com');
+header('Access-Control-Allow-Origin : https://happy-kilby-f831bf.netlify.app/');
 header('Access-Control-Allow-Credentials : true');
 header('Content-Type: application/json');
 $method = $_SERVER['REQUEST_METHOD'];
