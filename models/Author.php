@@ -28,9 +28,7 @@
             a.title,
             a.body
            FROM 
-            ' . $this->table . ' a
-            ORDER BY
-                a.id DESC';
+            ' . $this->table . ' a ';
 
         //Prepare Statement
         $stmt = $this->conn->prepare($query);
