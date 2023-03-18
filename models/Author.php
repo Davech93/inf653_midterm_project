@@ -68,7 +68,11 @@
     //create author
         public function create() {
             //create query
-            $query = 'INSERT INTO ' . $this->table . ' SET id = $1, author = $2';
+            $query = 'INSERT INTO ' . $this->table . ' (
+                id, author
+                ) VALUES (
+                    $1, $2
+                    )';
 
             //prepare statement
             $stmt = $this->conn->prepare($query);
