@@ -28,7 +28,7 @@
             a.title,
             a.body
            FROM 
-            ' . $this->$table . ' a
+            ' . $this->table . ' a
             ORDER BY
                 a.id DESC';
 
