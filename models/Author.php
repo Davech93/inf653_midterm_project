@@ -42,7 +42,7 @@
     public function read_single(){
         $query = 'SELECT
         a.id,
-        a.author;
+        a.author
       FROM 
       ' . $this->table . ' a
         WHERE
