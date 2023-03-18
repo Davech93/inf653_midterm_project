@@ -1,6 +1,5 @@
 <?php
-header('Access-Control-Allow-Origin: *');
-header("Access-Control-Allow-Credentials" : true);
+header("Access-Control-Allow-Origin" : "*");
 header('Content-Type: application/json');
 $method = $_SERVER['REQUEST_METHOD'];
 
