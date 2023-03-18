@@ -98,7 +98,8 @@
             //create query
             $query = 'UPDATE ' . $this->table . '
             SET id = :id, author = :author
-            WHERE id = ?';
+            WHERE id = :id,
+            author = :author';
 
             //prepare statement
             $stmt = $this->conn->prepare($query);
