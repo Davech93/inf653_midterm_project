@@ -24,7 +24,6 @@
      echo "error 6" . getenv("USERNAME") . getenv("HOST");
 
     //Instantiate Author Object
-    echo "error4" . $db;
     $authors = new Author($db);
 
     //Author Query
