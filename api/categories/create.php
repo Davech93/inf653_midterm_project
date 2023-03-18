@@ -13,7 +13,7 @@
     $db = $database ->connect();
 
     //Instantiate Author Object
-    $author = new Category($db);
+    $category = new Category($db);
 
     // get raw posted data
     $data = json_decode(file_get_contents("php://input"));
@@ -22,7 +22,7 @@
     $category->id = $data->id;
 
     //create post
-    if($author->create()){
+    if($category->create()){
         echo json_encode(
             array('message' => 'Category Created')
         );
