@@ -16,10 +16,6 @@
         // Log the error message to the browser console
         echo '<script>console.error(' . json_encode($e->getMessage()) . ');</script>';
     }
-    echo '<pre>';
-    var_dump($db);
-
-     echo "error 6" . getenv("USERNAME") . getenv("HOST");
 
     //Instantiate Author Object
     $authors = new Author($db);
