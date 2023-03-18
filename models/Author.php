@@ -68,11 +68,10 @@
     //create author
         public function create() {
             //create query
-            $query = 'INSERT INTO ' . $this->table . ' (
-                id, author
-                ) VALUES (
-                    $1, $2
-                    )';
+            $query = 'INSERT INTO ' . $this->table . ' 
+              SET 
+                id = :id, 
+                author = :author';
 
             //prepare statement
             $stmt = $this->conn->prepare($query);
@@ -83,8 +82,8 @@
             
 
             //bind data
-            $stmt->bindParam('$1', $this->id);
-            $stmt->bindParam('$2', $this->author);
+            $stmt->bindParam(':id', $this->id);
+            $stmt->bindParam(':author', $this->author);
 
             //execute query
             if($stmt->execute()){
