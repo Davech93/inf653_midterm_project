@@ -110,7 +110,7 @@
 
             //bind data
             $stmt->bindParam(':id', $this->id);
-            if !(':author', $this->author){
+            if !(':author'){
                 return;
             } else {
                 $stmt->bindParam(':author', $this->author);
