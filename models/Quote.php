@@ -7,7 +7,7 @@
 
 
         //Categories Properties
-        public $quotes;
+        public $quote;
         public $id;
         public $author_id;
         public $category_id;
