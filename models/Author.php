@@ -97,7 +97,7 @@
         public function update() {
             //create query
             $query = 'UPDATE ' . $this->table . '
-            SET id = :id, author = :author
+            SET id = :id, author =  CAST(:author AS TEXT)
             WHERE id = :id';
 
             //prepare statement
