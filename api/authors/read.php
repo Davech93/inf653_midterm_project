@@ -43,9 +43,7 @@
 
             $author_item = array(
                 'author' => $author,
-                'id' => $id,
-                'title' => $title,
-                'body' => html_entity_decode($body)
+                'id' => $id
             );
 
             //push to "data
