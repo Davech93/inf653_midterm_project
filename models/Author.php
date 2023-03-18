@@ -69,7 +69,7 @@
         public function create() {
             //create query
             $query = 'INSERT INTO ' . $this->table . ' 
-              SET 
+            SET 
                 id = :id, 
                 author = :author';
 
