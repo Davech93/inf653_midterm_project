@@ -25,7 +25,7 @@
 
                 try {
                     //log all values 
-                    $dsn = "pgsql:host={$this->host};port={$this->port};dbname={$this->dbname};sslmode = require";
+                    $dsn = "pgsql:host={$this->host};port={$this->port};dbname={$this->dbname};";
                     $this->conn = new PDO($dsn, $this->username, $this->password);
                     $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                     return $this->conn;
