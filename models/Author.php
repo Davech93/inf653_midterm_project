@@ -9,8 +9,6 @@
         //Author Properties
         public $author;
         public $id;
-        public $title;
-        public $body;
        
 
         //constructor with DB
@@ -24,9 +22,7 @@
             //create query
             $query = 'SELECT
             a.id,
-            a.author,
-            a.title,
-            a.body
+            a.author
            FROM 
             ' . $this->table . ' a
             ORDER BY
@@ -46,9 +42,7 @@
     public function read_single(){
         $query = 'SELECT
         a.id,
-        a.author,
-        a.title,
-        a.body;
+        a.author;
 
 
         FROM ' . $this->$table . '
@@ -70,8 +64,6 @@
         //set properties
         $this->id = $row['id'];
         $this->author = $row['author'];
-        $this->title = $row['title'];
-        $this->body = $row['body'];
         }
 
     //create author
@@ -80,9 +72,7 @@
             $query = 'INSERT INTO ' . $this->table . '
             SET
                 id = :id,
-                author = :author
-                title = :title,
-                body = :body';
+                author = :author';
 
             //prepare statement
             $stmt = $this->conn->prepare($query);
@@ -90,14 +80,11 @@
             //clean data
             $this->id = htmlspecialchars(strip_tags($this->id));
             $this->author = htmlspecialchars(strip_tags($this->author));
-            $this->title = htmlspecialchars(strip_tags($this->title));
-            $this->body = htmlspecialchars(strip_tags($this->body));
+            
 
             //bind data
             $stmt->bindParam(':id', $this->id);
             $stmt->bindParam(':author', $this->author);
-            $stmt->bindParam(':title', $this->title);
-            $stmt->bindParam(':body', $this->body);
 
             //execute query
             if($stmt->execute()){
@@ -116,8 +103,6 @@
             SET
                 id = :id,
                 author = :author
-                title = :title,
-                body = :body
                 WHERE
                 id = ?';
 
@@ -127,14 +112,12 @@
             //clean data
             $this->id = htmlspecialchars(strip_tags($this->id));
             $this->author = htmlspecialchars(strip_tags($this->author));
-            $this->title = htmlspecialchars(strip_tags($this->title));
-            $this->body = htmlspecialchars(strip_tags($this->body));
+           
 
             //bind data
             $stmt->bindParam(':id', $this->id);
             $stmt->bindParam(':author', $this->author);
-            $stmt->bindParam(':title', $this->title);
-            $stmt->bindParam(':body', $this->body);
+            
 
             //execute query
             if($stmt->execute()){
