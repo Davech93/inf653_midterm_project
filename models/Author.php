@@ -17,7 +17,6 @@
         echo "ERROR!" . $db;
 
         }
-        echo "ERROR 5" . $this->table;
 
      //GET authors
         public function read(){
