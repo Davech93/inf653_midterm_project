@@ -14,6 +14,7 @@
             $this->dbname = getenv('DBNAME');
             $this->host = getenv('HOST');
             $this->port = getenv('PORT');
+            var_dump($conn); 
         }
 // check connection
 
