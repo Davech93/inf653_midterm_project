@@ -30,7 +30,6 @@
     if($num > 0){
         //Author Array
         $category_arr = array();
-        $category_arr['data'] = array();
 
         while($row = $result->fetch(PDO::FETCH_ASSOC)) {
             extract($row);
@@ -41,7 +40,7 @@
             );
 
             //push to "data
-            array_push($category_arr['data'], $category_item);
+            array_push($category_arr, $category_item);
         }
 
         //turn to json & output
