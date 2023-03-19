@@ -14,7 +14,7 @@
     
     } catch (PDOException $e) {
         // Log the error message to the browser console
-        echo json_encode($e->getMessage());
+        echo '<script>console.error(' . json_encode($e->getMessage()) . ');</script>';
     }
 
     //Instantiate Author Object
