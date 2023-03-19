@@ -14,9 +14,9 @@
         //constructor with DB
         public function __construct($db){
         $this->conn = $db;
+        echo "ERROR!" . $db;
 
         }
-        var_dump($db);
         echo "ERROR 5" . $table;
 
      //GET authors
