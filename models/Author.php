@@ -16,7 +16,7 @@
         $this->conn = $db;
 
         }
-        echo $db;
+        var_dump($db);
         echo "ERROR 5" . $table;
 
      //GET authors
