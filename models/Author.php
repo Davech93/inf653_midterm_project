@@ -16,7 +16,7 @@
         $this->conn = $db;
 
         }
-        echo "ERROR" . $db;
+        echo $db;
         echo "ERROR 5" . $table;
 
      //GET authors
