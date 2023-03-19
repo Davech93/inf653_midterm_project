@@ -9,7 +9,7 @@ if ($method === 'OPTIONS') {
     exit();
 }
 
-if ($method === "GET"){
+  if ($method === "GET"){
     if(isset($_GET['id'])){
         include_once 'read_single.php';
     } else {
