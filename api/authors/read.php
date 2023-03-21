@@ -35,6 +35,7 @@
                 'author' => $author
             );
 
+            array_push($authors_arr, $author_item);
         }
 
         //turn to json & output

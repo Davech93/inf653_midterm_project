@@ -34,6 +34,8 @@
                 'category' => $category
             );
 
+            array_push($category_arr, $category_item);
+
         }
 
         //turn to json & output
