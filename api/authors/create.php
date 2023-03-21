@@ -20,7 +20,6 @@
 
     $author->author = $data->author;
     $author->id = $data->id;
-    $author_arr = (object)array();
     $result = $author->create();
 
     
@@ -28,8 +27,7 @@
     if($result()){
         echo json_encode($result); 
     } else {
-        $author_arr->message = 'Missing Required Parameters';
-            echo json_encode($author_arr);   
+            echo json_encode('Missing Required Parameters');   
 
     }
     
