@@ -27,7 +27,8 @@
     //create post
     if(!$result){
         
-            $author_arr('message' => 'Missing Required Parameters');
+            $author_arr->message = 'Missing Required Parameters';
+            echo json_encode($author_arr);
     } else {
         echo json_encode($result);  
     }
