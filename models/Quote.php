@@ -79,8 +79,8 @@
         //set properties
         $this->id = $row['id'];
         $this->quote = $row['quote'];
-        $this->author = $row['author'];
-        $this->category = $row['category'];
+        $this->author_id = $row['author'];
+        $this->category_id = $row['category'];
         }
 
     //create quote
