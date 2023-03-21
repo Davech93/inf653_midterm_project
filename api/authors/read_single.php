@@ -16,9 +16,10 @@
     //get ID from url
     $author->id = isset($_GET['id']) ? $_GET['id'] : die();
     $myObj2 = json_encode(array('message' => 'No Authors Found'), JSON_FORCE_OBJECT);
+    $author->read_single();
     //Get post
-    if(!$author->read_single()){
-    print_r($myObj2);
+    if($author->id){
+    echo($myObj2);
     } else {
 
     //create array
