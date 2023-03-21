@@ -21,7 +21,7 @@
     $author->author = $data->author;
     $author->id = $data->id;
     $result = $author->create();
-    $author_arr = ();
+    $author_arr = (object)array();
 
     
     //create post
