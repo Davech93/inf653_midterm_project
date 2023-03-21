@@ -28,12 +28,14 @@
 
         //create post
     
-        if(($data->id == NULL || $data->author == NULL) && $author->create()){
-        $myObj2 = json_encode(array('message' => 'Missing Required Parameters'), JSON_FORCE_OBJECT);
+        if($author->create()){
+            if($data->id == NULL || $data->author == NULL){
+            $myObj2 = json_encode(array('message' => 'Missing Required Parameters'), JSON_FORCE_OBJECT);
         
-        echo($myObj2);
+            echo($myObj2);
+            }
         
-    } else {
+        } else {
         echo($myObj);
-    }
+        }
     ?>
