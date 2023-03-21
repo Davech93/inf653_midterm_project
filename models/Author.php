@@ -85,12 +85,13 @@
             //execute query
             if($stmt->execute()){
                 return true;
-            }
+            } 
             //print error if something goes wrong
             printf("Error: %s. \n", $stmt->error);
 
             return false;
-        }
+        
+    };
 
         //update author
         public function update() {
