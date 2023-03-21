@@ -21,6 +21,7 @@
 
     $author->author = $data->author;
     $author->id = $data->id;
+    $result = $author->create;
 
     
         $myObj = json_encode(array('id' => $data->id, 'author' => $data->author), JSON_FORCE_OBJECT);
@@ -28,10 +29,10 @@
 
         //create post
     
-        if($author->create()){
+        if(!$result){
         
-            echo($myObj);
-            } else {
             echo($myObj2);
+            } else {
+            echo json_encode(($result), JSON_FORCE_OBJECT);
             }
     ?>
