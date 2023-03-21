@@ -26,9 +26,7 @@
             a.author,
             c.category,
             q.id,
-            q.quote,
-            q.author_id,
-            q.category_id
+            q.quote
            FROM 
             ' . $this->table . ' q 
             LEFT JOIN categories c 
@@ -36,9 +34,7 @@
             LEFT JOIN authors a 
                 ON a.id = q.author_id
             ORDER BY
-                q.id DESC'
-            'SELECT 
-            a.author FROM authors WHERE a.id = q.author_id';
+                q.id DESC';
 
             
 
