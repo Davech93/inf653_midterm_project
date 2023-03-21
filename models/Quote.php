@@ -49,17 +49,6 @@
     
     
     //Get single author
-
-    public function check_id(){
-        $query = 'SELECT q.id FROM ' . $this->table . ' 
-        q WHERE q.id = ? LIMIT 1 OFFSET 0';
-
-        $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(1, $this->id);
-        $stmt->execute();
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-        $this->id = $row['id'];
-        }
     
         public function read_single(){
         $query = 'SELECT
