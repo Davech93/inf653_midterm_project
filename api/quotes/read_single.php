@@ -15,11 +15,14 @@
     
 
     //get ID from url
-    $quote->id = isset($_GET['id']) ? $_GET['id'] : $quote_arr = array('message'=>'No Quotes Found'); print_r(json_encode($quote_arr)); die();
+    $quote->id = isset($_GET['id']) ? $_GET['id'] :die();
     
 
     //Get post
     $quote->read_single();
+    if(!$quote->id){
+        $quote_arr = array('message' => 'No Quotes Found');
+    } else {
 
     //create array
     $quote_arr = array(
@@ -28,7 +31,7 @@
         'author' => $quote->author,
         'category' => $quote->category
     );
-    
+}
     //make json
     print_r(json_encode($quote_arr));
 
