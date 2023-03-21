@@ -23,14 +23,11 @@
      
 
         //create post
-    if($result = $author->create()){
+    if($author->create()){
         echo json_encode(
             array('message' => 'Author Created')
-        );
-        echo json_encode($result); 
+        ); 
     } else {
-        echo json_encode(
-            array('message' => 'Missing Required Parameters')    
-        );
+        echo json_encode('message' => 'Missing Required Parameters');
     }
     ?>
