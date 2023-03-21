@@ -21,17 +21,18 @@
     $author->author = $data->author;
     $author->id = $data->id;
 
-    $myObj = (object) ['id' => $data->id, 'author' => $data->author];
+    
+    $myObj = json_encode(array('id' => $data->id, 'author' => $data->author), JSON_FORCE_OBJECT)
                 
 
         //create post
     
         if($data->id == NULL || $data->author == NULL ){
-            $myObj2 = (object) ['message' => 'Missing Required Parameters'];
+            $myObj2 = json_encode(array('message' => 'Missing Required Parameters'), JSON_FORCE_OBJECT);
         
-        echo(json_encode($myObj2));
+        echo($myObj2);
         
     } else {
-        echo(json_encode($myObj));
+        echo($myObj);
     }
     ?>
