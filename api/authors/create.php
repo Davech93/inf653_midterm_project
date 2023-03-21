@@ -21,13 +21,14 @@
     $author->author = $data->author;
     $author->id = $data->id;
 
-    $result = $author->create();
+    
     //create post
-    if($result){
+    if($author->create()){
+        $result = $author->create();
         echo json_encode($result);
     } else {
         echo json_encode(
-            array('message' => 'Author Not Created')    
+            array('message' => 'Missing Parameters')    
         );
     }
 
