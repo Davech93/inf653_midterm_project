@@ -24,13 +24,14 @@
     $result = $author->create();
 
     
-    //create post
-    if(!$result){
-        
-            $author_arr->message = 'Missing Required Parameters';
-            echo json_encode($author_arr);
+//create author
+    if($author->update()){
+        echo json_encode($result); 
     } else {
-        echo json_encode($result);  
+        $author_arr->message = 'Missing Required Parameters';
+            echo json_encode($author_arr);   
+
     }
+    
 
     ?>
