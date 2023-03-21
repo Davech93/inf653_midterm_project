@@ -21,7 +21,7 @@
     $author->author = $data->author;
     $author->id = $data->id;
 
-                $check_arr = array('id' => $data->id, 'author' => $data->author);
+                $myObj = (object) array('id' => $data->id, 'author' => $data->author);
                 
      
 
@@ -32,6 +32,6 @@
             array('message' => 'Missing Required Parameters')
         );
     } else {
-        echo(json_encode($check_arr));
+        echo(json_encode($myObj));
     }
     ?>
