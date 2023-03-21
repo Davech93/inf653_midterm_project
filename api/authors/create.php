@@ -20,13 +20,13 @@
 
     $author->author = $data->author;
     $author->id = $data->id;
-    $jsonObj
+    
 
     
 //create author
     if($author->create()){
-        $myString = "id: " . $author->id . "author: " $author->author;
-        json_encode($myString);
+        $myString = "id: " . $author->id . " author: " $author->author;
+        echo json_encode($myString);
     } else {
             echo json_encode('Missing Required Parameters');  
 
