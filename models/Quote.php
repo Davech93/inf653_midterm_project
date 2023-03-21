@@ -32,10 +32,10 @@
            FROM 
             ' . $this->table . ' q 
             LEFT JOIN categories c 
-                ON c.id = q.category_id
+                ON c.category = q.category_id
+
             LEFT JOIN authors a 
-                ON a.id = q.author_id
-            WHERE q.category_id = c.id
+                ON a.author = q.author_id
             ORDER BY
                 q.id DESC';
 
