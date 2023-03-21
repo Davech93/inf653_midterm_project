@@ -21,7 +21,7 @@
     $author->author = $data->author;
     $author->id = $data->id;
     
-    $result = $authors->create();
+    $result = $author->create();
     $row = $result->fetch();
 
         if(!$row) {
