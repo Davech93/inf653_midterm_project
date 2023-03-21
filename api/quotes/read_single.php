@@ -16,6 +16,12 @@
 
     //get ID from url
     $quote->id = isset($_GET['id']) ? $_GET['id'] :die();
+
+    $quote->check_id();
+    if (!$quote->id){
+        $quote_arr = array()
+        'message' = 'No Quotes Found'
+    } else{
     
 
     //Get post
@@ -30,8 +36,10 @@
         'author' => $quote->author,
         'category' => $quote->category
     );
-    
+}
+
     //make json
     print_r(json_encode($quote_arr));
+
 
     ?>

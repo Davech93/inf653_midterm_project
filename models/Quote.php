@@ -49,7 +49,23 @@
     
     
     //Get single author
-    public function read_single(){
+
+    public function check_id(){
+        $query= 'SELECT
+        q.id
+        FROM
+        ' . $this->table . 'q
+        WHERE q.id = ?
+        LIMIT 1 OFFSET 0';
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(1, $this->id);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $this->id = $row['id'];
+        }
+    
+        public function read_single(){
         $query = 'SELECT
         q.id,
         q.quote,
@@ -80,11 +96,6 @@
 
         //set properties
         $this->id = $row['id'];
-        if(!$this->id){
-            $quote_arr = array('message' => 'No Quotes Found');
-            print_r(json_encode($quote_array));
-            return;
-        }
         $this->quote = $row['quote'];
         $this->author = $row['author'];
         $this->category = $row['category'];
