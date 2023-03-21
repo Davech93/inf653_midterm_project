@@ -22,17 +22,15 @@
     $author->id = $data->id;
 
                 $check_arr = array('id' => $data->id, 'author' => $data->author);
-                echo(json_encode($check_arr));
+                
      
 
         //create post
-    if($author->create()){
-        echo json_encode(
-            array('message' => 'Author Created')
-        ); 
+    if($check_arr){
+        echo(json_encode($check_arr));
     } else {
         echo json_encode(
-            array('message' => 'Author  Not Created')
+            array('message' => 'Missing Required Parameters')
         );
     }
     ?>
