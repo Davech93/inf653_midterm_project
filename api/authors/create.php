@@ -23,14 +23,12 @@
     
     $result = $author->create();
     $row = $result->fetch();
+    $result2 = extract($row);
+    echo json_encode($result2);  
 
         if(!$result) {
             echo json_encode('Missing Required Parameters'); 
             }
-         else {
-            $result2 = extract($row);
-            echo json_encode($result2);  
-        }
     
 
     ?>
