@@ -24,7 +24,7 @@
     $result = $author->create();
     $row = $result->fetch();
 
-        if(!$row) {
+        if(!$result) {
             echo json_encode('Missing Required Parameters'); 
             }
          else {
