@@ -34,7 +34,7 @@
         $quote_arr = array(
             'message' => 'No Quotes Found'
         )
-        print_r(json_encode($quotes_arr));
+    print_r(json_encode($quote_arr));
     }
 
     ?>
