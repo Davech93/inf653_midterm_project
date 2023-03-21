@@ -21,9 +21,6 @@
     //Get post
     $quote->read_single();
     
-    if(!$quote->id){
-        $quote_arr = array('message' => 'No Quotes Found');
-    } else {
     
 
     //create array
@@ -33,7 +30,7 @@
         'author' => $quote->author,
         'category' => $quote->category
     );
-}
+    
     //make json
     print_r(json_encode($quote_arr));
 

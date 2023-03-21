@@ -76,8 +76,15 @@
 
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
+        
+
         //set properties
         $this->id = $row['id'];
+        if(!$this->id){
+            $quote_arr = array('message' => 'No Quotes Found');
+            print_r(json_encode($quote_array));
+            return;
+        }
         $this->quote = $row['quote'];
         $this->author = $row['author'];
         $this->category = $row['category'];
