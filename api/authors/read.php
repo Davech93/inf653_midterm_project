@@ -8,14 +8,10 @@
 
     //Instantiate DB & Connect
     $database = new Database();
-    try {
-        // Connect to the database
-        $db = $database->connect();
+   // Connect to the database
+    $db = $database->connect();
     
-    } catch (PDOException $e) {
-        // Log the error message to the browser console
-        echo '<script>console.error(' . json_encode($e->getMessage()) . ');</script>';
-    }
+    
 
     //Instantiate Author Object
     $authors = new Author($db);
