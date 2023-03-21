@@ -20,11 +20,13 @@
 
     $author->author = $data->author;
     $author->id = $data->id;
-     $result = $author->create();
+     
 
         //create post
-    if($result){
-        echo json_encode($result);
+    if($author->create()){
+        echo json_encode(
+            array('message' => 'Author Created')
+        ); 
     } else {
         echo json_encode(
             array('message' => 'Author  Not Created')

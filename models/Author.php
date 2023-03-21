@@ -68,7 +68,7 @@
         public function create() {
             //create query
             $query = 'INSERT INTO ' . $this->table . ' (id, author)
-            VALUES (:id, :author) RETURNING :id, :author';
+            VALUES (:id, :author) RETURNING id, author';
 
             //prepare statement
             $stmt = $this->conn->prepare($query);
