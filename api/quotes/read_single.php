@@ -19,10 +19,12 @@
     
 
     //Get post
-    $quote->read_single();
     if(!$quote->id){
         $quote_arr = array('message' => 'No Quotes Found');
     } else {
+    
+    $quote->read_single();
+    
 
     //create array
     $quote_arr = array(
