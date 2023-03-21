@@ -20,13 +20,17 @@
 
     $author->author = $data->author;
     $author->id = $data->id;
-    
-    $result = $author->create();
-    echo json_encode($result);  
+     
 
-        if(!$result) {
-            echo json_encode('Missing Required Parameters'); 
-            }
-    
-
+        //create post
+    if($result = $author->create()){
+        echo json_encode(
+            array('message' => 'Author Created')
+        );
+        echo json_encode($result); 
+    } else {
+        echo json_encode(
+            array('message' => 'Missing Required Parameters')    
+        );
+    }
     ?>
