@@ -22,17 +22,20 @@
     $author->author = $data->author;
     $author->id = $data->id;
     $result = $author->create;
+    if ($result){
+      echo json_encode($result);
+    }
 
     
-        $myObj = json_encode(array('id' => $data->id, 'author' => $data->author), JSON_FORCE_OBJECT);
-        $myObj2 = json_encode(array('message' => 'Missing Required Parameters'), JSON_FORCE_OBJECT);
+        // $myObj = json_encode(array('id' => $data->id, 'author' => $data->author), JSON_FORCE_OBJECT);
+        // $myObj2 = json_encode(array('message' => 'Missing Required Parameters'), JSON_FORCE_OBJECT);
 
         //create post
     
-        if(!$result){
+        // if(!$result){
         
-            echo($myObj2);
-            } else {
-            echo json_encode(($result), JSON_FORCE_OBJECT);
-            }
+        //     echo($myObj2);
+        //     } else {
+        //     echo json_encode(($result), JSON_FORCE_OBJECT);
+        //     }
     ?>
