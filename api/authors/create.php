@@ -26,13 +26,12 @@
      
 
         //create post
-    if($check_arr){
-        echo(json_encode($check_arr));
-    } 
-
+    
         if($data->id == NULL || $data->author == NULL ){
         echo json_encode(
             array('message' => 'Missing Required Parameters')
         );
+    } else {
+        echo(json_encode($check_arr));
     }
     ?>
