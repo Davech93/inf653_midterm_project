@@ -27,9 +27,9 @@
         //create post
     
         if($data->id == NULL || $data->author == NULL ){
-        echo json_encode(
-            array('message' => 'Missing Required Parameters')
-        );
+        $myObj2 = 'Missing Required Parameters';
+        echo(json_encode($myObj2));
+        
     } else {
         echo(json_encode($myObj));
     }
