@@ -52,7 +52,7 @@
 
     public function check_id(){
         $query = "SELECT q.id
-        CASE (WHEN q.id IS NULL THEN 'False' ELSE 'True' END) FROM " . $this->table . ' 
+         (CASE WHEN q.id IS NULL THEN 'False' ELSE 'True' END) FROM " . $this->table . ' 
         q WHERE q.id = ? LIMIT 1 OFFSET 0';
 
         $stmt = $this->conn->prepare($query);
