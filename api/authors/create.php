@@ -21,7 +21,7 @@
     $author->author = $data->author;
     $author->id = $data->id;
 
-    $author->id =$row['id'];
+    $data->id =$row['id'];
                 $check_arr = array('id' => $id, 'author' =>$author);
                 echo(json_encode($check_arr));
      
