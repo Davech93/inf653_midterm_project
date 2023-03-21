@@ -4,6 +4,6 @@ SetEnv PASSWORD "ry2c06ulH6Z2UjW3qwkLyOsOF0raAiEJ"
 
 SetEnv DBNAME "quotesdb_nu96"
 
-SetEnv HOST "dpg-cg8eukqk728pus4qm5q0-a"
+SetEnv HOST "dpg-cg8eukqk728pus4qm5q0-a.oregon-postgres.render.com"
 
 SetEnv PORT "5432"
