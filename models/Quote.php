@@ -53,8 +53,8 @@
         $query = 'SELECT
         q.id,
         q.quote,
-        q.author_id,
-        q.category_id
+        a.author,
+        c.category
       FROM 
       ' . $this->table . ' q
         LEFT JOIN categories c 
@@ -79,8 +79,8 @@
         //set properties
         $this->id = $row['id'];
         $this->quote = $row['quote'];
-        $this->author_id = $row['author'];
-        $this->category_id = $row['category'];
+        $this->author = $row['author'];
+        $this->category = $row['category'];
         }
 
     //create quote
