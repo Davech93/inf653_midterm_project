@@ -18,7 +18,7 @@
     $quote->id = isset($_GET['id']) ? $_GET['id'] :die();
 
     $quote->check_id();
-    if (!$quote->id){
+    if ($quote->id == " "){
         $quote_arr = array(
         'message' => 'No Quotes Found'
         );
