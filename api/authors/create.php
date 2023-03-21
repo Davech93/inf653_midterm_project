@@ -25,7 +25,7 @@
 
     
 //create author
-    if($author->update()){
+    if($result()){
         echo json_encode($result); 
     } else {
         $author_arr->message = 'Missing Required Parameters';
