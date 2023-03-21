@@ -50,7 +50,7 @@
     
     //Get single author
 
-    function isValid(){
+   public function isValid(){
 $stmt = $this->conn->prepare("SELECT 1 FROM quotes WHERE id = ?");
 $stmt->execute([$quote->id]); 
 return $stmt->fetchColumn();
