@@ -22,9 +22,7 @@
     $author->id = $data->id;
     
     $result = $author->create();
-    $row = $result->fetch();
-    $result2 = extract($row);
-    echo json_encode($result2);  
+    echo json_encode($result);  
 
         if(!$result) {
             echo json_encode('Missing Required Parameters'); 
