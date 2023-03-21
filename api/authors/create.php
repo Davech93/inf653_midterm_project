@@ -21,9 +21,8 @@
     $author->author = $data->author;
     $author->id = $data->id;
 
-                $myObj = (object) array('id' => $data->id, 'author' => $data->author);
+                $myObj = "id: " . $data->id . " \n author: " . $data->author;
                 
-     
 
         //create post
     
