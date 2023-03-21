@@ -79,15 +79,15 @@
         //set properties
         $this->id = $row['id'];
         $this->quote = $row['quote'];
-        $this->author_id = $row['author_id'];
-        $this->category_id = $row['category_id'];
+        $this->author_id = $row['author'];
+        $this->category_id = $row['category'];
         }
 
     //create quote
         public function create() {
             //create query
-            $query = 'INSERT INTO ' . $this->table . ' (id, quote, author_id, category_id)
-            VALUES (:id, :quote, :author_id, :category_id)';
+            $query = 'INSERT INTO ' . $this->table . ' (id, quote, author, category)
+            VALUES (:id, :quote, :author, :category)';
 
             //prepare statement
             $stmt = $this->conn->prepare($query);
@@ -95,15 +95,15 @@
             //clean data
             $this->id = htmlspecialchars(strip_tags($this->id));
             $this->quote = htmlspecialchars(strip_tags($this->quote));
-            $this->author_id = htmlspecialchars(strip_tags($this->author_id));
-            $this->category_id = htmlspecialchars(strip_tags($this->category_id));
+            $this->author = htmlspecialchars(strip_tags($this->author));
+            $this->category = htmlspecialchars(strip_tags($this->category));
             
 
             //bind data
             $stmt->bindParam(':id', $this->id);
             $stmt->bindParam(':quote', $this->quote);
-            $stmt->bindParam(':author_id', $this->author_id);
-            $stmt->bindParam(':category_id', $this->category_id);
+            $stmt->bindParam(':author', $this->author);
+            $stmt->bindParam(':category', $this->category);
 
             //execute query
             if($stmt->execute()){

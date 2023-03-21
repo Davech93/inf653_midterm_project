@@ -33,8 +33,8 @@
             $quote_item = array(
                 'id' => $id,
                 'quote' => $quote,
-                'author_id' => $author_id,
-                'category_id' => $category_id
+                'author' => $author,
+                'category' => $category
             );
 
             array_push($quote_arr, $quote_item);
