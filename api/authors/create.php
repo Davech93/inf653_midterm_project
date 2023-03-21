@@ -21,23 +21,15 @@
     $author->author = $data->author;
     $author->id = $data->id;
     $author_arr = (object)array();
+    $result = $author->create();
 
     
     //create post
-    if($author->create()){
-        while($row = $result->fetch(PDO::FETCH_ASSOC)) {
-            extract($row);
-
-            $author_arr->id => $id;
-            $author_arr->author => $author; 
-            
-    
-        }
-        echo json_encode($authors_arr);
+    if(!$result){
+        
+            $author_arr('message' => 'Missing Required Parameters');
     } else {
-        echo json_encode(
-            array('message' => 'Missing Required Parameters')    
-        );
+        echo json_encode($result);  
     }
 
     ?>
