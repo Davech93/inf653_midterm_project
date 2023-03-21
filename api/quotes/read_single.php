@@ -28,5 +28,7 @@
         'category' => $quote->category
     );
     
+    //make json
+    print_r(json_encode($quote_arr));
 
     ?>
