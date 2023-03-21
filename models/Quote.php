@@ -9,8 +9,8 @@
         //Categories Properties
         public $quote;
         public $id;
-        public $author_id;
-        public $category_id;
+        public $author;
+        public $category;
        
 
         //constructor with DB
