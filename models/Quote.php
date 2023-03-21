@@ -33,10 +33,9 @@
             ' . $this->table . ' q 
             LEFT JOIN categories c 
                 ON c.id = q.category_id
-            SELECT c.category FROM c WHERE c.id = q.category_id
             LEFT JOIN authors a 
                 ON a.id = q.author_id
-            SELECT a.author FROM q WHERE a.id = q.author_id
+            WHERE q.category_id = c.id
             ORDER BY
                 q.id DESC';
 
