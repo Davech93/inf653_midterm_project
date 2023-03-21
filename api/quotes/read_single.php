@@ -16,12 +16,13 @@
 
     //get ID from url
     $quote->id = isset($_GET['id']) ? $_GET['id'] :die();
-function isValid($id,$quote) {
-   $result = $quote->read_single();
-   echo $result;
-    return $result;
-}
-    
+
+    if (isValid($db, $quote->id)) {
+        // found
+        return true;
+    } else {
+        return false;
+    }
 
     //Get post
     $quote->read_single();
