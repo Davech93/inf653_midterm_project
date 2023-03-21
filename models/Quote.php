@@ -49,13 +49,6 @@
     
     
     //Get single author
-
-   public function isValid(){
-$stmt = $this->conn->prepare("SELECT 1 FROM quotes WHERE id = ?");
-$stmt->bindParam(1, $this->id);
-$stmt->execute([$quote->id]); 
-return $stmt->fetchColumn();
-    }
     
     
         public function read_single(){

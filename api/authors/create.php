@@ -21,11 +21,21 @@
     $author->author = $data->author;
     $author->id = $data->id;
 
+    $author_arr = ();
+
+    $author_item = array(
+        'id' => $id,
+        'author' => $author
+    );
+
+    array_push($authors_arr, $author_item);
+
+
+
+
     //create post
     if($author->create()){
-        echo json_encode(
-            array('message' => 'Author Created')
-        );
+        echo json_encode($authors_arr);
     } else {
         echo json_encode(
             array('message' => 'Author Not Created')    
