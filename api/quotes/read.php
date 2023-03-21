@@ -37,6 +37,8 @@
                 'category_id' => $category_id
             );
 
+            array_push($quote_arr, $quote_item);
+
         }
 
         //turn to json & output
