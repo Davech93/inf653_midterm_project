@@ -20,11 +20,24 @@
 
     $author->author = $data->author;
     $author->id = $data->id;
+    $result = $author->create();
+    $author_arr = ();
 
     
     //create post
     if($author->create()){
-        $result = $author->create();
+        while($row = $result->fetch(PDO::FETCH_ASSOC)) {
+            extract($row);
+
+            $author_item = array(
+                'id' => $id,
+                'author' => $author
+            );
+
+            array_push($authors_arr, $author_item);
+    
+        }
+        echo json_encode($authors_arr);
         echo json_encode($result);
     } else {
         echo json_encode(
