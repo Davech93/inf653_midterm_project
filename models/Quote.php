@@ -25,14 +25,14 @@
             $query = 'SELECT
             q.id,
             q.quote,
-            q.author_id AS author,
-            q.category_id AS category
+            q.author_id,
+            q.category_id
            FROM 
             ' . $this->table . ' q 
             LEFT JOIN categories c 
-                ON c.id = q.category_id
+                ON c.id = q.category_id AS category
             LEFT JOIN authors a 
-                ON a.id = q.author_id
+                ON a.id = q.author_id AS author
             ORDER BY
                 q.id DESC';
 
