@@ -91,7 +91,7 @@
 
             return false;
         
-    };
+            }
 
         //update author
         public function update() {
