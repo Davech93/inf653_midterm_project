@@ -17,7 +17,7 @@
     //get ID from url
     $quote->id = isset($_GET['id']) ? $_GET['id'] :die();
 
-    if (isValid($db, $quote->id)) {
+    if (isValid($quote, $quote->id)) {
         // found
         return true;
     } else {
