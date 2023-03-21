@@ -31,8 +31,8 @@
             extract($row);
 
             $quote_item = array(
-                'quote' => $quote,
                 'id' => $id,
+                'quote' => $quote,
                 'author_id' => $author_id,
                 'category_id' => $category_id
             );

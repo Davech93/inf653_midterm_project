@@ -30,8 +30,8 @@
             extract($row);
 
             $category_item = array(
-                'category' => $category,
-                'id' => $id
+                'id' => $id,
+                'category' => $category
             );
 
         }

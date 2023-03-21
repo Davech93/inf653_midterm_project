@@ -31,8 +31,8 @@
             extract($row);
 
             $author_item = array(
-                'author' => $author,
-                'id' => $id
+                'id' => $id,
+                'author' => $author
             );
 
         }
