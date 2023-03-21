@@ -16,7 +16,7 @@
 
     //get ID from url
     $quote->id = isset($_GET['id']) ? $_GET['id'] :die();
-function isValid($quote->id,$quote) {
+function isValid($id,$quote) {
    $result = $quote->read_single();
    echo $result;
     return $result;
