@@ -25,8 +25,8 @@
             $query = 'SELECT
             q.id,
             q.quote,
-            q.author_id,
-            q.category_id
+            q.author_id AS author,
+            q.category_id AS category
            FROM 
             ' . $this->table . ' q 
             LEFT JOIN categories c 
