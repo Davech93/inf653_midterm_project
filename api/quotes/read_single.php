@@ -12,9 +12,10 @@
 
     //Instantiate Category Object
     $quote = new Quote($db);
+    
 
     //get ID from url
-    $quote->id = isset($_GET['id']) ? $_GET['id'] : die();
+    $quote->id = isset($_GET['id']) ? $_GET['id'] :$quote_arr = array('message'=>'No Quotes Found'); print_r(json_encode($quote_arr)); die();
     
 
     //Get post
