@@ -20,7 +20,6 @@
 
     $author->author = $data->author;
     $author->id = $data->id;
-    $result = $author->create();
     $author_arr = (object)array();
 
     
@@ -29,19 +28,15 @@
         while($row = $result->fetch(PDO::FETCH_ASSOC)) {
             extract($row);
 
-            $author_item = array(
-                'id' => $id,
-                'author' => $author
-            );
-
-            array_push($authors_arr, $author_item);
+            $author_arr->id => $id;
+            $author_arr->author => $author; 
+            
     
         }
         echo json_encode($authors_arr);
-        echo json_encode($result);
     } else {
         echo json_encode(
-            array('message' => 'Missing Parameters')    
+            array('message' => 'Missing Required Parameters')    
         );
     }
 
