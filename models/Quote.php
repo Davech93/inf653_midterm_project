@@ -51,8 +51,8 @@
     //Get single author
 
     public function check_id(){
-        $query = "SELECT q.id
-         (CASE WHEN q.id IS NULL THEN 'False' ELSE 'True' END) FROM " . $this->table . ' q WHERE q.id = ? LIMIT 1 OFFSET 0';
+        $query = 'SELECT q.id FROM ' . $this->table . ' 
+        q WHERE q.id = ? LIMIT 1 OFFSET 0';
 
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(1, $this->id);
