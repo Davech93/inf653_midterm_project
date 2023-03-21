@@ -15,7 +15,7 @@
 
     //get ID from url
     $quote->id = isset($_GET['id']) ? $_GET['id'] : die();
-    if (isset($quote->id)){
+    
 
     //Get post
     $quote->read_single();
@@ -28,13 +28,5 @@
         'category' => $quote->category
     );
     
-    //make json
-    print_r(json_encode($quote_arr));
-    } else {
-        $quote_arr = array(
-            'message' => 'No Quotes Found'
-        )
-    print_r(json_encode($quote_arr));
-    }
 
     ?>
