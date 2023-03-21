@@ -30,5 +30,6 @@
     } else {
         echo json_encode(
             array('message' => 'Author  Not Created')
+        );
     }
     ?>
