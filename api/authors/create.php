@@ -28,7 +28,7 @@
             array('message' => 'Author Created')
         ); 
     } else {
-        $myObj->message = 'Missing Required Parameters';
-        echo json_encode($myObj);
+        echo json_encode(
+            array('message' => 'Author  Not Created')
     }
     ?>
