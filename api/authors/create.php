@@ -21,16 +21,16 @@
     $author->author = $data->author;
     $author->id = $data->id;
     
+    $result = $authors->create();
+    $row = $result->fetch();
 
-    
-//create author
-    if($author->create()){
-        $myString = "id: " . $author->id . " author: " $author->author;
-        echo json_encode($myString);
-    } else {
-            echo json_encode('Missing Required Parameters');  
-
-    }
+        if(!$row) {
+            echo json_encode('Missing Required Parameters'); 
+            }
+         else {
+            $result2 = extract($row);
+            echo json_encode($result2);  
+        }
     
 
     ?>
