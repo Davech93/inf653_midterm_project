@@ -25,11 +25,11 @@
     //delete author
     if($quote->delete()){
         echo json_encode(
-            array('message' => 'Quote Deleted', 'id' => $data->id)
+            array('message' => 'Quote Deleted', 'id' => $quote->id)
         );
     } else {
         echo json_encode(
-            array('message' => 'Quote Not Deleted', 'message' => 'No Quotes Found')    
+            array('message' => 'Quote Not Deleted')    
         );
     }
 
