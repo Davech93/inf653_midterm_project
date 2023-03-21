@@ -84,9 +84,6 @@
 
             //execute query
             if($stmt->execute()){
-                $this->id =$row['id'];
-                $check_arr = array('id' => $id, 'author' =>$author);
-                echo(json_encode($check_arr));
                 return true;
             }
             //print error if something goes wrong
