@@ -23,8 +23,8 @@
     $quote_arr = array(
         'quote' => $quote->quote,
         'id' => $quote->id,
-        'author' => $quote->author,
-        'category' => $quote->category
+        'author' => $quote->author_id,
+        'category' => $quote->category_id
     );
     
     //make json
