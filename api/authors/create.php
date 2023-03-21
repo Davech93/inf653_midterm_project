@@ -21,13 +21,14 @@
     $author->author = $data->author;
     $author->id = $data->id;
 
-                $myObj = "id: " . $data->id . " , author: " . $data->author;
+    $myObj = (object) ['id' => $data->id, 'author' => $data->author];
                 
 
         //create post
     
         if($data->id == NULL || $data->author == NULL ){
-        $myObj2 = 'Missing Required Parameters';
+            $myObj2 = (object) ['message' => 'Missing Required Parameters'];
+        
         echo(json_encode($myObj2));
         
     } else {
