@@ -20,14 +20,15 @@
 
     $author->author = $data->author;
     $author->id = $data->id;
-    $result = $author->create();
 
     
 //create author
-    if($result()){
-        echo json_encode($result); 
+    if($author->create()){
+        echo json_encode(
+            array('message'=>'Quote Created')); 
     } else {
-            echo json_encode('Missing Required Parameters');   
+            echo json_encode(
+                array('message'=>'Missing Required Parameters'));   
 
     }
     
