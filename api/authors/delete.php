@@ -22,6 +22,7 @@
 //print_r($_REQUEST["id"]);
    // print_r($data);
     //set id to update
+    if($id!= '') {
     $author->id = $id;
 
     //delete author
@@ -32,5 +33,8 @@
     } else {
         echo json_encode(array("id" => $id,'message' => 'Author Not Deleted'));
     }
+} else {
+    echo json_encode(array("id" => '0'));
+}
 
     ?>
