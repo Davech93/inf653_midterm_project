@@ -18,7 +18,7 @@
     
     if($_GET['id'] == NULL){
         $a = array('message' => 'author_id Not Found');
-        echo json_encode($a, JSON_FORCE_OBJECT);
+        echo json_encode($a);
     } else {
         $author->read_single();
 
@@ -26,7 +26,7 @@
             $author_arr = array(
                 'id' => $author->id,
                 'author' => $author->author);
-            echo json_encode(($author_arr), JSON_FORCE_OBJECT);
+            echo json_encode($author_arr);
         }
         
         
