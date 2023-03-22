@@ -21,7 +21,7 @@
     //print_r($data);
     
     
-    if(!isset($data->author)){
+    if(isset($data->author)){
      //create author
      if($author->create()){
       //  echo json_encode(array("id" => $author->id,'message' => 'Author Deleted'));
