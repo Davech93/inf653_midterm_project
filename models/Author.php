@@ -144,9 +144,11 @@
         //bind data
         $stmt->bindParam(':id', $this->id);
 
+        $result = $stmt->execute;
+
         //execute query
-        if($stmt->execute()){
-            return $query;
+        if($result){
+            return $result;
         }
         //print error if something goes wrong
         printf("Error: %s. \n", $stmt->error);
