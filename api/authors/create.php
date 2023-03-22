@@ -21,12 +21,14 @@
 
     $author->author = $data->author;
     $author->id = $data->id;
-    if($author->create()){
-      $a = array ('id'=>$author->id, 'author'=>$author->author);
-      echo json_encode($a);
+     //delete author
+     if($author->create()){
+      //  echo json_encode(array("id" => $author->id,'message' => 'Author Deleted'));
+      
+      echo json_encode(array("id" => $author->id, "author" => $author->author));
     } else {
-      echo json_encode(
-          array('message' => 'Category Not Created')    
-      );
-    }
+        echo json_encode(array("id" => $data->id,'message' => 'Author Not Created'));
+    } else {
+    echo json_encode(array('message' => 'Missing Required Parameters'));
+  }
     ?>
