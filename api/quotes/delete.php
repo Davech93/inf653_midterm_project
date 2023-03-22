@@ -28,9 +28,9 @@
    if($category->delete()){
     //  echo json_encode(array("id" => $author->id,'message' => 'Author Deleted'));
     
-    echo json_encode(array("id" => $category->id));
+    echo json_encode(array("id" => $id));
   } else {
-    echo json_encode(array("id" => $category->id));
+    echo json_encode(array("id" => $id));
   }
 } else {
   echo json_encode(array('message' => 'No Quotes Found'));
