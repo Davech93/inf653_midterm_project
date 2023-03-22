@@ -17,15 +17,20 @@
     $author->id = isset($_GET['id']) ? $_GET['id'] : die();
     
     if($_GET['id'] == NULL){
-    print_r(json_encode(array('message' => 'author_id not found')));
-    exit();
+        echo json_encode(array('message' => 'author_id not found'));
     } else {
         $author->read_single();
 
-        $author_arr = array(
-        'id' => $author->id,
-        'author' => $author->author);
-        print_r(json_encode($author_arr));
+        if($author->id && $author->author) {
+            $author_arr = array(
+                'id' => $author->id,
+                'author' => $author->author);
+            echo json_encode($author_arr);
+        }
+        else {
+            echo json_encode(array('message' => 'Author record not found'));
+        }
+        
     }
   
 

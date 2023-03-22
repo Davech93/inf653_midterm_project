@@ -63,6 +63,10 @@
             $this->id = $row['id'];
             $this->author = $row['author'];
         }
+        else {
+            $this->id = false;
+            $this->author = false;
+        }
     }
 
     //create author
