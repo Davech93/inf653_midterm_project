@@ -24,7 +24,7 @@
 
     if($num > 0){
 
-        while($row = $result->fetch(PDO::FETCH_ASSOC)) {
+        while($row = $result->fetch()) {
             extract($row);
 
             $author_arr = array(
@@ -34,11 +34,11 @@
         }
 
         //turn to json & output
-        print_r(json_encode($authors_arr));
+        print_r(json_encode($authors_arr), JSON_FORCE_OBJECT);
 
     } else {
         //No Authors
-        echo json_encode(array('message' => 'No authors found'), JSON_FORCE_OBJECT);
+        print_r(json_encode(array('message' => 'No authors found'), JSON_FORCE_OBJECT));
     }
 
 
