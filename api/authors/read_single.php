@@ -24,9 +24,6 @@
 
     if($num > 0){
 
-        while($row = $result->fetch()) {
-            extract($row);
-
             $author_arr = array(
                 'id' => $author->id,
                 'author' => $author->author
