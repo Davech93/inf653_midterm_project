@@ -17,23 +17,28 @@
     //get ID from url
     $quote->id = isset($_GET['id']) ? $_GET['id'] :die();
 
+    if($_GET['id'] == NULL){
+        $a = array('message' => 'quote_id Not Found');
+        echo json_encode($a);
+    } else {
+        $quote->read_single();
 
-    //Get post
-    $quote->read_single();
+        if($category->id && $category->category) {
+            $quote_arr = array(
+                'quote' => $quote->quote,
+                'id' => $quote->id,
+                'author' => $quote->author,
+                'category' => $quote->category
+            );
+            echo json_encode($quote_arr);
+        }
+        else {
+            $a = array('message' => 'quote_id Not Found');
+            echo json_encode($a);
+        }
     
-    
+    }
 
-    //create array
-    $quote_arr = array(
-        'quote' => $quote->quote,
-        'id' => $quote->id,
-        'author' => $quote->author,
-        'category' => $quote->category
-    );
-
-
-    //make json
-    print_r(json_encode($quote_arr));
 
 
     ?>

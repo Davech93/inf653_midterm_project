@@ -79,12 +79,19 @@
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         
-
-        //set properties
+        if($row) {
+            //set properties
         $this->id = $row['id'];
         $this->quote = $row['quote'];
         $this->author = $row['author'];
         $this->category = $row['category'];
+        }
+        else {
+            $this->id = false;
+            $this->quote = false;
+            $this->author = false;
+            $this->category = false;
+        }
         }
 
     //create quote
