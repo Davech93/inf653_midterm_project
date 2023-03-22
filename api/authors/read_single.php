@@ -17,7 +17,7 @@
     $author->id = isset($_GET['id']) ? $_GET['id'] : die();
     
     if($_GET['id'] == NULL){
-        echo json_encode(array('message' => 'author_id not found'));
+        echo json_encode(array('message' => 'author_id Not Found'));
     } else {
         $author->read_single();
 
@@ -27,9 +27,7 @@
                 'author' => $author->author);
             echo json_encode($author_arr);
         }
-        else {
-            echo json_encode(array('message' => 'Author record not found'));
-        }
+        
         
     }
   
