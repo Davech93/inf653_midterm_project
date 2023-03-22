@@ -146,7 +146,7 @@
 
         
         if($stmt->execute()){
-            $row = $stmt->fetch();
+            $row = $stmt->fetch(PDO::FETCH_ORI_FIRST);
             if($row) {
                 //set properties
                 $this->id = $row['id'];
