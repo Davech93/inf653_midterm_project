@@ -22,16 +22,15 @@
     $num = $result->rowCount();
 
 
-    if($num > 0){
-
+    if(!$num){
+        //No Authors
+        print_r(json_encode(array('message' => 'author_id not found')));
+        } else {
             $author_arr = array(
                 'id' => $author->id,
                 'author' => $author->author
             );
             print_r(json_encode($author_arr));
-        } else {
-        //No Authors
-        print_r(json_encode(array('message' => 'author_id not found')));
     }
 
 
