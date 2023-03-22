@@ -22,7 +22,8 @@
 
     //delete author
     if($author->delete() == 1){
-        $author->id = echo (isset($_DELETE['id'])) ? (json_encode(array('message' => 'Author Not Deleted'))) : (json_encode(array('id'=>$author->id)));
+        $author->id = (isset($_DELETE['id'])) ? (json_encode(array('message' => 'Author Not Deleted'))) : (json_encode(array('id'=>$author->id)));
+        echo $author->id;
     } else {
         echo json_encode(array('message' => 'Author Not Deleted'));
     }
