@@ -25,11 +25,12 @@
      //create author
      if($author->create()){
       //  echo json_encode(array("id" => $author->id,'message' => 'Author Deleted'));
-       echo json_encode(array( "id"=>$author->id, "author" => $author->author));
-
-     } else {
-      echo json_encode(array('message' => 'Missing Required Parameters'));
-     }
-     
+       
+        
+      //  $author->id = $id;
+        echo json_encode(array( "id"=>$author->id, "author" => $author->author));
+      } else {
+        echo json_encode(array('message' => 'Missing Required Parameters'));
+    } 
   
     ?>
