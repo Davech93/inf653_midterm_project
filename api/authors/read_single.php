@@ -19,7 +19,7 @@
     
     $result = $author->read_single();
 
-    if(!$author->id == NULL || !$author->author == NULL){
+    if(!$author->id === NULL || !$author->author === NULL){
     $author_arr = array(
         'id' => $author->id,
         'author' => $author->author);
