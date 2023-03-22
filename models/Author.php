@@ -139,7 +139,7 @@
         $stmt = $this->conn->prepare($query);
 
         //clean data
-        $this->id = htmlspecialchars(strip_tags($this->id));
+        
 
         //bind data
         $stmt->bindParam(':id', $this->id);
@@ -151,6 +151,7 @@
                 //set properties
                 $this->id = $row['id'];
                 $this->author = $row['author'];
+                $this->id = htmlspecialchars(strip_tags($this->id));
             }
             else {
                 $this->id = false;
