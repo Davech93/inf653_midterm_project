@@ -29,7 +29,7 @@
 
     if($quote->update()){
         echo json_encode(
-            array('id'=>$quote->id, 'quote'=>$quote->quote, 'author_id'=>$quote->author_id, "category_id=>$quote->category_id")
+            array('id'=>$quote->id, 'quote'=>$quote->quote, 'author_id'=>$quote->author_id, 'category_id'=>$quote->category_id)
         );
     } else if( !isset($_REQUEST['id'])) {
         echo json_encode(
@@ -45,7 +45,7 @@
         );
     } else{
         echo json_encode(
-            array('message' => 'No Quotes Found')
+            array('message' => 'Missing Required Parameters')
         );
     }
     ?>
