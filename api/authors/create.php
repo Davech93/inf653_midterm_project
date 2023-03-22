@@ -27,7 +27,7 @@
       //  echo json_encode(array("id" => $author->id,'message' => 'Author Deleted'));
        echo json_encode(array( "id"=>$author->id, "author" => $author->author));
 
-     } else if (!$author->create()){
+     } else {
       echo json_encode(array('message' => 'Missing Required Parameters'));
      }
      
