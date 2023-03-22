@@ -146,7 +146,7 @@
 
         //execute query
         if($stmt->execute()){
-            return true;
+            return $query;
         }
         //print error if something goes wrong
         printf("Error: %s. \n", $stmt->error);
