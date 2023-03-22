@@ -29,7 +29,7 @@
      if($author->create()){
       //  echo json_encode(array("id" => $author->id,'message' => 'Author Deleted'));
       
-      echo json_encode(array("id" => $author->id, "author" => $author->author));
+      echo json_encode(array("id" => $id, "author" => $author));
     } else {
         echo json_encode(array("id" => $id,'message' => 'Author Not Created'));
     } else {
