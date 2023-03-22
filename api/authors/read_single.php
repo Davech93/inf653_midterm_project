@@ -18,6 +18,8 @@
 
     $result = $author->read_single();
 
+    echo "ERROR" . json_encode($result);
+
 
     if($result == NULL){
         //No Authors
