@@ -23,7 +23,7 @@
     } else {
         $quote->read_single();
 
-        if($category->id && $category->category) {
+        if($quote->id && $quote->quote) {
             $quote_arr = array(
                 'quote' => $quote->quote,
                 'id' => $quote->id,
