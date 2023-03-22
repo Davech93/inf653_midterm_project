@@ -31,7 +31,7 @@
             print_r(json_encode($author_arr));
         } else {
         //No Authors
-        print_r(json_encode(array('message' => 'No authors found')));
+        print_r(json_encode(array('message' => 'author_id not found')));
     }
 
 
