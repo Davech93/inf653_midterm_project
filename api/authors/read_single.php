@@ -18,12 +18,13 @@
 
     
     $result = $author->read_single();
+
+    if(!$author->id == NULL || !$author->author == NULL){
     $author_arr = array(
         'id' => $author->id,
         'author' => $author->author);
     print_r(json_encode($author_arr));
-
-    if($result == NULL){
+    } else {
     
     print_r(json_encode(array('message' => 'author_id not found')));
 
