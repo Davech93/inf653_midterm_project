@@ -23,10 +23,10 @@
     $author->author = $data->author;
 
 
-    //dalete post
+    //update post
     if($author->update()){
         echo json_encode(
-            array('message' => 'Author Updated')
+            array('id'=>$author->id, 'author'=>$author->author)
         );
     } else {
         echo json_encode(
