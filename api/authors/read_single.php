@@ -28,7 +28,10 @@
                 'author' => $author->author);
             echo json_encode($author_arr);
         }
-        
+        else {
+            $a = array('message' => 'author_id Not Found');
+            echo json_encode($a);
+        }
         
     }
   
