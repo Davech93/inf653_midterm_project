@@ -74,19 +74,17 @@
     //create category
         public function create() {
             //create query
-            $query = 'INSERT INTO ' . $this->table . ' (id, category)
-            VALUES (:id, :category)';
+            $query = 'INSERT INTO ' . $this->table . ' (category)
+            VALUES (:category)';
 
             //prepare statement
             $stmt = $this->conn->prepare($query);
 
             //clean data
-            $this->id = htmlspecialchars(strip_tags($this->id));
             $this->category = htmlspecialchars(strip_tags($this->category));
             
 
             //bind data
-            $stmt->bindParam(':id', $this->id);
             $stmt->bindParam(':category', $this->category);
 
             //execute query
