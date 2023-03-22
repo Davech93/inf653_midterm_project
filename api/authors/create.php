@@ -21,15 +21,15 @@
     
     
     
-    if(!isset($_REQUEST['id'])){
+    if(!isset($_REQUEST['author'])){
      //create author
      if($author->create()){
       //  echo json_encode(array("id" => $author->id,'message' => 'Author Deleted'));
-        $author->author = $author;
-        $author->id = $id;
-        echo json_encode(array("id" => $author->id, "author" => $author->author));
+        $author->author = $_REQUEST["author"];
+      //  $author->id = $id;
+        echo json_encode(array( "author" => $author->author));
       } else {
-        echo json_encode(array("id" => $id,'message' => 'Author Not Created'));
+        echo json_encode(array('message' => 'Author Not Created'));
     } 
   } else {
     echo json_encode(array('message' => 'Missing Required Parameters'));
