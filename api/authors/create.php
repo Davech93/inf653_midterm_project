@@ -21,13 +21,10 @@
     
     
     
-     
+    if(!isset($_REQUEST['id'])){
      //create author
      if($author->create()){
       //  echo json_encode(array("id" => $author->id,'message' => 'Author Deleted'));
-      if(isset($_REQUEST['id'])) {
-        $id=$_REQUEST["id"];
-        $author = $_REQUEST['author'];
         $author->author = $author;
         $author->id = $id;
         echo json_encode(array("id" => $author->id, "author" => $author->author));
