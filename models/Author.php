@@ -146,6 +146,17 @@
 
         //execute query
         if($stmt->execute()){
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        if($row) {
+            //set properties
+            $this->id = $row['id'];
+            $this->author = $row['author'];
+        }
+        else {
+            $this->id = false;
+            $this->author = false;
+        }
+    
             return true;
         }
         //print error if something goes wrong
@@ -153,5 +164,5 @@
         
         return false;
         }
-     }
+     
      ?>
