@@ -7,7 +7,7 @@
 
     include_once '../../config/Database.php';
     include_once '../../models/Author.php';
-    include_once 'index.php';
+    
 
     //Instantiate DB & Connect
     $database = new Database();

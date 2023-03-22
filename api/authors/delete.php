@@ -7,7 +7,6 @@
 
     include_once '../../config/Database.php';
     include_once '../../models/Author.php';
-    include_once 'authors.read_single.php'
 
     //Instantiate DB & Connect
     $database = new Database();
@@ -23,7 +22,7 @@
 
     //delete author
     if($author->delete()){
-        $author->id = isset($_GET['id']) ? echo json_encode(array('id'=>$author->id)) : echo json_encode(array('message' => 'Author Not Deleted'));
+       echo json_encode("thanks");
     } 
 
     ?>
