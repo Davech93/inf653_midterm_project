@@ -139,33 +139,19 @@
         $stmt = $this->conn->prepare($query);
 
         //clean data
+        $this->id = htmlspecialchars(strip_tags($this->id));
         
 
         //bind data
         $stmt->bindParam(':id', $this->id);
 
-        
+            //execute query
         if($stmt->execute()){
-            $row = $stmt->fetch(PDO::FETCH_ORI_FIRST);
-            if($row) {
-                //set properties
-                $this->id = $row['id'];
-                $this->author = $row['author'];
-                $this->id = htmlspecialchars(strip_tags($this->id));
-            }
-            else {
-                $this->id = false;
-                $this->author =false;
-            }
-        
+            return true;
         }
-
-        //execute query
-        
         //print error if something goes wrong
         printf("Error: %s. \n", $stmt->error);
         
         return false;
         }
-     }
      ?>
