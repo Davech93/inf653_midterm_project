@@ -15,6 +15,7 @@
 
     //get ID from url
     $author->id = isset($_GET['id']) ? $_GET['id'] : die();
+    $data = json_decode(file_get_contents("php://input"));
 
     $result = $author->read_single();
 
@@ -24,8 +25,8 @@
         print_r(json_encode(array('message' => 'author_id not found')));
         } else {
             $author_arr = array(
-                'id' => $author->id,
-                'author' => $author->author
+                'id' => $data->id,
+                'author' => $data->author
             );
             print_r(json_encode($author_arr));
     }
