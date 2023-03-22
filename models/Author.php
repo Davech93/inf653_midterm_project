@@ -58,11 +58,12 @@
         $stmt->execute();
 
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        //set properties
-        $this->id = $row['id'];
-        $this->author = $row['author'];
+        if($row) {
+            //set properties
+            $this->id = $row['id'];
+            $this->author = $row['author'];
         }
+    }
 
     //create author
         public function create() {
