@@ -28,17 +28,17 @@
             extract($row);
 
             $author_arr = array(
-                'id' => $id,
-                'author' => $author
+                'id' => $author->id,
+                'author' => $author->author
             );
         }
 
         //turn to json & output
-        print_r(json_encode($authors_arr), JSON_FORCE_OBJECT);
+        print_r(json_encode($authors_arr));
 
     } else {
         //No Authors
-        print_r(json_encode(array('message' => 'No authors found'), JSON_FORCE_OBJECT));
+        print_r(json_encode(array('message' => 'No authors found')));
     }
 
 
