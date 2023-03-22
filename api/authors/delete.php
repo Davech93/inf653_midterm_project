@@ -24,9 +24,11 @@
 
     //delete author
     if($author->delete()){
-        echo json_encode(
-            array('message' => 'Author Deleted')
+        $author_arr = array(
+            'id' => $author->id
         );
+        echo json_encode($author_arr);
+        
     } else {
         echo json_encode(
             array('message' => 'Author Not Deleted')    
