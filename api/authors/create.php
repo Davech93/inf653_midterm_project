@@ -17,18 +17,23 @@
     $author = new Author($db);
 
     // get raw posted data
-    $data = json_decode(file_get_contents("php://input"));
-
-    $author->author = $data->author;
-    $author->id = $data->id;
+    // $data = json_decode(file_get_contents("php://input"));
+    if(!isset($_REQUEST['id'])) {
+      $id=$_REQUEST["id"];
+      $author->id = $id;
+      $author->author = $author;
+    
+    
+     
      //delete author
      if($author->create()){
       //  echo json_encode(array("id" => $author->id,'message' => 'Author Deleted'));
       
       echo json_encode(array("id" => $author->id, "author" => $author->author));
     } else {
-        echo json_encode(array("id" => $data->id,'message' => 'Author Not Created'));
+        echo json_encode(array("id" => $id,'message' => 'Author Not Created'));
     } else {
     echo json_encode(array('message' => 'Missing Required Parameters'));
   }
+}
     ?>
