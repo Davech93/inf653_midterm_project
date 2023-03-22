@@ -22,25 +22,15 @@
 
     $author->id = $data->id;
 
-    $author->id = isset($_GET['id']) ? $_GET['id'] : die();
-    
-    if($_GET['id'] == NULL){
-        $a = array('message' => 'author_id Not Found');
-        echo json_encode($a);
+    //delete author
+    if($author->delete()){
+        echo json_encode(
+            array('message' => 'Author Deleted')
+        );
     } else {
-        $author->delete();
-
-        if($author->id && $author->author) {
-            $author_arr = array(
-                'id' => $author->id,
-                'author' => $author->author);
-            echo json_encode($author_arr);
-        }
-        else {
-            $a = array('message' => 'author_id Not Found');
-            echo json_encode($a);
-        }
-        
+        echo json_encode(
+            array('message' => 'Author Not Deleted')    
+        );
     }
 
     ?>
