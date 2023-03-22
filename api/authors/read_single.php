@@ -19,16 +19,15 @@
     
     $result = $author->read_single();
 
-    if(!$author->id === NULL || !$author->author === NULL){
+    $result['id'] = isset($result['id']) ? $result['id'] : print_r(json_encode(array('message' => 'author_id not found')));;
+    $result['author'] = isset($result['author']) ? $result['author'] : print_r(json_encode(array('message' => 'author_id not found')));;
+
+    
     $author_arr = array(
         'id' => $author->id,
         'author' => $author->author);
     print_r(json_encode($author_arr));
-    } else {
-    
-    print_r(json_encode(array('message' => 'author_id not found')));
-
-    }
+  
 
 
 
