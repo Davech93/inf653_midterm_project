@@ -22,7 +22,7 @@
 
     //delete author
     if($author->delete() == 1){
-        $author->id = isset($_GET['id']) ? echo json_encode(array('message' => 'Author Not Deleted')) : echo json_encode(array('id'=>$author->id));
+        $author->id = echo (isset($_DELETE['id'])) ? (json_encode(array('message' => 'Author Not Deleted'))) : (json_encode(array('id'=>$author->id)));
     } else {
         echo json_encode(array('message' => 'Author Not Deleted'));
     }
