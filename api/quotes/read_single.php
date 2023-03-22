@@ -18,7 +18,7 @@
     $quote->id = isset($_GET['id']) ? $_GET['id'] :die();
 
     if($_GET['id'] == NULL){
-        $a = array('message' => 'quote_id Not Found');
+        $a = array('message' => 'No Quotes Found');
         echo json_encode($a);
     } else {
         $quote->read_single();
@@ -33,7 +33,7 @@
             echo json_encode($quote_arr);
         }
         else {
-            $a = array('message' => 'quote_id Not Found');
+            $a = array('message' => 'No Quotes Found');
             echo json_encode($a);
         }
     
