@@ -18,22 +18,22 @@
 
     // get raw posted data
     // $data = json_decode(file_get_contents("php://input"));
-    if(!isset($_REQUEST['id'])) {
-      $id=$_REQUEST["id"];
-      $author->id = $id;
-      $author->author = $author;
+    
     
     
      
      //delete author
      if($author->create()){
       //  echo json_encode(array("id" => $author->id,'message' => 'Author Deleted'));
-      
-      echo json_encode(array("id" => $id, "author" => $author));
-    } else {
+      if(isset($_REQUEST['id'])) {
+        $id=$_REQUEST["id"];
+        $author->id = $id;
+        $author->author = $author;
+        echo json_encode(array("id" => $id, "author" => $author));
+      } else {
         echo json_encode(array("id" => $id,'message' => 'Author Not Created'));
     } 
-  }else {
+  } else {
     echo json_encode(array('message' => 'Missing Required Parameters'));
 }
     ?>
