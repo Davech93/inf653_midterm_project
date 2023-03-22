@@ -17,12 +17,13 @@
 
     // get raw posted data
    // $data = json_decode(file_get_contents("php://input"));
+   if( isset($_REQUEST['id'])) {
    $id=$_REQUEST["id"];
    // print_r("hello");
 //print_r($_REQUEST["id"]);
    // print_r($data);
     //set id to update
-    if($id!= '') {
+ 
     $author->id = $id;
 
     //delete author
