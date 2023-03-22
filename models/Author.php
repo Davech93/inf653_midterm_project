@@ -146,7 +146,7 @@
 
         
         if($stmt->execute()){
-            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            $row = $stmt->fetch();
             if($row) {
                 //set properties
                 $this->id = $row['id'];
