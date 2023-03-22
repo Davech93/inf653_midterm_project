@@ -144,7 +144,7 @@
         //bind data
         $stmt->bindParam(':id', $this->id);
 
-        $result = $stmt->execute;
+        $result = $stmt->execute();
 
         //execute query
         if($result){
