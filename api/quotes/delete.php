@@ -25,7 +25,7 @@
     $quote->id = $id;
 
    //delete author
-   if($category->delete()){
+   if($quote->delete()){
     //  echo json_encode(array("id" => $author->id,'message' => 'Author Deleted'));
     
     echo json_encode(array("id" => $id));
