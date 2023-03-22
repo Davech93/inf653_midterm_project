@@ -32,8 +32,8 @@
       echo json_encode(array("id" => $id, "author" => $author));
     } else {
         echo json_encode(array("id" => $id,'message' => 'Author Not Created'));
-    } else {
+    } 
+  }else {
     echo json_encode(array('message' => 'Missing Required Parameters'));
-  }
 }
     ?>
