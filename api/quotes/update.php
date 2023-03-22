@@ -38,11 +38,14 @@
     } else if (!isset($_REQUEST['author_id'])){
         echo json_encode(
             array('message' => 'author_id Not Found') 
+        );
     } else if (!isset($_REQUEST['category_id'])){
         echo json_encode(
             array('message' => 'author_id Not Found')
+        );
     } else{
         echo json_encode(
             array('message' => 'No Quotes Found')
+        );
     }
     ?>
