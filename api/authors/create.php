@@ -21,21 +21,12 @@
 
     $author->author = $data->author;
     $author->id = $data->id;
-    $result = $author->create;
-    if ($result){
-      echo json_encode($result);
+    if($author->create()){
+      $a = array ('id'=>$author->id, 'author'=>$author->author);
+      echo json_encode($a);
+    } else {
+      echo json_encode(
+          array('message' => 'Category Not Created')    
+      );
     }
-
-    
-        // $myObj = json_encode(array('id' => $data->id, 'author' => $data->author), JSON_FORCE_OBJECT);
-        // $myObj2 = json_encode(array('message' => 'Missing Required Parameters'), JSON_FORCE_OBJECT);
-
-        //create post
-    
-        // if(!$result){
-        
-        //     echo($myObj2);
-        //     } else {
-        //     echo json_encode(($result), JSON_FORCE_OBJECT);
-        //     }
     ?>
