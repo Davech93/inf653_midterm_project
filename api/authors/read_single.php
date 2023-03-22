@@ -19,8 +19,8 @@
     
     $result = $author->read_single();
 
-    $result['id'] = isset($result['id']) ? $result['id'] : print_r(json_encode(array('message' => 'author_id not found')));;
-    $result['author'] = isset($result['author']) ? $result['author'] : print_r(json_encode(array('message' => 'author_id not found')));;
+    $author->id = isset($_GET['id']) ? $_GET['id'] : (print_r(json_encode(array('message' => 'author_id not found')))) . (die());
+    $author->author = isset($_GET['author']) ? $_GET['author'] : (print_r(json_encode(array('message' => 'author_id not found')))) . (die());
 
     
     $author_arr = array(
