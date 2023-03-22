@@ -23,22 +23,18 @@
 
 
     if($num > 0){
-        //Author Array
-        $authors_arr = array();
 
         while($row = $result->fetch(PDO::FETCH_ASSOC)) {
             extract($row);
 
-            $author_item = array(
+            $author_arr = array(
                 'id' => $id,
                 'author' => $author
             );
-
-            array_push($authors_arr, $author_item);
         }
 
         //turn to json & output
-        echo json_encode(($authors_arr), JSON_FORCE_OBJECT);
+        print_r(json_encode($authors_arr));
 
     } else {
         //No Authors
