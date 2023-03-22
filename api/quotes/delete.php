@@ -28,7 +28,7 @@
    if($quote->delete()){
     //  echo json_encode(array("id" => $author->id,'message' => 'Author Deleted'));
     
-    echo json_encode(array("id" => $id));
+    echo json_encode(array("id" => $quote->id));
   } else {
     echo json_encode(array("id" => $id));
   }
