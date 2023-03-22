@@ -26,7 +26,7 @@
             $category_arr = array(
                 'id' => $category->id,
                 'category' => $category->category);
-            echo json_encode($author_arr);
+            echo json_encode($category_arr);
         }
         else {
             $a = array('message' => 'category_id Not Found');
