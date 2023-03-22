@@ -14,7 +14,6 @@
     $author = new Author($db);
 
     //get ID from url
-    $author->id = isset($_GET['id']) ? $_GET['id'] : die();
 
     
     $result = $author->read_single();
