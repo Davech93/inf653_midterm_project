@@ -21,7 +21,6 @@
     //set id to update
 
     $author->id = $data->id;
-    $author
     $result = $author->delete();
 
     //delete author
