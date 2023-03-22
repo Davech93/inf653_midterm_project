@@ -21,10 +21,9 @@
     //set id to update
 
     $author->id = $data->id;
-    $result = $author->delete();
 
     //delete author
-    if($result){
+    if($author->delete()){
         echo json_encode(array('id'=>$author->id));
     } else {
         echo json_encode(
