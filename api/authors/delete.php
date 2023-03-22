@@ -24,9 +24,7 @@
 
     //delete author
     if($author->delete()){
-        $author_arr = array(
-            'id' => $author->id
-        );
+        $author_arr = array('id' => $author->id);
         echo json_encode($author_arr);
         
     } else {
