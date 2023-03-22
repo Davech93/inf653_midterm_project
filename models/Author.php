@@ -130,8 +130,8 @@
         }
 
 
-        //delete author
-        public function delete(){
+         //delete category
+         public function delete(){
             //create query
         $query = 'DELETE FROM ' . $this->table . ' WHERE id = :id';
 
@@ -140,12 +140,11 @@
 
         //clean data
         $this->id = htmlspecialchars(strip_tags($this->id));
-        
 
         //bind data
         $stmt->bindParam(':id', $this->id);
 
-            //execute query
+        //execute query
         if($stmt->execute()){
             return true;
         }
@@ -153,5 +152,6 @@
         printf("Error: %s. \n", $stmt->error);
         
         return false;
-        } 
+        }
+     }
      ?>
