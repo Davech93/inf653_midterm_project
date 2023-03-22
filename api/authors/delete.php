@@ -22,10 +22,10 @@
 
     //delete author
     if($author->delete()){
-        echo json_encode(array("deleteid" => $author->id,'message' => 'Author Deleted'));
+        echo json_encode(array("id" => $author->id,'message' => 'Author Deleted'));
         
     } else {
-        echo json_encode(array("deleteid" =>$data->id,'message' => 'Author Not Deleted'));
+        echo json_encode(array("id" => $data->id,'message' => 'Author Not Deleted'));
     }
 
     ?>
