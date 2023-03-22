@@ -14,11 +14,8 @@
     $author = new Author($db);
 
     //get ID from url
-    $author->id = isset($_GET['id']) ? $_GET['id'] : print_r(json_encode(array('message' => 'author_id not found')));
+    $author->id = isset($_GET['id']) ? $_GET['id'] : print_r(json_encode(array('message' => 'author_id not found'))) . die();
     
-    if (!isset($_GET['id'])){
-        die();
-    }
 
     $author->read_single();
 
