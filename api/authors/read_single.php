@@ -19,7 +19,7 @@
     $result = $author->read_single();
 
 
-    if($result->rowCount == NULL){
+    if($result == NULL){
         //No Authors
         print_r(json_encode(array('message' => 'author_id not found')));
         } else {
