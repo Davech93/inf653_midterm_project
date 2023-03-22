@@ -28,9 +28,9 @@
        
         
       //  $author->id = $id;
-        echo json_encode(array( "author" => $author->author));
+        echo json_encode(array( "id"=>$author->id, "author" => $author->author));
       } else {
-        echo json_encode(array('message' => 'Author Not Created'));
+        echo json_encode(array('message' => 'Missing Required Parameters'));
     } 
   
     ?>
