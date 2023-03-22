@@ -16,10 +16,8 @@
     $quote = new Quote($db);
 
     // get raw posted data
-    // $data = json_decode(file_get_contents("php://input"));
+    $data = json_decode(file_get_contents("php://input"));
    
-
-    $quote->id = $id;
     //set id to update
     $quote->id = $data->id;
     $quote->quote = $data->quote;
@@ -28,24 +26,26 @@
 
 
     if($quote->update()){
-        echo json_encode(
-            array('id'=>$quote->id, 'quote'=>$quote->quote, 'author_id'=>$quote->author_id, 'category_id'=>$quote->category_id)
-        );
-    } else if( !isset($_REQUEST['id'])) {
+       
+        if(isset($_REQUEST['id']) || isset($_REQUEST['author_id']) || ($_REQUEST['category_id'])){
+            
+            
+        } else if( !isset($_REQUEST['id'])) {
         echo json_encode(
             array('message' => 'No Quotes Found')    
         );
-    } else if (!isset($_REQUEST['author_id'])){
+         } else if (!isset($_REQUEST['author_id'])){
         echo json_encode(
             array('message' => 'author_id Not Found') 
         );
-    } else if (!isset($_REQUEST['category_id'])){
+         } else if (!isset($_REQUEST['category_id'])){
         echo json_encode(
             array('message' => 'author_id Not Found')
         );
-    } else{
+         } else{
         echo json_encode(
             array('message' => 'Missing Required Parameters')
         );
+         }
     }
     ?>
