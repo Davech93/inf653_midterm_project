@@ -16,21 +16,24 @@
     $category = new Category($db);
 
     // get raw posted data
-    $data = json_decode(file_get_contents("php://input"));
+    // $data = json_decode(file_get_contents("php://input"));
+    if( isset($_REQUEST['id'])) {
+        $id=$_REQUEST["id"];
 
     //set id to update
 
-    $category->id = $data->id;
+    $category->id = $id;
 
-    //delete author
-    if($category->delete()){
-        echo json_encode(
-            array('message' => 'Category Deleted')
-        );
-    } else {
-        echo json_encode(
-            array('message' => 'Category Not Deleted')    
-        );
-    }
+     //delete author
+     if($category->delete()){
+        //  echo json_encode(array("id" => $author->id,'message' => 'Author Deleted'));
+        
+        echo json_encode(array("id" => $category->id));
+      } else {
+          echo json_encode(array("id" => $id,'message' => 'Category Not Deleted'));
+      }
+  } else {
+      echo json_encode(array("id" => '0'));
+  }
 
     ?>
