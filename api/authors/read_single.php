@@ -20,7 +20,7 @@
     $result = $author->read_single();
     $author_arr = array(
         'id' => $author->id,
-        'author' => $author->author
+        'author' => $author->author);
     print_r(json_encode($author_arr));
 
     if($result == NULL){
