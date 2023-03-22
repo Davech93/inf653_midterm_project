@@ -147,7 +147,7 @@
         
         if($stmt->execute()){
             echo ($stmt->execute());
-        return $true;
+        return true;
         }
 
         //execute query
