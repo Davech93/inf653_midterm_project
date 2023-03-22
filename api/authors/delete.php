@@ -21,11 +21,11 @@
     //set id to update
 
     $author->id = $data->id;
+    $result = $author->delete();
 
     //delete author
-    if($author->delete()){
-        $a = array ('id'=>$author->id);
-      echo json_encode($a);
+    if($result){
+        echo json_encode($result);
     } else {
         echo json_encode(
             array('message' => 'Author Not Deleted')    

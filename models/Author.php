@@ -133,7 +133,7 @@
         //delete author
         public function delete(){
             //create query
-        $query = 'DELETE FROM ' . $this->table . ' WHERE id = :id';
+        $query = 'DELETE FROM ' . $this->table . ' WHERE id = :id RETURNING id';
 
         //prepare statement
         $stmt = $this->conn->prepare($query);
