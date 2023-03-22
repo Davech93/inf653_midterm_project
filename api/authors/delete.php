@@ -16,19 +16,20 @@
     $author = new Author($db);
 
     // get raw posted data
-    $data = json_decode(file_get_contents("php://input"));
-    print_r("hello");
-print_r($_REQUEST["id"]);
-    print_r($data);
+   // $data = json_decode(file_get_contents("php://input"));
+   $id=$_REQUEST["id"];
+   // print_r("hello");
+//print_r($_REQUEST["id"]);
+   // print_r($data);
     //set id to update
-    $author->id = $data->id;
+    $author->id = $id;
 
     //delete author
     if($author->delete()){
         echo json_encode(array("id" => $author->id,'message' => 'Author Deleted'));
         
     } else {
-        echo json_encode(array("id" => $data->id,'message' => 'Author Not Deleted'));
+        echo json_encode(array("id" => $id,'message' => 'Author Not Deleted'));
     }
 
     ?>
