@@ -33,7 +33,7 @@
       echo json_encode(array('message' => 'No Quotes Found'));
   }
 } else {
-  echo json_encode(array("id" => '0'));
+  echo json_encode(array('message' => 'No Quotes Found'));
 }
 
     ?>
