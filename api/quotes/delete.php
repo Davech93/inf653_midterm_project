@@ -16,21 +16,24 @@
     $quote = new Quote($db);
 
     // get raw posted data
-    $data = json_decode(file_get_contents("php://input"));
+    // $data = json_decode(file_get_contents("php://input"));
 
     //set id to update
+    if( isset($_REQUEST['id'])) {
+        $id=$_REQUEST["id"];
 
-    $quote->id = $data->id;
+    $quote->id = $id;
 
-    //delete author
-    if($quote->delete()){
-        echo json_encode(
-            array('message' => 'Quote Deleted', 'id' => $quote->id)
-        );
-    } else {
-        echo json_encode(
-            array('message' => 'Quote Not Deleted')    
-        );
-    }
+   //delete author
+   if($category->delete()){
+    //  echo json_encode(array("id" => $author->id,'message' => 'Author Deleted'));
+    
+    echo json_encode(array("id" => $category->id));
+  } else {
+      echo json_encode(array('message' => 'No Quotes Found'));
+  }
+} else {
+  echo json_encode(array("id" => '0'));
+}
 
     ?>
