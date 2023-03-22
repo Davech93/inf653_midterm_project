@@ -23,7 +23,7 @@
     $author->id = $data->id;
 
     //delete author
-    if($author->delete()){
+    if($author->delete() == true){
         echo json_encode(array('id'=>$author->id));
     } else {
         echo json_encode(
