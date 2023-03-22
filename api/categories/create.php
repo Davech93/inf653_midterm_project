@@ -19,17 +19,16 @@
     $data = json_decode(file_get_contents("php://input"));
 
     $category->category = $data->category;
-    $category->id = $data->id;
-
-    //create post
-    if($category->create()){
-        echo json_encode(
-            array('message' => 'Category Created')
-        );
-    } else {
-        echo json_encode(
-            array('message' => 'Category Not Created')    
-        );
-    }
+    //if(isset($data->category)){
+     //create category
+     if($category->create()){
+      //  echo json_encode(array("id" => $category->id,'message' => 'Author Deleted'));
+       
+        
+      //  $category->id = $id;
+        echo json_encode(array( "id"=>$category->id, "category" => $category->category));
+      } else {
+        echo json_encode(array('message' => 'Missing Required Parameters'));
+    } 
 
     ?>

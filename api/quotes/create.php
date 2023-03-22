@@ -19,20 +19,16 @@
     $data = json_decode(file_get_contents("php://input"));
 
     $quote->quote = $data->quote;
-    $quote->id = $data->id;
-    $quote->author_id = $data->author_id;
-    $quote->category_id = $data->category_id;
-
-
-    //create post
-    if($quote->create()){
-        echo json_encode(
-            array('message' => 'Quote Created')
-        );
-    } else {
-        echo json_encode(
-            array('message' => 'Quote Not Created')    
-        );
-    }
+    //if(isset($data->quote)){
+     //create quote
+     if($quote->create()){
+      //  echo json_encode(array("id" => $quote->id,'message' => 'Author Deleted'));
+       
+        
+      //  $quote->id = $id;
+        echo json_encode(array( "id"=>$quote->id, "quote" => $quote->quote, "author_id"=> $quote->author_id, "category_id" => $quote->category_id));
+      } else {
+        echo json_encode(array('message' => 'Missing Required Parameters'));
+    } 
 
     ?>
