@@ -60,9 +60,15 @@
 
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        //set properties
-        $this->id = $row['id'];
-        $this->category = $row['category'];
+        if($row) {
+            //set properties
+            $this->id = $row['id'];
+            $this->category = $row['category'];
+        }
+        else {
+            $this->id = false;
+            $this->category = false;
+        }
         }
 
     //create category

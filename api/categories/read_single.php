@@ -16,17 +16,24 @@
     //get ID from url
     $category->id = isset($_GET['id']) ? $_GET['id'] : die();
 
-    //Get post
-    $category->read_single();
+    if($_GET['id'] == NULL){
+        $a = array('message' => 'category_id Not Found');
+        echo json_encode($a);
+    } else {
+        $category->read_single();
 
-    //create array
-    $category_arr = array(
-        'category' => $category->category,
-        'id' => $category->id
-    );
-    
-    //make json
-    print_r(json_encode($category_arr));
+        if($category->id && $category->category) {
+            $category_arr = array(
+                'id' => $category->id,
+                'category' => $category->category);
+            echo json_encode($author_arr);
+        }
+        else {
+            $a = array('message' => 'category_id Not Found');
+            echo json_encode($a);
+        }
+        
+    }
 
 
     ?>
