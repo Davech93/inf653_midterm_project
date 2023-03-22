@@ -16,21 +16,18 @@
     //get ID from url
     $author->id = isset($_GET['id']) ? $_GET['id'] : die();
 
-    $result = $author->read_single();
+    
+if($author->read_single()){
+    $author_arr = array(
+        'id' => $author->id,
+        'author' => $author->author
+    );
+    print_r(json_encode($author_arr));
+} else{
+    
+    print_r(json_encode(array('message' => 'author_id not found')));
 
-    echo "ERROR" . json_encode($result);
-
-
-    if($result == NULL){
-        //No Authors
-        print_r(json_encode(array('message' => 'author_id not found')));
-        } else {
-            $author_arr = array(
-                'id' => $author->id,
-                'author' => $author->author
-            );
-            print_r(json_encode($author_arr));
-    }
+}
 
 
     ?>
