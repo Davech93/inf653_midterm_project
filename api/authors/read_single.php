@@ -28,12 +28,8 @@
                 'id' => $author->id,
                 'author' => $author->author
             );
-        }
-
-        //turn to json & output
-        print_r(json_encode($authors_arr));
-
-    } else {
+            print_r(json_encode($authors_arr));
+        } else {
         //No Authors
         print_r(json_encode(array('message' => 'No authors found')));
     }
