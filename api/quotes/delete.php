@@ -28,7 +28,7 @@
         echo json_encode($quote_arr);
         echo json_encode($_GET['id']);
         echo json_encode($quote->id);
-        echo json_encode(read_single($quote->id));
+        echo json_encode($quote->read_single());
 } else {$a = array('message' => 'No Quotes Found');
   echo json_encode($a);
 };
