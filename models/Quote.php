@@ -187,5 +187,12 @@
         
         return false;
         }
-     }
+    
+        public function isValid($id, $model){
+            $data->id=$model->id;
+            $result = read_single($model);
+            return $result;
+        }
+    
+    }
      ?>
