@@ -32,7 +32,7 @@
       
       echo json_encode(array("id" => $id));
     } else {
-        echo json_encode(array("id" => $id));
+        echo json_encode(array('message' => 'No Quotes Found'));
     }
 } else {
     echo json_encode(array('message' => 'No Quotes Found'));
