@@ -22,6 +22,8 @@
     // get raw posted data
     $data = json_decode(file_get_contents("php://input"));
 
+
+
     $author->id = $data->author_id;
     $category->id = $data->category_id;
     $quote->quote = $data->quote;
@@ -30,10 +32,10 @@
      
      if($quote->create()){
       //  echo json_encode(array("id" => $quote->id,'message' => 'Author Deleted'));
-        if(!$category->read_single($data->category_id)){
+        if(!$category->read_single($data->category_id) || (!isset(_REQUEST['category_id']))){
           echo json_encode(array("category_id Not Found"));
      
-      } else if(!$author->read_single($data->author_id)){
+      } else if(!$author->read_single($data->author_id) || (!isset(_REQUEST['author_id']))){
           echo json_encode(array("author_id Not Found"));
         
      } else if ($author->read_single($data->author->id) && $category->read_single($data->category_id)){}
