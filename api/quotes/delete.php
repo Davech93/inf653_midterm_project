@@ -33,7 +33,7 @@
 // };
 
 
-if ($quote->read_single($id)){
+if ($quote->read_single()){
   
   echo json_encode(array('id' => $quote->id));
 };
