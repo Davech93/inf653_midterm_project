@@ -16,10 +16,13 @@
     $quote = new Quote($db);
 
     // get raw posted data
-    // $data = json_decode(file_get_contents("php://input"));
+    $data = json_decode(file_get_contents("php://input"));
+    $quote->id = $data->id;
+    $result = isValid($data->id, $quote);
+    echo json_encode($result);
 
     //set id to update
-   $id = isset($_GET['id']) ? $_GET['id'] : die();
+  //  $id = isset($_GET['id']) ? $_GET['id'] : die();
 
 
 //   if(isset($_GET['id']) && $_GET['id'] == $quote->id){
@@ -32,25 +35,26 @@
 //   echo json_encode($a);
 // };
 
-$quote->id = isset($_GET['id']) ? $_GET['id'] :die();
+// $quote->id = isset($_GET['id']) ? $_GET['id'] :die();
 
-if($_GET['id'] == NULL){
-    $a = array('message' => 'No Quotes Found');
-    echo json_encode($a);
-} else {
-    $quote->read_single();
+// if($_GET['id'] == NULL){
+//     $a = array('message' => 'No Quotes Found');
+//     echo json_encode($a);
+// } else {
+//     $quote->read_single();
 
-    if($quote->id && $quote->quote) {
-        $quote->delete();
-        $quote_arr = array('id' => $quote->id);
-        echo json_encode($quote_arr);
-    }
-    else {
-        $a = array('message' => 'No Quotes Found');
-        echo json_encode($a);
-    }
+//     if($quote->id && $quote->quote) {
+//         $quote->delete();
+//         $quote_arr = array('id' => $quote->id);
+//         echo json_encode($quote_arr);
+//     }
+//     else {
+//         $a = array('message' => 'No Quotes Found');
+//         echo json_encode($a);
+//     }
 
-}
+// }
+
 
 
 
