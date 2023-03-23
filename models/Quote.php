@@ -97,8 +97,8 @@
     //create quote
         public function create() {
             //create query
-            $query = 'INSERT INTO ' . $this->table . ' (quote, author, category)
-            VALUES (:quote, :author, :category)';
+            $query = 'INSERT INTO ' . $this->table . ' (quote, author_id, category_id)
+            VALUES (:quote, :author_id, :category_id)';
 
             //prepare statement
             $stmt = $this->conn->prepare($query);
@@ -106,14 +106,14 @@
             //clean data
             
             $this->quote = htmlspecialchars(strip_tags($this->quote));
-            $this->author = htmlspecialchars(strip_tags($this->author));
-            $this->category = htmlspecialchars(strip_tags($this->category));
+            $this->author_id = htmlspecialchars(strip_tags($this->author_id));
+            $this->category_id = htmlspecialchars(strip_tags($this->category_id));
             
 
             //bind data
             $stmt->bindParam(':quote', $this->quote);
-            $stmt->bindParam(':author', $this->author);
-            $stmt->bindParam(':category', $this->category);
+            $stmt->bindParam(':author_id', $this->author_id);
+            $stmt->bindParam(':category_id', $this->category_id);
 
             //execute query
             if($stmt->execute()){
