@@ -33,14 +33,15 @@
 // };
 
 if(isset($_GET['id'])){
-  $_GET['id'];
-  $quote->read_single(); 
+  if($quote->read_single()){ 
     if($quote->id && $quote->quote) {
             if($quote->delete()){
             echo json_encode(array('id'=>$quote->id));
             }
           }
-    } else {
+
+    } 
+  }else {
         $a = array('message' => 'No Quotes Found');
         echo json_encode($a);
     }
