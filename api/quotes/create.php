@@ -20,13 +20,14 @@
     $author = new Author($db);
 
     // get raw posted data
-    $data = json_decode(file_get_contents("php://input"));
-
-
-
-    $author->id = $data->author_id;
-    $category->id = $data->category_id;
-    $quote->quote = $data->quote;
+    // $data = json_decode(file_get_contents("php://input"));
+    if( isset($_REQUEST['id']) && isset($_REQUEST['author_id']) && isset($_REQUEST['category_id'])) {
+      $id=$_REQUEST["id"];
+      $quote->id = $id;
+      $author_id=$_REQUEST['author_id'];
+      $author->id = $author_id;
+      $category_id=$REQUEST['category_id'];
+      $category->id = $category_id;
     //if(isset($data->quote)){
      //create quote
      
@@ -41,7 +42,9 @@
      } else if ($author->read_single($data->author->id) && $category->read_single($data->category_id)){}
           
         echo json_encode(array( "id"=>$quote->id, "quote" => $quote->quote, "author_id"=> $quote->author_id, "category_id" => $quote->category_id));
-      } else {
+      } 
+      
+      }else {
         echo json_encode(array('message' => 'Missing Required Parameters'));
       }
    
