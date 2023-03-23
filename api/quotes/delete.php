@@ -34,8 +34,8 @@
 
 
 if ($quote->read_single()){
-  echo json_encode($_GET['id'])
-  echo json_encode(array('id' => $quote->id);)
+  echo json_encode($_GET['id']);
+  echo json_encode(array('id' => $quote->id));
 };
     
 
