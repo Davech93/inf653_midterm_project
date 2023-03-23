@@ -21,9 +21,6 @@
     //set id to update
     $quote->id = isset($_GET['id']) ? $_GET['id'] : die();
 
-  //set id to update
-
-  $quote->id = $id;
 
   if($_GET['id'] == NULL){
     $a = array('message' => 'No Quotes Found');
