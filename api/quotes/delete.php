@@ -32,19 +32,25 @@
 //   echo json_encode($a);
 // };
 
-if(isset($_GET['id'])){
-  if($quote->read_single()){ 
-    if($quote->id && $quote->quote) {
-            if($quote->delete()){
-            echo json_encode(array('id'=>$quote->id));
-            }
-          }
+$quote->id = isset($_GET['id']) ? $_GET['id'] :die();
 
-    } 
-  }else {
+if($_GET['id'] == NULL){
+    $a = array('message' => 'No Quotes Found');
+    echo json_encode($a);
+} else {
+    $quote->read_single();
+
+    if($quote->id && $quote->quote) {
+        $quote->delete();
+        $quote_arr = array('id' => $quote->id);
+        echo json_encode($quote_arr);
+    }
+    else {
         $a = array('message' => 'No Quotes Found');
         echo json_encode($a);
     }
+
+}
 
 
 
