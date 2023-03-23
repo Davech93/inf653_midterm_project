@@ -22,21 +22,13 @@
     $quote->id = isset($_GET['id']) ? $_GET['id'] : die();
 
 
-  if($_GET['id'] == NULL){
-    $a = array('message' => 'No Quotes Found');
-    echo json_encode($a);
-} else {
+  if(isset($_GET['id']) &&$_GET['id'] == $quote->id){
     $quote->delete();
-
-    if($quote->id) {
-        $quote_arr = array('id' => $quote->id);
+    $quote_arr = array('id' => $quote->id);
         echo json_encode($quote_arr);
-    }
-    else {
-        $a = array('message' => 'No Quotes Found');
-        echo json_encode($a);
-    }
+} else {$a = array('message' => 'No Quotes Found');
+  echo json_encode($a);
+};
     
-}
 
     ?>
