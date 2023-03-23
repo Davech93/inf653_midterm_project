@@ -19,23 +19,27 @@
     // $data = json_decode(file_get_contents("php://input"));
 
     //set id to update
-    if( isset($_REQUEST['id'])) {
-      $id=$_REQUEST["id"];
+    $quote->id = isset($_GET['id']) ? $_GET['id'] : die();
 
   //set id to update
 
   $quote->id = $id;
 
-   //delete author
-   if($quote->delete()){
-      //  echo json_encode(array("id" => $author->id,'message' => 'Author Deleted'));
-      
-      echo json_encode(array("id" => $id));
-    } else {
-        echo json_encode(array('message' => 'No Quotes Found'));
-    }
+  if($_GET['id'] == NULL){
+    $a = array('message' => 'No Quotes Found');
+    echo json_encode($a);
 } else {
-    echo json_encode(array('message' => 'No Quotes Found'));
+    $quote->delete();
+
+    if($quote->id) {
+        $quote_arr = array('id' => $quote->id);
+        echo json_encode($quote_arr);
+    }
+    else {
+        $a = array('message' => 'No Quotes Found');
+        echo json_encode($a);
+    }
+    
 }
 
     ?>
