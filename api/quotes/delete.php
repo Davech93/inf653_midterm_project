@@ -20,20 +20,22 @@
 
     //set id to update
     if( isset($_REQUEST['id'])) {
-        $id=$_REQUEST["id"];
+      $id=$_REQUEST["id"];
 
-    $quote->id = $id;
+  //set id to update
+
+  $quote->id = $id;
 
    //delete author
    if($quote->delete()){
-    //  echo json_encode(array("id" => $author->id,'message' => 'Author Deleted'));
-    
-    echo json_encode(array("id" => $id));
-  } else {
-    echo json_encode(array("id" => $id));
-  }
+      //  echo json_encode(array("id" => $author->id,'message' => 'Author Deleted'));
+      
+      echo json_encode(array("id" => $quote->id));
+    } else {
+        echo json_encode(array("id" => $id,'message' => 'No Quotes Found'));
+    }
 } else {
-  echo json_encode(array('message' => 'No Quotes Found'));
+    echo json_encode(array("id" => '0'));
 }
 
     ?>
