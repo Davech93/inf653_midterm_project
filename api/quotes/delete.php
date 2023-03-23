@@ -47,7 +47,7 @@ if($_GET['id'] == NULL){
         );
           if ($quote->id == $_GET['id']){
             $quote->delete();
-            echo json_encode($quote_arr);
+            echo json_encode(array('id'=>$quote->id));
           }
     }
     else {
