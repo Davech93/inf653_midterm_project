@@ -89,13 +89,22 @@
 
             //execute query
             if($stmt->execute()){
-                return true;
-            }
-            //print error if something goes wrong
-            printf("Error: %s. \n", $stmt->error);
+                $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
+            if($row) {
+                //set properties
+                $this->id = $row['id'];
+                $this->category = $row['category'];
+            }
+            else {
+                $this->id = false;
+                $this->category = false;
+                printf("Error: %s. \n", $stmt->error);
             return false;
-        }
+            }
+                }
+                    }   
+           
 
         //update category
         public function update() {
