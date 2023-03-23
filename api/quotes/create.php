@@ -36,10 +36,10 @@
         if(!$category->read_single($category_id) || (!isset(_REQUEST['category_id']))){
           echo json_encode(array("category_id Not Found"));
      
-      } else if(!$author->read_single($author_id) || (!isset(_REQUEST['author_id']))){
+      } else if(!$author->read_single($data->author_id) || (!isset(_REQUEST['author_id']))){
           echo json_encode(array("author_id Not Found"));
         
-     } else if ($author->read_single($author_id) && $category->read_single($category_id)){}
+     } else if ($author->read_single($data->author->id) && $category->read_single($data->category_id)){}
           
         echo json_encode(array( "id"=>$quote->id, "quote" => $quote->quote, "author_id"=> $quote->author_id, "category_id" => $quote->category_id));
       } 

@@ -88,7 +88,7 @@
             $stmt->bindParam(':category', $this->category);
 
             //execute query
-            if($stmt->execute()){
+                $stmt->execute()
                 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if($row) {
@@ -103,7 +103,7 @@
             return false;
             }
                 }
-                    }   
+                      
            
 
         //update category
