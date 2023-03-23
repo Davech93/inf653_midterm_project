@@ -41,13 +41,9 @@ if($_GET['id'] == NULL){
     $quote->read_single();
 
     if($quote->id && $quote->quote) {
-        $quote_arr = array(
-            
-            'id' => $quote->id
-        );
-          if ($quote->id == $_GET['id']){
-            $quote->delete();
+            if($quote->delete()){
             echo json_encode(array('id'=>$quote->id));
+            }
           }
     }
     else {
@@ -55,6 +51,6 @@ if($_GET['id'] == NULL){
         echo json_encode($a);
     }
 
-}
+
 
     ?>
