@@ -7,8 +7,8 @@
 
     include_once '../../config/Database.php';
     include_once '../../models/Quote.php';
-    include_once '../../models/Categories.php';
-    include_once '../../models/Authors.php';
+    include_once '../../models/Category.php';
+    include_once '../../models/Author.php';
 
     //Instantiate DB & Connect
     $database = new Database();
@@ -30,13 +30,13 @@
      
      if($quote->create()){
       //  echo json_encode(array("id" => $quote->id,'message' => 'Author Deleted'));
-        if(!$category->read_single()){
+        if(!$category->read_single($data->category_id)){
           echo json_encode(array("category_id Not Found"));
      
-      } else if(!$author->read_single()){
+      } else if(!$author->read_single($data->author_id)){
           echo json_encode(array("author_id Not Found"));
         
-     } else if ($author->read_single() && $category->read_single()){}
+     } else if ($author->read_single($data->author->id) && $category->read_single($data->category_id)){}
           
         echo json_encode(array( "id"=>$quote->id, "quote" => $quote->quote, "author_id"=> $quote->author_id, "category_id" => $quote->category_id));
       } else {
