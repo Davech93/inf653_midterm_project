@@ -85,26 +85,18 @@
             
 
             //bind data
+            
             $stmt->bindParam(':category', $this->category);
 
             //execute query
-                $stmt->execute()
-                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            if($stmt->execute()){
+                return true;
+            }
+            //print error if something goes wrong
+            printf("Error: %s. \n", $stmt->error);
 
-            if($row) {
-                //set properties
-                $this->id = $row['id'];
-                $this->category = $row['category'];
-            }
-            else {
-                $this->id = false;
-                $this->category = false;
-                printf("Error: %s. \n", $stmt->error);
             return false;
-            }
-                }
-                      
-           
+        }
 
         //update category
         public function update() {
