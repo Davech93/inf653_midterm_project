@@ -19,7 +19,7 @@
     // $data = json_decode(file_get_contents("php://input"));
 
     //set id to update
-    $quote->id = isset($_GET['id']) ? $_GET['id'] : die();
+    isset($_GET['id']) ? $_GET['id'] : die();
 
 
   if(isset($_GET['id']) && $_GET['id'] == $quote->id){
@@ -28,9 +28,14 @@
         echo json_encode($quote_arr);
         echo json_encode($_GET['id']);
         echo json_encode($quote->id);
-        echo json_encode($quote->read_single($quote->id));
 } else {$a = array('message' => 'No Quotes Found');
   echo json_encode($a);
+};
+
+
+if ($quote->read_single()){
+  echo json_encode($_GET['id'])
+  echo json_encode(array('id' => $quote->id);)
 };
     
 
