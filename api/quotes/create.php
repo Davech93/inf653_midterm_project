@@ -27,7 +27,10 @@
     $quote->category_id = $cat_id;
      
     //if(isset($data->quote)){
-     //create quote
+      if (!$cat_id || !$auth_id){
+        echo json_encode(array('message' => 'Missing Required Parameters'));
+        exit();
+      }
      
      $result = $quote->isValidCat($quote);
      $result2 = $quote->isValidAut($quote);
@@ -43,6 +46,7 @@
       exit();
      } else {
       echo json_encode(array('message' => 'Missing Required Parameters'));
+      exit();
      }
 
     
