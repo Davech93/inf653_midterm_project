@@ -26,7 +26,6 @@
       echo json_encode($result2);
       echo json_encode('id: ' . $quote->id);
     } else if ($result == false){
-      echo json_encode($obj);
       echo json_encode('message: ' . 'No Quotes Found');
     }
 
