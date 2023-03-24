@@ -22,6 +22,12 @@
     // $quote->id = $data->id;
     $result = $quote->isValid($quote);
     echo json_encode($result);
+    if ($result == true){
+      $quote->delete();
+      echo json_encode(array('id' => $quote->id));
+    } else if ($result == false){
+      echo json_encode(array('message' => 'No Quotes Found'));
+    }
 
     //set id to update
   
