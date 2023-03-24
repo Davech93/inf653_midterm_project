@@ -23,7 +23,7 @@
     $result = $quote->isValid($quote);
     if ($result == true){
       $quote->delete();
-      echo json_encode('id' => $id);
+      echo json_encode('id: ' $id);
     } else if ($result == false){
       echo json_encode('message' => 'No Quotes Found');
     }
