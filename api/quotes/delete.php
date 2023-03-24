@@ -25,6 +25,7 @@
       $result2 = $quote->delete();
       echo json_encode(($result2), JSON_FORCE_OBJECT);
     } else if ($result == false){
+      $result2 = $quote->delete();
       echo json_encode(($result2), JSON_FORCE_OBJECT);
     } else {
       json_encode(array('message'=>'No Quotes Found'));
