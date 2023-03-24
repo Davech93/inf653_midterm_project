@@ -98,7 +98,7 @@
         public function create() {
             //create query
             $query = 'INSERT INTO ' . $this->table . ' (quote, author_id, category_id)
-            VALUES (:quote, :author_id, :category_id)';
+            VALUES (?,?,?)';
 
             //prepare statement
             $stmt = $this->conn->prepare($query);
@@ -111,12 +111,12 @@
             
 
             //bind data
-            $stmt->bindParam(':quote', $this->quote);
+           /* $stmt->bindParam(':quote', $this->quote);
             $stmt->bindParam(':author_id', $this->author_id);
-            $stmt->bindParam(':category_id', $this->category_id);
+            $stmt->bindParam(':category_id', $this->category_id);*/
 
             //execute query
-            if($stmt->execute()){
+            if($stmt->execute($this->quote,$this->author_id,$this->category_id)){
                 print_r("id",$this->conn->lastInsertId());
                 return  $stmt->insert_id;
             }
