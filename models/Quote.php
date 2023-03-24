@@ -197,7 +197,11 @@
         echo json_encode($a);
     } else {
         $result = $model->read_single();
-        return $result;
+        if($quote->id && $quote->quote) {
+           return true;
+        } else {
+            return false;
+        }
         }
     
     }
