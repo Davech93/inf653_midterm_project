@@ -28,11 +28,11 @@
             if($quote->delete()){
               echo json_encode(array(["id"] => (int)$quote->id));
             } else {
-              $b = array('message'=>'No Quotes Found');
+              $b = array('id' => $id, 'message'=>'No Quotes Found');
               echo json_encode($b);
             }
       } else if ($result == false){
-        $a = array('message'=>'No Quotes Found');
+        $a = array('id' => $id,'message'=>'No Quotes Found');
         echo json_encode($a);
     }
 
