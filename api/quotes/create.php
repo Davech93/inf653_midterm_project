@@ -70,7 +70,7 @@
         exit();
        } else if ($quote->create()){
         $result = $quote->lastId();
-        echo json_encode(array("id" => (int)$result, "quote" => $quote->quote, "author_id"=> $quote->author_id, "category_id" => $quote->category_id));
+        echo json_encode(array("id" => (int)$result, "quote" => $quote->quote, "author_id"=> (int)$quote->author_id, "category_id" => (int)$quote->category_id));
   } else {
     echo json_encode(array("message"=>"category_id Not Found"));
   }
