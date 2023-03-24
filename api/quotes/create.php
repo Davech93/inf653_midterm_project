@@ -23,13 +23,22 @@
     // $data = json_decode(file_get_contents("php://input"));
     $data = json_decode(file_get_contents("php://input"));
     // $data = $_REQUEST;
-   
-
+   if(isset($data->category_id)){
+    $category->id= $data->category_id;
+   }
+   if(isset($data->category_id)){
+    $quote->category_id =$data->category_id;
+  }
+   if(isset($data->author_id)){
      $author->id = $data->author_id;
-     $category->id= $data->category_id;
+   }
+   if(isset($data->author_id)){
+    $quote->author_id=$data->author_id;
+  }
+   if(isset($data->quote)){ 
      $quote->quote = $data->quote;
-     $quote->category_id =$data->category_id;
-     $quote->author_id=$data->author_id;
+   }
+   
     //if(isset($data->quote)){
       if (!$data->author_id || !$data->category_id){
        // echo json_encode(array( "id"=>null, "quote" => null, "author_id"=> null, "category_id" => null));
