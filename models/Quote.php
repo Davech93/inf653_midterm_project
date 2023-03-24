@@ -197,7 +197,7 @@
         echo json_encode($a);
     } else {
         $result = $model->read_single();
-        if($quote->id && $quote->quote) {
+        if($model->id && $model->quote) {
            return true;
         } else {
             return false;
