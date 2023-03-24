@@ -117,6 +117,7 @@
 
             //execute query
             if($stmt->execute()){
+                print_r("id",$stmt->insert_id);
                 return  $stmt->insert_id;
             }
             //print error if something goes wrong
