@@ -119,8 +119,10 @@
 
 
             if($stmt->execute()){
-                $id = $this->conn->lastInsertId();
-                return $id;
+                $query2 = "SELECT LAST_INSERT_ID()";
+                $stmt2 = $this->conn->prepare($query2);
+                $lastId = $stmt2->fetchColumn();
+                return $lastId;
             }
             
             //print error if something goes wrong
