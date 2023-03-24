@@ -16,11 +16,12 @@
     $quote = new Quote($db);
 
 
-    $id = isset($_GET['id']) ? $_GET['id'] : die();
+    $quote->id = isset($_GET['id']) ? $_GET['id'] :die();
+    echo json_encode($quote->id);
     // get raw posted data
     // $data = json_decode(file_get_contents("php://input"));
     // $quote->id = $data->id;
-    $result = $quote->isValid($id, $quote);
+    $result = $quote->isValid($quote->id, $quote);
     echo json_encode($result);
 
     //set id to update
