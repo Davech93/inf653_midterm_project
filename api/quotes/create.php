@@ -25,21 +25,17 @@
     $data = $_REQUEST;
    
 
-     if (isset($data['author_id'])){
+     
       $author->id = $data['author_id'];
-     }
-     if (isset($data['category_id'])){
+     
       $category->id = $data['category_id'];
-     }
-     if (isset($data['quote'])){
+     
       $quote->quote = $data['quote'];
-     }
-     if (isset($data['category_id'])){
+     
       $quote->category_id = $data['category_id'];
-     }
-     if (isset($data['author_id'])){
-      $quote->id = $data['author_id'];
-     }
+     
+      $quote->author_id = $data['author_id'];
+     
      
     //if(isset($data->quote)){
       if (!isset($data['author_id']) || !isset($data['category_id'])){
