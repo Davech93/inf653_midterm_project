@@ -40,6 +40,11 @@
   }
    if(isset($data->quote)){ 
      $quote->quote = $data->quote;
+   } else {
+    echo json_encode(array('message' => 'Missing Required Parameters'));
+      //echo json_encode(array( "id"=>null, "quote" => null, "author_id"=> null, "category_id" => null));
+     
+        exit();
    }
    
      
@@ -63,12 +68,7 @@
     if($id>0){
      echo json_encode(array( "id"=>$id, "quote" => $quote->quote, "author_id"=> $quote->author_id, "category_id" => $quote->category_id));
         exit();
-     } else {
-     echo json_encode(array('message' => 'Missing Required Parameters'));
-      //echo json_encode(array( "id"=>null, "quote" => null, "author_id"=> null, "category_id" => null));
-     
-        exit();
-      }
+     } 
     
    
         
