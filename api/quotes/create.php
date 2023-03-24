@@ -35,14 +35,6 @@
      
         exit();
   }
-  $result = $category->isValidCatId($category);
-        
-  if ($result == false) {
-    echo json_encode(array("message"=>"category_id Not Found"));
-    exit();
-   }
-
-
     
    if(isset($data->author_id)){
      $author->id = $data->author_id;
@@ -64,23 +56,28 @@
      
         exit();
    }
-   $result2 = $author->isValidAutId($author);
-
-     if ($result2 == false){
-      echo json_encode(array("message"=>"author_id Not Found"));
-      exit();
-       }
    
      
      
-     
+     $result2 = $author->isValidAutId($author);
 
+     if ($result2 == false){
+      echo json_encode(array("message"=>"author_id Not Found"));
       
+       }
+
+       $result = $category->isValidCatId($category);
+        
+      if ($result == false) {
+        echo json_encode(array("message"=>"category_id Not Found"));
+      
+       }
      
      if ($quote->create()){
       echo json_encode(array( "id"=>$quote->id, "quote" => $quote->quote, "author_id"=> $quote->author_id, "category_id" => $quote->category_id));
 
      }
+
     
    
         
