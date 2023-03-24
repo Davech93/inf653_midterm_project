@@ -131,6 +131,7 @@
         public function lastId(){
             $query2 = "SELECT FROM " . $this->table . " LAST_INSERT_ID()";
             $stmt2 = $this->conn->prepare($query2);
+            $stmt2->execute();
             $lastId = $stmt2->fetchColumn();
             return $lastId;
         }
