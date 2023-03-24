@@ -23,7 +23,6 @@
     $result = $quote->isValid($quote);
     if ($result == true){
       $result2 = $quote->delete();
-      $obj1 = {'id' => $quote->id};
       echo json_encode($result2);
       echo json_encode('id: ' . $quote->id);
     } else if ($result == false){
