@@ -189,7 +189,8 @@
         }
     
         public function isValid($id, $model){
-            $result = $model->read_single($id);
+            $modelId = $model->$id;
+            $result = $modelId->read_single($id);
             echo json_encode($id);
             return $result;
         }
