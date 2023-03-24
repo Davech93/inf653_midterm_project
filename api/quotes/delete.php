@@ -22,13 +22,14 @@
     // $quote->id = $data->id;
     $result = $quote->isValid($quote);
     if ($result == true){
-      $result2 = $quote->delete();
-      echo json_encode(($result2), JSON_FORCE_OBJECT);
-    } else if ($result == false){
-      $result2 = $quote->delete();
-      echo json_encode(($result2), JSON_FORCE_OBJECT);
-    } else {
-      json_encode(array('message'=>'No Quotes Found'));
+      
+            if($quote->delete()){
+              echo json_encode(array("id" => $quote->id));
+            } else {
+              echo json_encode(array('message'=>'No Quotes Found'));
+            }
+      } else if ($result == false){
+        json_encode(array('message'=>'No Quotes Found'));
     }
 
     //set id to update
