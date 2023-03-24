@@ -162,8 +162,7 @@
             
                 $result = $model->read_single();
                 if($model->id && $model->category) {
-                    echo json_encode($model->id);
-                    echo json_encode($model->category);
+                    
                    return true;
                 } else {
 

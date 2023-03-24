@@ -161,8 +161,7 @@
         
                 $result = $model->read_single();
                 if($model->id && $model->author) {
-                    echo json_encode($model->author);
-                    echo json_encode($model->id);
+                    
                    return true;
                 } else {
                     return false;
