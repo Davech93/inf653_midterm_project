@@ -29,10 +29,20 @@
    
    if(isset($data->category_id)){
     $quote->category_id =$data->category_id;
-  } 
+  } else {
+    echo json_encode(array('message' => 'Missing Required Parameters'));
+      //echo json_encode(array( "id"=>null, "quote" => null, "author_id"=> null, "category_id" => null));
+     
+        exit();
+  }
     
    if(isset($data->author_id)){
      $author->id = $data->author_id;
+   } else{
+    echo json_encode(array('message' => 'Missing Required Parameters'));
+      //echo json_encode(array( "id"=>null, "quote" => null, "author_id"=> null, "category_id" => null));
+     
+        exit();
    }
 
    if(isset($data->author_id)){
@@ -50,6 +60,7 @@
      
      $result = $category->isValidCatId($category);
      $result2 = $author->isValidAutId($author);
+
      
      if ($result == false) {
       echo json_encode(array("message"=>"category_id Not Found"));
