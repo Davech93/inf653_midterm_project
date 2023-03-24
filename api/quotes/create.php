@@ -61,15 +61,15 @@
      $result = $category->isValidCatId($category);
      $result2 = $author->isValidAutId($author);
 
+     if ($result2 == false){
+      echo json_encode(array("message"=>"author_id Not Found"));
+      exit();
+      }
      
      if ($result == false) {
       echo json_encode(array("message"=>"category_id Not Found"));
       exit();
      }
-     if ($result2 == false){
-      echo json_encode(array("message"=>"author_id Not Found"));
-      exit();
-      }
        if ($result == false && $result2 == false){
         echo json_encode(array("message"=>"author_id Not Found"));
         echo json_encode(array("message"=>"category_id Not Found"));
