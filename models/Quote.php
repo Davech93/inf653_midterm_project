@@ -100,7 +100,7 @@
             //create query
             $query = 'BEGIN; INSERT INTO ' . $this->table . ' (quote, author_id, category_id)
             VALUES (:quote, :author_id, :category_id)
-            RETURNING id';
+            RETURNING id;';
 
             //prepare statement
             $stmt = $this->conn->prepare($query);
