@@ -50,8 +50,6 @@
      
      $result = $category->isValidCatId($category);
      $result2 = $author->isValidAutId($author);
-     echo json_encode($result);
-     echo json_encode($result2);
      
      if ($result == false) {
       echo json_encode(array("message"=>"category_id Not Found"));
