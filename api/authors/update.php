@@ -26,11 +26,11 @@
     //update post
     if($author->update()){
         echo json_encode(
-            array('id'=>$author->id, 'author'=>$author->author)
+            array("id"=>$author->id, "author"=>$author->author)
         );
     } else {
         echo json_encode(
-            array('message' => 'Missing Required Parameters')    
+            array("message" => "Missing Required Parameters")    
         );
     }
 

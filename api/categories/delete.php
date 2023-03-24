@@ -30,7 +30,7 @@
         
         echo json_encode(array("id" => $category->id));
       } else {
-          echo json_encode(array("id" => $id,'message' => 'Category Not Deleted'));
+          echo json_encode(array("id" => $id,"message" => "Category Not Deleted"));
       }
   } else {
       echo json_encode(array("id" => '0'));

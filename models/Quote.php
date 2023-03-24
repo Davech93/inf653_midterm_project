@@ -180,12 +180,12 @@
 
         //execute query
         if($stmt->execute()){
-            return array("id" => $this->id);
+            return true;
         }
         //print error if something goes wrong
         printf("Error: %s. \n", $stmt->error);
         
-        return array('message'=>'No Quotes Found');
+            return false;
         }
     
         public function isValid($model){
