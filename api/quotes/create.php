@@ -42,12 +42,13 @@
      
      if ($result == true && $result2 == true){
       $id= $quote->create();
-    print_r($id);
+   
 
         if($id>0){
 
-      json_encode(array( "id"=>$id, "quote" => $quote->quote, "author_id"=> $quote->author_id, "category_id" => $quote->category_id));
-      } else if ($result == false) {
+      echo json_encode(array( "id"=>$id, "quote" => $quote->quote, "author_id"=> $quote->author_id, "category_id" => $quote->category_id));
+     exit();
+    } else if ($result == false) {
       echo json_encode(array("category_id Not Found"));
     
       exit();
