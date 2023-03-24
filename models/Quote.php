@@ -119,10 +119,7 @@
 
 
             if($stmt->execute()){
-                $query2 = "SELECT LAST_INSERT_ID()";
-                $stmt2 = $this->conn->prepare($query2);
-                $lastId = $stmt2->fetchColumn();
-                return $lastId;
+                return true;
             }
             
             //print error if something goes wrong
@@ -131,6 +128,12 @@
             return false;
         }
 
+        public function lastId(){
+            $query2 = "SELECT LAST_INSERT_ID()";
+            $stmt2 = $this->conn->prepare($query2);
+            $lastId = $stmt2->fetchColumn();
+            return $lastId;
+        }
         //update category
         public function update() {
             //create query
