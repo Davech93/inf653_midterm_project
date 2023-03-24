@@ -7,8 +7,8 @@
 
     include_once '../../config/Database.php';
     include_once '../../models/Quote.php';
-    include '../../models/Category.php';
-    include '../../models/Author.php';
+    include_once '../../models/Category.php';
+    include_once '../../models/Author.php';
 
     //Instantiate DB & Connect
     $database = new Database();
