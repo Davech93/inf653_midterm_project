@@ -119,8 +119,8 @@
 
 
             if($stmt->execute()){
-                echo $this->conn->lastInsertId();
-                return true;
+                $id = $this->table->lastInsertId();
+                return $id;
             }
             
             //print error if something goes wrong
