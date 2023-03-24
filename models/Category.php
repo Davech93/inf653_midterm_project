@@ -157,14 +157,14 @@
 
         public function isValidCatId($model){
 
-            $model->id = isset($_GET['id']) ? $_GET['id'] :die();
+            $model->id = isset($_GET['category_id']) ? $_GET['category_id'] :die();
         
-            if($_GET['id'] == NULL){
+            if($_GET['category_id'] == NULL){
                 $a = array('message' => 'No Quotes Found');
                 echo json_encode($a);
             } else {
                 $result = $model->read_single();
-                if($model->id && $model->category) {
+                if($model->category_id && $model->category) {
                    return true;
                 } else {
                     return false;
