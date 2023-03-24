@@ -24,9 +24,8 @@
     if ($result == true){
       $result2 = $quote->delete();
       echo json_encode($result2);
-      echo json_encode('id: ' . $quote->id);
     } else if ($result == false){
-      echo json_encode('message: ' . 'No Quotes Found');
+      echo json_encode($result2);
     }
 
     //set id to update
