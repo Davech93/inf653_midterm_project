@@ -20,6 +20,8 @@
     // get raw posted data
     // $data = json_decode(file_get_contents("php://input"));
     // $quote->id = $data->id;
+    $quote->id = $id;
+    
     $result = $quote->isValid($quote);
     if ($result == true){
       
