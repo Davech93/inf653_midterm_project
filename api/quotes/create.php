@@ -53,7 +53,9 @@
       echo json_encode(array("author_id Not Found"));
       exit();
      } else {
-      echo json_encode(array('message' => 'Missing Required Parameters'));
+     // echo json_encode(array('message' => 'Missing Required Parameters'));
+     echo json_encode(array( "id"=>null, "quote" => null, "author_id"=> null, "category_id" => null));
+    
       exit();
      }
     }
