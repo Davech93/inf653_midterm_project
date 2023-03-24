@@ -160,7 +160,7 @@
            // $model->id = isset($_GET['author_id']) ? $_GET['author_id'] :die();
         
                 $result = $model->read_single();
-                if($model->id == $this->id) {
+                if($model->id == $author->id) {
                    return true;
                 } else {
                     return false;

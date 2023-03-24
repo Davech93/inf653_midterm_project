@@ -161,9 +161,10 @@
         
             
                 $result = $model->read_single();
-                if($model->id == $this->id ) {
+                if($model->id == $category->id ) {
                    return true;
                 } else {
+
                     return false;
                 }
                 }

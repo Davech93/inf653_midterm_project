@@ -54,7 +54,6 @@
      }
      if ($result2 == false){
       echo json_encode(array("message"=>"author_id Not Found"));
-     
       exit();
       }
        if ($result == true && $result2 == true){
