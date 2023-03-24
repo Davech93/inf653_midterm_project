@@ -47,7 +47,8 @@
      
      $result = $category->isValidCatId($category);
      $result2 = $author->isValidAutId($author);
-     echo json_encode($result, $result2);
+     echo json_encode($result)
+     echo json_encode($result2);
      
      if ($result == true && $result2 == true){
       $id= $quote->create();
