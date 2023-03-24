@@ -117,7 +117,7 @@
 
             //execute query
             if($stmt->execute()){
-                $query = "select max(id) from ".$this->table;
+                $query = "select max(id) as id from ".$this->table;
                 $stmt = $this->conn->prepare($query);
                 $stmt->execute();
 
@@ -125,7 +125,7 @@
 
         
             if($row) {
-                print_r($row);
+             //   print_r($row);
 
                 
                 return  $row['id'];
