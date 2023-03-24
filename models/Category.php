@@ -164,7 +164,7 @@
                 echo json_encode($a);
             } else {
                 $result = $model->read_single();
-                if($model->category_id ) {
+                if($model->id ) {
                    return true;
                 } else {
                     return false;
