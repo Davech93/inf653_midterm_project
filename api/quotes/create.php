@@ -70,13 +70,18 @@
       echo json_encode(array("message"=>"author_id Not Found"));
       exit();
       }
+       if ($result == false && $result2 == false){
+        echo json_encode(array("message"=>"author_id Not Found"));
+        echo json_encode(array("message"=>"category_id Not Found"));
+       }
        if ($result == true && $result2 == true){
       $id= $quote->create();
-   
+      echo json_encode(array( "id"=>$id, "quote" => $quote->quote, "author_id"=> $quote->author_id, "category_id" => $quote->category_id));
+
      }
     if($id>0){
      echo json_encode(array( "id"=>$id, "quote" => $quote->quote, "author_id"=> $quote->author_id, "category_id" => $quote->category_id));
-        exit();
+        
      } 
     
    
