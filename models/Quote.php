@@ -188,11 +188,16 @@
         return false;
         }
     
-        public function isValid($id, $model){
-            $modelId = $model->$id;
-            $result = $modelId->read_single();
-            echo json_encode($id);
-            return $result;
+        public function isValid($model){
+            $model->id = isset($_GET['id']) ? $_GET['id'] :die();
+
+    if($_GET['id'] == NULL){
+        $a = array('message' => 'No Quotes Found');
+        echo json_encode($a);
+    } else {
+        $result = $model->read_single();
+        echo json_encode($id);
+        return $result;
         }
     
     }
