@@ -17,12 +17,11 @@
 
 
     $id = isset($_GET['id']) ? $_GET['id'] :die();
-    echo json_encode($id);
     // get raw posted data
     // $data = json_decode(file_get_contents("php://input"));
     // $quote->id = $data->id;
-    $result = $quote->isValid($quote);
-    echo json_encode($result);
+    $result = $quote->isValid($id, $quote);
+    echo ($result);
 
     //set id to update
   
