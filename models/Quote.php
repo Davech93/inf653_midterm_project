@@ -98,7 +98,7 @@
     //create quote
         public function create() {
             //create query
-            $query = 'BEGIN; INSERT INTO ' . $this->table . ' (quote, author_id, category_id)
+            $query = 'INSERT INTO ' . $this->table . ' (quote, author_id, category_id)
             VALUES (:quote, :author_id, :category_id)';
 
             //prepare statement
