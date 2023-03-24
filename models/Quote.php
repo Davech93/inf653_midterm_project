@@ -11,7 +11,8 @@
         public $id;
         public $author;
         public $category;
-       
+       public $category_id;
+       public $author_id;
 
         //constructor with DB
         public function __construct($db){
