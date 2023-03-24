@@ -129,11 +129,9 @@
         }
 
         public function lastId(){
-            $query2 = "SELECT LAST_INSERT_ID()";
-            $stmt2 = $this->conn->prepare($query2);
-            $stmt2->execute();
-            $lastId = $stmt2->fetchColumn();
-            return $lastId;
+            $stmt2 = $this->conn->lastInsertId();
+            
+            return $stmt2;
         }
         //update category
         public function update() {
