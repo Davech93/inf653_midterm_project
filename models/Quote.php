@@ -131,6 +131,7 @@
         public function lastId(){
             $stmt2 = $this->conn->lastInsertId();
             echo json_encode($stmt2);
+            echo json_encode($stmt2->fetchColumn());
             return $stmt2;
         }
         //update category
