@@ -21,13 +21,11 @@
 
     // get raw posted data
     // $data = json_decode(file_get_contents("php://input"));
-    if( isset($_REQUEST['id']) && isset($_REQUEST['author_id']) && isset($_REQUEST['category_id'])) {
-      $id=$_REQUEST["id"];
-      $quote->id = $id;
-      $author_id=$_REQUEST['author_id'];
-      $author->id = $author_id;
-      $category_id=$REQUEST['category_id'];
-      $category->id = $category_id;
+    $auth_id = isset($_REQUEST['author_id']) ? $_REQUEST['author_id'] : die();
+    $cat_id = isset($_REQUEST['category_id']) ? $_REQUEST['category_id'] : die();
+    $quote->author_id = $auth_id;
+    $quote->category_id = $cat_id;
+     
     //if(isset($data->quote)){
      //create quote
      
