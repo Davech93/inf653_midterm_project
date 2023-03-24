@@ -161,7 +161,9 @@
         
             
                 $result = $model->read_single();
-                if($model->id == $category->id ) {
+                if($model->id == $this->id) {
+                    echo json_encode($this->id);
+                    echo json_encode($model->id);
                    return true;
                 } else {
 
