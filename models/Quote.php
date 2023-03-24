@@ -197,7 +197,6 @@
         echo json_encode($a);
     } else {
         $result = $model->read_single();
-        echo json_encode($id);
         return $result;
         }
     
