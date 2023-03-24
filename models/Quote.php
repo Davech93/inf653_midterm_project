@@ -120,9 +120,8 @@
 
 
             if($stmt->execute()){
-               $result = $stmt->execute
                 
-                return $result;
+                return true;
             }
             
             //print error if something goes wrong
