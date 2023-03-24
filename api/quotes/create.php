@@ -24,6 +24,8 @@
     //$data = json_decode(file_get_contents("php://input"));
     $data = $_REQUEST;
     print_r($_REQUEST['author_id']);
+    print_r($_REQUEST);
+    print_r($_GET);
 
      $author->id = $data['author_id'];
      $category->id= $data['category_id'];
