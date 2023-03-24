@@ -74,9 +74,12 @@
        }
      
      if ($quote->create()){
+      $resultArr = ("quote" => $quote->quote, "author_id"=> $quote->author_id, "category_id" => $quote->category_id);
         if($quote->lastId()){
-      echo json_encode(array( "id"=>$quote->id, "quote" => $quote->quote, "author_id"=> $quote->author_id, "category_id" => $quote->category_id));
-
+          $lastId = $quote->lastId();
+          echo json_encode($lastId);
+      array_push($resultArr, $lastId);
+          echo json_encode($resultArr);
      }
     }
     
