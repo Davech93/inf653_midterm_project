@@ -21,13 +21,12 @@
 
     // get raw posted data
     // $data = json_decode(file_get_contents("php://input"));
-    $auth_id = isset($_REQUEST['author_id']) ? $_REQUEST['author_id'] : die();
-    $cat_id = isset($_REQUEST['category_id']) ? $_REQUEST['category_id'] : die();
-    $quote->author_id = $auth_id;
-    $quote->category_id = $cat_id;
-     
+    $data = json_decode(file_get_contents("php://input"));
+     $author->id = $data->author_id;
+     $category->id= $data->category_id;
+     $quote->quote = $data->quote;
     //if(isset($data->quote)){
-      if (!$cat_id || !$auth_id){
+      if (!$data->author_id || !$data->category_id){
         echo json_encode(array('message' => 'Missing Required Parameters'));
         exit();
       }
