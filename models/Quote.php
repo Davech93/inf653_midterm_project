@@ -99,7 +99,7 @@
         public function create() {
             //create query
             $query = 'INSERT INTO ' . $this->table . ' (quote, author_id, category_id)
-            VALUES (:quote, :author_id, :category_id);
+            VALUES (:quote, :author_id, :category_id),
             SELECT CURRVAL(quotes_id_seq(quotes, id))';
 
             //prepare statement
