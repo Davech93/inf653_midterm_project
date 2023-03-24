@@ -117,12 +117,12 @@
 
             //execute query
             if($stmt->execute()){
-                return true;
+                return  $stmt->insert_id;
             }
             //print error if something goes wrong
             printf("Error: %s. \n", $stmt->error);
 
-            return false;
+            return 0;
         }
 
         //update category
