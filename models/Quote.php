@@ -130,9 +130,8 @@
 
         public function lastId(){
             $stmt2 = $this->conn->lastInsertId();
-            $result = $stmt2->execute();
-            
-            return $result;
+            echo json_encode($stmt2);
+            return $stmt2;
         }
         //update category
         public function update() {
