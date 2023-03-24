@@ -30,6 +30,8 @@
      $author->id = $data['author_id'];
      $category->id= $data['category_id'];
      $quote->quote = $data['quote'];
+     $quote->category_id =$data['category_id'];
+     $quote->author_id=$data['author_id'];
     //if(isset($data->quote)){
       if (!$data['author_id'] || !$data['category_id']){
         echo json_encode(array('message' => 'Missing Required Parameters'));
