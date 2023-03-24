@@ -35,10 +35,9 @@
      $result = $quote->isValidCatId($quote);
      $result2 = $quote->isValidAutId($quote);
      if ($result == true && $result2 == true){
-      $quote->create();
+        if($quote->create()){
       echo json_encode(array( "id"=>$quote->id, "quote" => $quote->quote, "author_id"=> $quote->author_id, "category_id" => $quote->category_id));
-
-     } else if ($result1 == false) {
+      } else if ($result1 == false) {
       echo json_encode(array("category_id Not Found"));
       exit();
      } else if ($result2 == false){
@@ -48,6 +47,7 @@
       echo json_encode(array('message' => 'Missing Required Parameters'));
       exit();
      }
+    }
 
     
    
