@@ -61,16 +61,16 @@
      
      $result2 = $author->isValidAutId($author);
 
-     if ($result2 == false){
+     if ($result2 === false){
       echo json_encode(array("message"=>"author_id Not Found"));
-      
+      exit();
        }
 
        $result = $category->isValidCatId($category);
         
-      if ($result == false) {
+      if ($result === false) {
         echo json_encode(array("message"=>"category_id Not Found"));
-      
+        exit();
        }
      
      if ($quote->create()){
