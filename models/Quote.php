@@ -119,7 +119,7 @@
 
 
             if($stmt->execute()){
-                $id = $this->table->lastInsertId();
+                $id = $this->conn->lastInsertId();
                 return $id;
             }
             
