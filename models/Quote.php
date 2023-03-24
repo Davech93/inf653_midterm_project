@@ -99,7 +99,8 @@
         public function create() {
             //create query
             $query = 'INSERT INTO ' . $this->table . ' (quote, author_id, category_id)
-            VALUES (:quote, :author_id, :category_id)';
+            VALUES (:quote, :author_id, :category_id)
+            RETURNING id';
 
             //prepare statement
             $stmt = $this->conn->prepare($query);
@@ -119,10 +120,7 @@
 
 
             if($stmt->execute()){
-                $query2 = 'SELECT CURRVAL(quotes_id_seq(quotes, id))';
-                $stmt2 = $this->conn->prepare($query2);
-                $this->id = htmlspecialchars(strip_tags($this->id));
-                $result = $stmt2->execute();
+               $result = $stmt->execute
                 
                 return $result;
             }
