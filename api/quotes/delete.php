@@ -23,8 +23,12 @@
     $result = $quote->isValid($quote);
     if ($result == true){
       $quote->delete();
+      $obj1 = {'id' => $quote->id};
+      echo json_encode($obj1);
       echo json_encode('id: ' . $quote->id);
     } else if ($result == false){
+      $obj = {'message' => 'No Quotes Found'};
+      echo json_encode($obj);
       echo json_encode('message: ' . 'No Quotes Found');
     }
 
