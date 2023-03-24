@@ -189,7 +189,8 @@
         }
     
         public function isValid($model){
-            $model->id = isset($_GET['id']) ? $_GET['id'] :die();
+
+    $model->id = isset($_GET['id']) ? $_GET['id'] :die();
 
     if($_GET['id'] == NULL){
         $a = array('message' => 'No Quotes Found');
@@ -201,4 +202,6 @@
         }
     
     }
+
+}
      ?>
