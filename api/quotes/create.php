@@ -32,8 +32,8 @@
         exit();
       }
      
-     $result = $quote->isValidCat($quote);
-     $result2 = $quote->isValidAut($quote);
+     $result = $quote->isValidCatId($quote);
+     $result2 = $quote->isValidAutId($quote);
      if ($result == true && $result2 == true){
       $quote->create();
       echo json_encode(array( "id"=>$quote->id, "quote" => $quote->quote, "author_id"=> $quote->author_id, "category_id" => $quote->category_id));
