@@ -136,7 +136,7 @@
             //print error if something goes wrong
             printf("Error: %s. \n", $stmt->error);
 
-            return 0;
+            return false;
         }
 
         //update category
