@@ -26,12 +26,14 @@
     if ($result == true){
       
             if($quote->delete()){
-              echo json_encode(array("id" => $id));
+              echo json_encode(array(["id"] => $quote->id));
             } else {
-              echo json_encode(array('message'=>'No Quotes Found'));
+              $b = array(['message']=>'No Quotes Found'
+              echo json_encode($b));
             }
       } else if ($result == false){
-        echo json_encode(array('message'=>'No Quotes Found'));
+        $a = array(['message']=>'No Quotes Found')
+        echo json_encode($a);
     }
 
     //set id to update
