@@ -21,7 +21,6 @@
     // $data = json_decode(file_get_contents("php://input"));
     // $quote->id = $data->id;
     $result = $quote->isValid($quote);
-    echo json_encode($result);
     if ($result == true){
       $quote->delete();
       echo json_encode(array('id' => $quote->id));
