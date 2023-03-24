@@ -29,7 +29,7 @@
               echo json_encode(array('message'=>'No Quotes Found'));
             }
       } else if ($result == false){
-        json_encode(array('message'=>'No Quotes Found'));
+        echo json_encode(array('message'=>'No Quotes Found'));
     }
 
     //set id to update
