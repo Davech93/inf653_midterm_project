@@ -130,7 +130,7 @@
 
         public function lastId(){
             $stmt2 = $this->conn->lastInsertId();
-            $result = json_encode($stmt2);
+            $result = ($stmt2);
             
             return $result;
         }
