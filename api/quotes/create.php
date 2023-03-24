@@ -23,15 +23,13 @@
     // $data = json_decode(file_get_contents("php://input"));
     //$data = json_decode(file_get_contents("php://input"));
     $data = $_REQUEST;
-    print_r($_REQUEST['author_id']);
-    print_r($_REQUEST);
-    print_r($_GET);
+   
 
      $author->id = $data['author_id'];
      $category->id= $data['category_id'];
      $quote->quote = $data['quote'];
-     $quote->category_id =$data['category_id'];
-     $quote->author_id=$data['author_id'];
+     $quote->category=$category;
+     $quote->author=$author;
     //if(isset($data->quote)){
       if (!$data['author_id'] || !$data['category_id']){
         echo json_encode(array('message' => 'Missing Required Parameters'));
@@ -43,8 +41,8 @@
      
      if ($result == true && $result2 == true){
       $id= $quote->create();
-      print_r($id);
-      
+    
+
         if($id>0){
 
       echo json_encode(array( "id"=>$id, "quote" => $quote->quote, "author_id"=> $quote->author_id, "category_id" => $quote->category_id));
