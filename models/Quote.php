@@ -190,7 +190,7 @@
     
         public function isValid($id, $model){
             $id=$model->id;
-            $result = read_single($model);
+            $result = $model->read_single();
             return $result;
         }
     
