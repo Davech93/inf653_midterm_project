@@ -185,7 +185,7 @@
         //print error if something goes wrong
         printf("Error: %s. \n", $stmt->error);
         
-        return false;
+        return array('message'=>'No Quotes Found');
         }
     
         public function isValid($model){
