@@ -31,8 +31,8 @@
         exit();
       }
      
-     $result = $category->isValidCatId($category);
-     $result2 = $author->isValidAutId($author);
+     $result = $category->isValidCatId($category->id);
+     $result2 = $author->isValidAutId($author->id);
      
      if ($result == true && $result2 == true){
         if($quote->create()){
