@@ -22,23 +22,16 @@
     // get raw posted data
     // $data = json_decode(file_get_contents("php://input"));
     //$data = json_decode(file_get_contents("php://input"));
-    $data = $_GET;
+    $data = $_REQUEST;
    
 
-     
-      $author->id = $data['author_id'];
-     
-      $category->id = $data['category_id'];
-     
-      $quote->quote = $data['quote'];
-     
-      $quote->category_id = $data['category_id'];
-     
-      $quote->author_id = $data['author_id'];
-     
-     
+     $author->id = $data['author_id'];
+     $category->id= $data['category_id'];
+     $quote->quote = $data['quote'];
+     $quote->category_id =$data['category_id'];
+     $quote->author_id=$data['author_id'];
     //if(isset($data->quote)){
-      if (!isset($data['author_id']) || !isset($data['category_id'])){
+      if (!$data['author_id'] || !$data['category_id']){
        // echo json_encode(array( "id"=>null, "quote" => null, "author_id"=> null, "category_id" => null));
        echo json_encode(array('message' => 'Missing Required Parameters'));
         exit();
@@ -47,16 +40,7 @@
      $result = $category->isValidCatId($category);
      $result2 = $author->isValidAutId($author);
      
-      if ($result == false) {
-      echo json_encode(array("category_id Not Found"));
-    
-      exit();
-     } else if ($result2 == false) {
-     echo json_encode(array("author_id Not Found"));
-    
-      exit();
-     } 
-     if ($result == true && $result2 == true) {
+     if ($result == true && $result2 == true){
       $id= $quote->create();
    
 
@@ -64,7 +48,15 @@
 
       echo json_encode(array( "id"=>$id, "quote" => $quote->quote, "author_id"=> $quote->author_id, "category_id" => $quote->category_id));
      exit();
-    } else {
+    } else if ($result == false) {
+      echo json_encode(array("category_id Not Found"));
+    
+      exit();
+     } else if ($result2 == false){
+     echo json_encode(array("author_id Not Found"));
+    
+      exit();
+     } else {
       echo json_encode(array('message' => 'Missing Required Parameters'));
      //echo json_encode(array( "id"=>null, "quote" => null, "author_id"=> null, "category_id" => null));
     
