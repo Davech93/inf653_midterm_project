@@ -33,6 +33,7 @@
      
      $result = $category->isValidCatId($category);
      $result2 = $author->isValidAutId($author);
+     
      if ($result == true && $result2 == true){
         if($quote->create()){
       echo json_encode(array( "id"=>$quote->id, "quote" => $quote->quote, "author_id"=> $quote->author_id, "category_id" => $quote->category_id));
