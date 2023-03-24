@@ -157,14 +157,14 @@
 
         public function isValidAutId($model){
 
-            $model->id = isset($_GET['author_id']) ? $_GET['author_id'] :die();
+           // $model->id = isset($_GET['author_id']) ? $_GET['author_id'] :die();
         
-            if($_GET['author_id'] == NULL){
+            if($model->id == NULL){
                 $a = array('message' => 'No Quotes Found');
                 echo json_encode($a);
             } else {
                 $result = $model->read_single();
-                if($model->author_id && $model->author) {
+                if($model->id) {
                    return true;
                 } else {
                     return false;
