@@ -159,12 +159,9 @@
 
             //$model->id = isset($_GET['category_id']) ? $_GET['category_id'] : 0;
         
-            if($model->id == NULL){
-                $a = array('message' => 'No Quotes Found');
-                echo json_encode($a);
-            } else {
+            
                 $result = $model->read_single();
-                if($model->id ) {
+                if($model->id == $this->id ) {
                    return true;
                 } else {
                     return false;
@@ -173,5 +170,5 @@
             
             }
         
-     }
+     
      ?>
