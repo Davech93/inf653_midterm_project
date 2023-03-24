@@ -43,7 +43,6 @@
       if (!$data->author_id || !$data->category_id){
        // echo json_encode(array( "id"=>null, "quote" => null, "author_id"=> null, "category_id" => null));
        echo json_encode(array('message' => 'Missing Required Parameters'));
-        exit();
       }
      
      $result = $category->isValidCatId($category);
