@@ -21,7 +21,7 @@
     // $data = json_decode(file_get_contents("php://input"));
     // $quote->id = $data->id;
     $result = $quote->isValid($id, $quote);
-    echo ($result);
+    echo json_encode($result);
 
     //set id to update
   
