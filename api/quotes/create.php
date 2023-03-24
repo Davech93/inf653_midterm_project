@@ -31,22 +31,23 @@
     //if(isset($data->quote)){
      //create quote
      
-     if($quote->create()){
-      //  echo json_encode(array("id" => $quote->id,'message' => 'Author Deleted'));
-        if(!$category->read_single($category_id) || (!isset(_REQUEST['category_id']))){
-          echo json_encode(array("category_id Not Found"));
-     
-      } else if(!$author->read_single($data->author_id) || (!isset(_REQUEST['author_id']))){
-          echo json_encode(array("author_id Not Found"));
-        
-     } else if ($author->read_single($data->author->id) && $category->read_single($data->category_id)){}
-          
-        echo json_encode(array( "id"=>$quote->id, "quote" => $quote->quote, "author_id"=> $quote->author_id, "category_id" => $quote->category_id));
-      } 
-      
-      }else {
-        echo json_encode(array('message' => 'Missing Required Parameters'));
-      }
+     $result = $quote->isValidCat($quote);
+     $result2 = $quote->isValidAut($quote);
+     if ($result == true && $result2 == true){
+      $quote->create();
+      echo json_encode(array( "id"=>$quote->id, "quote" => $quote->quote, "author_id"=> $quote->author_id, "category_id" => $quote->category_id));
+
+     } else if ($result1 == false) {
+      echo json_encode(array("category_id Not Found"));
+      exit();
+     } else if ($result2 == false){
+      echo json_encode(array("author_id Not Found"));
+      exit();
+     } else {
+      echo json_encode(array('message' => 'Missing Required Parameters'));
+     }
+
+    
    
         
       //  $quote->id = $id;

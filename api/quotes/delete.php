@@ -17,6 +17,7 @@
 
 
     $id = isset($_GET['id']) ? $_GET['id'] :die();
+    
     // get raw posted data
     // $data = json_decode(file_get_contents("php://input"));
     // $quote->id = $data->id;
