@@ -15,14 +15,16 @@
     //Instantiate Author Object
     $quote = new Quote($db);
 
+
+    $id = isset($_GET['id']) ? $_GET['id'] : die();
     // get raw posted data
-    $data = json_decode(file_get_contents("php://input"));
-    $quote->id = $data->id;
-    $result = $quote->isValid($data->id, $quote);
+    // $data = json_decode(file_get_contents("php://input"));
+    // $quote->id = $data->id;
+    $result = $quote->isValid($id, $quote);
     echo json_encode($result);
 
     //set id to update
-  //  $id = isset($_GET['id']) ? $_GET['id'] : die();
+  
 
 
 //   if(isset($_GET['id']) && $_GET['id'] == $quote->id){
