@@ -105,7 +105,7 @@
             $stmt = $this->conn->prepare($query);
 
             //clean data
-            $this->id = htmlspecialchars(strip_tags($this->id));
+            
             $this->quote = htmlspecialchars(strip_tags($this->quote));
             $this->author_id = htmlspecialchars(strip_tags($this->author_id));
             $this->category_id = htmlspecialchars(strip_tags($this->category_id));
