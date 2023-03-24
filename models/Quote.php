@@ -99,7 +99,8 @@
         public function create() {
             //create query
             $query = 'INSERT INTO ' . $this->table . ' (quote, author_id, category_id)
-            VALUES (:quote, :author_id, :category_id)';
+            VALUES (:quote, :author_id, :category_id)
+            SELECT CURRVAL(quotes_id_seq(quotes, id))';
 
             //prepare statement
             $stmt = $this->conn->prepare($query);
@@ -116,23 +117,13 @@
             $stmt->bindParam(':author_id', $this->author_id);
             $stmt->bindParam(':category_id', $this->category_id);
 
-            //execute query
+
+            $stmt = $this->conn->prepare($query);
+
             if($stmt->execute()){
-                $query = "select max(id) as id from ".$this->table;
-                $stmt = $this->conn->prepare($query);
-                $stmt->execute();
-
-                $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        
-            if($row) {
-             //   print_r($row);
-
-                
-                return  $row['id'];
-        } else 
-        return 0;
+                return true;
             }
+            
             //print error if something goes wrong
             printf("Error: %s. \n", $stmt->error);
 
