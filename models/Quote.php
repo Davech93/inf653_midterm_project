@@ -99,8 +99,7 @@
         public function create() {
             //create query
             $query = 'BEGIN; INSERT INTO ' . $this->table . ' (quote, author_id, category_id)
-            VALUES (:quote, :author_id, :category_id)
-            RETURNING id;';
+            VALUES (:quote, :author_id, :category_id)';
 
             //prepare statement
             $stmt = $this->conn->prepare($query);
@@ -120,7 +119,7 @@
 
 
             if($stmt->execute()){
-                
+                echo $this->conn->lastInsertId();
                 return true;
             }
             
