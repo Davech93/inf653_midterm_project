@@ -35,7 +35,7 @@
         exit();
        }
        if(isset($data->author_id)){
-        $author->id = $author->author_id;
+        $author->id = $data->author_id;
        } else {
         echo json_encode(array("message"=>"Missing Required Parameters"));
         exit();
