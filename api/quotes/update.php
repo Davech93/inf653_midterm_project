@@ -65,7 +65,7 @@
         echo json_encode(array('message' => 'author_id Not Found'));
         exit();
          } else if ($result3 == false){
-        echo json_encode(array('message' => 'author_id Not Found'));
+        echo json_encode(array('message' => 'category_id Not Found'));
         exit();
          } else {
             $quote->update();
