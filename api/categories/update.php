@@ -19,8 +19,19 @@
     $data = json_decode(file_get_contents("php://input"));
 
     //set id to update
-    $category->id = $data->id;
-    $category->category = $data->category;
+   
+    if(isset($data->id)){
+        $category->id = $data->id;
+       } else {
+        echo json_encode(array("message"=>"Missing Required Parameters"));
+        exit();
+       }
+       if(isset($data->category)){
+        $category->category = $data->category;
+       } else {
+        echo json_encode(array("message"=>"Missing Required Parameters"));
+        exit();
+       }
 
 
     //update post
