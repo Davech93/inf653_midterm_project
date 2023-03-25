@@ -35,13 +35,13 @@
         exit();
        }
        if(isset($data->author_id)){
-        $quote->author_id = $data->author_id;
+        $author->id = $data->author_id;
        } else {
         echo json_encode(array("message"=>"Missing Required Parameters"));
         exit();
        }
        if(isset($data->category_id)){
-        $quote->category_id = $data->category_id;
+        $category->id = $data->category_id;
        } else {
         echo json_encode(array("message"=>"Missing Required Parameters"));
         exit();
@@ -72,7 +72,7 @@
             
 
             if($quote->update()){
-            echo json_encode(array("id"=>$result1, "quote"=>$quote->quote, "author_id"=>$quote->$author_id,"category_id"=>$quote->category_id ));
+            echo json_encode(array("id"=>$result1, "quote"=>$quote->quote, "author_id"=>$author->id,"category_id"=>$category->id ));
          } else {
             echo json_encode(array('message' => 'No Quotes Found'));
          }
