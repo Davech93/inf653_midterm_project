@@ -201,7 +201,8 @@
 
          if($model->read_single()){
             echo json_encode($this->id);
-            return $this->id;
+            echo json_encode($quote->id);
+            return $quote->id;
          } else {
             return false;
          }

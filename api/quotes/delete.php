@@ -34,7 +34,7 @@
 
     if ($result == true){
       $quote->delete();
-    echo json_encode(array('id' => $data->id));
+    echo json_encode(array('id' => $quote->id));
     } else{
       echo json_encode(array('message'=>'No Quotes Found'));
     }
