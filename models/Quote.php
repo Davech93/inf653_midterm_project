@@ -199,15 +199,15 @@
     
         public function isValid($model){
 
-            $quote->id = isset($_GET['id']) ? $_GET['id'] :die();
+            $model->id = isset($_GET['id']) ? $_GET['id'] :die();
 
             if($_GET['id'] == NULL){
                 return false;
             } 
 
-                $quote->read_single();
+                $model->read_single();
         
-                if($quote->id && $quote->quote) {
+                if($model->id && $model->quote) {
                     return true;
     
                 }
@@ -218,4 +218,5 @@
             
 
 }
+    }
      ?>
