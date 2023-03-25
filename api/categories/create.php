@@ -26,13 +26,13 @@
      }
       
     
-    //if(isset($data->category)){
+    
      //create category
      if($category->create()){
-      //  echo json_encode(array("id" => $category->id,'message' => 'Author Deleted'));
+      
       $result = $category->lastId();
         
-      //  $category->id = $id;
+      
         echo json_encode(array( "id"=>$result, "category" => $category->category));
       } else {
         $a = array("message" => "Missing Required Parameters");

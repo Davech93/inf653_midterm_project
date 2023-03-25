@@ -20,9 +20,9 @@
     $author = new Author($db);
 
     // get raw posted data
-    // $data = json_decode(file_get_contents("php://input"));
+   
     $data = json_decode(file_get_contents("php://input"));
-    // $data = $_REQUEST;
+    
    if(isset($data->category_id)){
     $category->id= $data->category_id;
    }
@@ -31,7 +31,7 @@
     $quote->category_id =$data->category_id;
   } else {
     echo json_encode(array('message' => 'Missing Required Parameters'));
-      //echo json_encode(array( "id"=>null, "quote" => null, "author_id"=> null, "category_id" => null));
+      
      
         exit();
   }
@@ -40,7 +40,7 @@
      $author->id = $data->author_id;
    } else{
     echo json_encode(array('message' => 'Missing Required Parameters'));
-      //echo json_encode(array( "id"=>null, "quote" => null, "author_id"=> null, "category_id" => null));
+     
      
         exit();
    }
@@ -52,7 +52,7 @@
      $quote->quote = $data->quote;
    } else {
     echo json_encode(array('message' => 'Missing Required Parameters'));
-      //echo json_encode(array( "id"=>null, "quote" => null, "author_id"=> null, "category_id" => null));
+     
      
         exit();
    }
@@ -77,15 +77,4 @@
 
        
         
-     
-     
-    
-    
-   
-        
-      //  $quote->id = $id;
-
-       
-// seperate queries to the author or category tables WHERE id =
-// and if nothing found return that
     ?>

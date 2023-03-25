@@ -29,13 +29,12 @@
      }
       
     
-    //if(isset($data->author)){
-     //create author
+    
      if($author->create()){
-      //  echo json_encode(array("id" => $author->id,'message' => 'Author Deleted'));
+      
       $result = $author->lastId();
         
-      //  $author->id = $id;
+     
         echo json_encode(array( "id"=>$result, "author" => $author->author));
       } else {
         $a = array("message" => "Missing Required Parameters");

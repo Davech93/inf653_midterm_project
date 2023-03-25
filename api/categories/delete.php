@@ -16,7 +16,7 @@
     $category = new Category($db);
 
     // get raw posted data
-    // $data = json_decode(file_get_contents("php://input"));
+    
     if( isset($_REQUEST['id'])) {
         $id=$_REQUEST["id"];
 
@@ -26,7 +26,7 @@
 
      //delete author
      if($category->delete()){
-        //  echo json_encode(array("id" => $author->id,'message' => 'Author Deleted'));
+        
         
         echo json_encode(array("id" => $category->id));
       } else {

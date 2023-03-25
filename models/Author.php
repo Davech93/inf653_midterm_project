@@ -85,12 +85,12 @@
             $stmt = $this->conn->prepare($query);
 
             //clean data
-         //   $this->id = htmlspecialchars(strip_tags($this->id));
+         
             $this->author = htmlspecialchars(strip_tags($this->author));
             
 
             //bind data
-            //$stmt->bindParam(':id', $this->id);
+            
             $stmt->bindParam(':author', $this->author);
 
             //execute query
@@ -163,7 +163,7 @@
 
         public function isValidAutId($model){
 
-           // $model->id = isset($_GET['author_id']) ? $_GET['author_id'] :die();
+           
         
                 $result = $model->read_single();
                 if($model->id && $model->author) {

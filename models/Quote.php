@@ -159,7 +159,7 @@
             $this->author_id = htmlspecialchars(strip_tags($this->author_id));
             $this->category_id = htmlspecialchars(strip_tags($this->category_id));
            
-            // $stmt = $this->conn->prepare("UPDATE " .  $this->table . " SET quote = :quote WHERE id = :id AND author_id = :author_id AND category_id = :category_id");
+            
 
             //bind data
             $stmt->bindParam(':id', $this->id);
@@ -172,17 +172,6 @@
            } 
 
            
-          
-                
-        
-
-          
-            
-
-            // execute query
-            // if($stmt->execute()){
-            //     return true;
-            // }
             // print error if something goes wrong
             printf("Error: %s. \n", $stmt->error);
 
@@ -216,18 +205,7 @@
             return false;
         }
 
-    //     public function isValidQuoId($model){
 
-    //         // $model->id = isset($_GET['author_id']) ? $_GET['author_id'] :die();
-         
-    //              $result = $model->read_single();
-    //              if($model->id && $model->quote) {
-                     
-    //                 return true;
-    //              } else {
-    //                  return false;
-    //              }
-    //              }
 
         public function isValidQuoId($model){        
             
