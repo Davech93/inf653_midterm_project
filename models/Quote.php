@@ -199,9 +199,7 @@
     
         public function isValid($model){
 
-    $model->id = isset($_GET['id']) ? $_GET['id'] :die();
-
-    if(!$_GET['id']){
+        if($model->id){
         $model->read_single();
         echo json_encode($model->read_single());
         if($model->id && $model->quote) {
