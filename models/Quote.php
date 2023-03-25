@@ -138,7 +138,7 @@
         public function update() {
             //create query
             $query = 'UPDATE ' . $this->table . ' 
-            SET (quote) = (:quote)
+            SET quote = :quote
             WHERE id = :id
             OR author_id = :author_id
             OR category_id = :category_id';
