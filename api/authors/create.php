@@ -26,10 +26,7 @@
     if(!$data->author){
       echo json_encode(array("message" => "Missing Required Parameters"));
     }
-
-    if(!$data->id){
-      echo json_encode(array("message" => "Missing Required Parameters"));
-    }
+    echo json_encode($data->author);
     //if(isset($data->author)){
      //create author
      if($author->create()){
