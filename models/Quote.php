@@ -236,16 +236,16 @@
                   FROM 
                   ' . $this->table . ' q
                     WHERE
-                        q.id = ? AND q.author_id = ? AND q.category_id = ?
+                        q.id = :id AND q.author_id = :author_id AND q.category_id = :category_id
                         LIMIT 1 OFFSET 0';
             
                     //prepare statement
                     $stmt = $this->conn->prepare($query);
             
                     //bind ID
-                    $stmt->bindParam(1, $this->id);
-                    $stmt->bindParam(2, $this->author_id);
-                    $stmt->bindParam(3, $this->category_id);
+                    $stmt->bindParam(':id', $this->id);
+                    $stmt->bindParam(':author_id', $this->author_id);
+                    $stmt->bindParam(':category_id', $this->category_id);
             
                     //Execute Query
                     $stmt->execute();
