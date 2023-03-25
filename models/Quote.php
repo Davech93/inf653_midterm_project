@@ -203,8 +203,8 @@
 
     if(!$_GET['id']){
         $model->read_single();
+        echo json_encode($model->read_single());
         if($model->id && $model->quote) {
-           echo json_encode($result);
            return true;
         } else {
             return false;
