@@ -188,14 +188,29 @@
         $stmt->bindParam(':id', $this->id);
 
         //execute query
-        if($stmt->execute()){
-            return true;
+        if($stmt->execute()) {
+            echo json_encode($this->id);
+            return $this->id;
+
         }
         //print error if something goes wrong
         printf("Error: %s. \n", $stmt->error);
         
             return false;
         }
+
+    //     public function isValidQuoId($model){
+
+    //         // $model->id = isset($_GET['author_id']) ? $_GET['author_id'] :die();
+         
+    //              $result = $model->read_single();
+    //              if($model->id && $model->quote) {
+                     
+    //                 return true;
+    //              } else {
+    //                  return false;
+    //              }
+    //              }
     
     }
      ?>
