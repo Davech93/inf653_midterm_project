@@ -188,7 +188,8 @@
     public function isValid($model, $id){        
         $model->id = $this->id;
         $result = $model->read_single();
-        return $result;
+        $test2 = array('model id' => $model->id, 'this id' => $this->id);
+        return $test2;
     }
 
 }

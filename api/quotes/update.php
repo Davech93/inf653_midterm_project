@@ -71,15 +71,17 @@
         exit();   
         }  
         $result2 = $author->isValid($author, $author->id);
-        if ($result2 == false){
-         echo json_encode(array('message' => 'author_id Not Found'));
-         exit();   
-        }
+        echo json_encode($result2);
+        // if ($result2 == false){
+        //  echo json_encode(array('message' => 'author_id Not Found'));
+        //  exit();   
+        // }
         $result3 = $category->isValid($category, $category->id);
-        if ($result3 == false){
-        echo json_encode(array('message' => 'category_id Not Found'));
-        exit();
-        }
+        echo json_encode($result3);
+        // if ($result3 == false){
+        // echo json_encode(array('message' => 'category_id Not Found'));
+        // exit();
+        // }
 
             $quote->update();
             echo json_encode(array('id' => $quote->id, 'quote' => $quote->quote, 'author_id' => $quote->author_id, 'category_id' => $quote->category_id));
