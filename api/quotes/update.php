@@ -6,9 +6,9 @@
     header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
     include_once '../../config/Database.php';
-    include '../../models/Quote.php';
-    // include_once '../../models/Author.php';
-    // include_once '../../models/Category.php';
+    include_once '../../models/Quote.php';
+    include_once '../../models/Category.php';
+    include_once '../../models/Author.php';
     
 
     //Instantiate DB & Connect
@@ -17,8 +17,8 @@
 
     //Instantiate Category Object
     $quote = new Quote($db);
-    // $category = new Category($db);
-    // $author = new Author($db);
+    $category = new Category($db);
+    $author = new Author($db);
 
 
     // get raw posted data
@@ -55,6 +55,14 @@
         echo json_encode(array("message"=>"Missing Required Parameters"));
         exit();
        }
+       if(isset($data->category_id)){
+        $category->id = $data->category_id;
+       
+       }
+       if(isset($data->author_id)){
+        $author->id = $data->category_id;
+       
+       }
 
     
         $result = $quote->isValidQuoId($quote);
@@ -62,12 +70,12 @@
         echo json_encode(array('message' => 'No Quotes Found'));
         exit();   
         }  
-        $result2 = $quote->isValidAutId($quote);
+        $result2 = $author->isValidAutId($author);
         if ($result2 == false){
          echo json_encode('message' => 'author_id Not Found');
          exit();   
         }
-        $result3 = $quote->isValidCatId($quote):
+        $result3 = $category->isValidCatId($category):
         if ($result3 == false){
         echo json_encode('message' => 'category_id Not Found');
         exit();
