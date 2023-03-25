@@ -69,6 +69,13 @@
             $this->id = false;
             $this->category = false;
         }
+
+        if($row>0){
+            return true;
+        } else {
+            return false;
+        }
+
         }
 
     //create category
@@ -178,7 +185,14 @@
                 
                 return $result;
             }
+
+            public function isValid($model, $id){        
+                $model->id = $this->id;
+                $result = $model->read_single();
+                return $result;
+            }
     }
+
         
      
      ?>

@@ -93,6 +93,13 @@
             $this->author = false;
             $this->category = false;
         }
+
+        if($row>0){
+            return true;
+        } else {
+            return false;
+        }
+        
         }
 
     //create quote
@@ -247,7 +254,7 @@
                     }
                     }
 
-                    public function isValidAutId($model){        
+                    public function isValidAutId($model, $id){        
             
                         $result = $model->read_single();
                         if($model->author_id && $model->quote) {
@@ -258,6 +265,13 @@
                             return false;
                         }
                         }
+
+                        public function isValid($model, $id){        
+                            $model->id = $this->id;
+                            $result = $model->read_single();
+                            return $result;
+                        }
+                            
 
                 
                     }

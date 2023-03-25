@@ -67,6 +67,12 @@
             $this->id = false;
             $this->author =false;
         }
+
+        if($row>0){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     //create author
@@ -176,6 +182,15 @@
                 
                 return $result;
             }
+    
+
+
+    public function isValid($model, $id){        
+        $model->id = $this->id;
+        $result = $model->read_single();
+        return $result;
     }
+
+}
      
      ?>

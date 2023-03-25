@@ -65,17 +65,17 @@
        }
 
     
-        $result = $quote->isValidQuoId($quote);
+        $result = $quote->isValid($quote, $quote->id);
         if ($result == false){
         echo json_encode(array('message' => 'No Quotes Found'));
         exit();   
         }  
-        $result2 = $author->isValidAutId($author);
+        $result2 = $author->isValid($author, $author->id);
         if ($result2 == false){
          echo json_encode('message' => 'author_id Not Found');
          exit();   
         }
-        $result3 = $category->isValidCatId($category):
+        $result3 = $category->isValid($category, $category->id):
         if ($result3 == false){
         echo json_encode('message' => 'category_id Not Found');
         exit();
