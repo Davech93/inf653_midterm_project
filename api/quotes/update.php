@@ -53,7 +53,7 @@
 
 
     
-        $result1 = $quote->read_single3Param($quote);
+        $result1 = $quote->read_single3Param();
         
         echo json_encode($result1);
         
