@@ -51,14 +51,20 @@
         $result1 = $quote->isValidQuoId($quote);
         $result2 = $author->isValidAutId($author);
         $result3 = $category->isValidCatId($category);
+        echo json_encode($result1);
+        echo json_encode($result2);
+        echo json_encode($result3);
+        echo json_encode($quote->quote);
             
         if($result1 == false) {
         echo json_encode(array('message' => 'No Quotes Found'));
         exit();
          } else if ($result2 == false){
         echo json_encode(array('message' => 'author_id Not Found'));
+        exit();
          } else if ($result3 == false){
         echo json_encode(array('message' => 'author_id Not Found'));
+        exit();
          } else {
             $quote->update();
             echo json_encode(array("id"=>$result1, "quote"=>$quote->quote, "author_id"=>$author->id,"category_id"=>$category->id ));
