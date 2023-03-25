@@ -59,7 +59,8 @@
     //    echo ($quote->author_id);
     //    echo ($quote->category_id);
 
-
+        $quote->category_id = $data->category_id;
+        $quote->author_id = $data->author_id;
     
         $result1 = $quote->isValidQuoId($quote);
         $result2 = $author->isValidAutId($author);
@@ -68,8 +69,7 @@
         // echo json_encode($result1);
         // echo json_encode($result2);
         // echo json_encode($result3);
-        $quote->category_id = $data->category_id;
-        $quote->author_id = $data->author_id;
+        
             
         if($result1 == false) {
         echo json_encode(array('message' => 'No Quotes Found'));
