@@ -152,6 +152,7 @@
             $this->author_id = htmlspecialchars(strip_tags($this->author_id));
             $this->category_id = htmlspecialchars(strip_tags($this->category_id));
            
+            $stmt = $this->conn->prepare("UPDATE " .  $this->table . " SET quote = :quote WHERE id = :id AND author_id = :author_id AND category_id = :category_id");
 
             //bind data
             $stmt->bindParam(':id', $this->id);
@@ -162,7 +163,6 @@
 
             
             try{
-                $stmt = $this->conn->prepare("UPDATE " .  $this->table . " SET quote = :quote WHERE id = :id AND author_id = :author_id AND category_id = :category_id");
                 $stmt->execute([':quote'=>$quote, ':id'=>$id]);
                 $_SESSION['success'] = 'Stock updated successfully';
                 exit();
