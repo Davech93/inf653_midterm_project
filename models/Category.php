@@ -170,7 +170,7 @@
                 }
                 }
             
-            }
+            
 
             public function lastId(){
                 $stmt2 = $this->conn->lastInsertId();
@@ -178,6 +178,7 @@
                 
                 return $result;
             }
+    }
         
      
      ?>
