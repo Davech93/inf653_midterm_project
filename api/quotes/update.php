@@ -56,8 +56,8 @@
         exit();
        }
    
-       echo ($category->id);
-       echo ($author->id);
+       echo ($quote->author_id);
+       echo ($quote->category_id);
 
 
     
