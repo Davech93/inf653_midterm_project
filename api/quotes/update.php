@@ -29,7 +29,7 @@
     echo json_encode($data->category_id);
 
 
-    if(isset($data->id)){
+        if(isset($data->id)){
         $quote->id = $data->id;
        } else {
         echo json_encode(array("message"=>"Missing Required Parameters"));
@@ -71,19 +71,19 @@
         $quote->category_id = $data->category_id;
         $quote->author_id = $data->author_id;
             
-        if($result1 == false) {
-        echo json_encode(array('message' => 'No Quotes Found'));
-        exit();
-         } else if ($result2 == false) {
-            echo json_encode(array('message' => 'author_id Not Found'));
-            exit();
-            } else if ($result3 == false) {
-                echo json_encode(array('message' => 'category_id Not Found'));
-                exit();
-                } 
-        $quote->update();
-            echo json_encode(array("id"=>$result1, "quote"=>$quote->quote, "author_id"=>$quote->author_id,"category_id"=>$quote->category_id ));
-            
+        // if($result1 == false) {
+        // echo json_encode(array('message' => 'No Quotes Found'));
+        // exit();
+        //  } else if ($result2 == false) {
+        //     echo json_encode(array('message' => 'author_id Not Found'));
+        //     exit();
+        //     } else if ($result3 == false) {
+        //         echo json_encode(array('message' => 'category_id Not Found'));
+        //         exit();
+        //         } 
+        if($quote->update()){
+        echo json_encode(array("id"=>$result1, "quote"=>$quote->quote, "author_id"=>$quote->author_id,"category_id"=>$quote->category_id ));
+        }  
                 
     
     ?>
