@@ -34,14 +34,14 @@
         echo json_encode(array("message"=>"Missing Required Parameters"));
         exit();
        }
-       if(isset($data->author_id)){
-        $author->id = $data->author_id;
+       if(isset($_GET['author_id'])){
+        $author->id = $_GET['author_id'];
        } else {
         echo json_encode(array("message"=>"Missing Required Parameters"));
         exit();
        }
-       if(isset($data->category_id)){
-        $category->id = $data->category_id;
+       if(isset($_GET['category_id'])){
+        $category->id = $_GET['category_id']
        } else {
         echo json_encode(array("message"=>"Missing Required Parameters"));
         exit();
