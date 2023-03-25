@@ -23,10 +23,10 @@
 
     // get raw posted data
     $data = json_decode(file_get_contents("php://input"));
-    echo json_encode($data->id);
-    echo json_encode($data->quote);
-    echo json_encode($data->author_id);
-    echo json_encode($data->category_id);
+    // echo json_encode($data->id);
+    // echo json_encode($data->quote);
+    // echo json_encode($data->author_id);
+    // echo json_encode($data->category_id);
 
 
         if(isset($data->id)){
@@ -60,8 +60,8 @@
         echo json_encode(array("id"=>$quote->id, "quote"=>$quote->quote, "author_id"=>$quote->author_id,"category_id"=>$quote->category_id ));
         }
    
-       echo ($quote->author_id);
-       echo ($quote->category_id);
+    //    echo ($quote->author_id);
+    //    echo ($quote->category_id);
        
 
         // $category->id = $data->category_id;
@@ -72,7 +72,7 @@
         $result3 = $quote->isValidCatId();
         // $result3 = $category->isValidCatId($category);
         
-        echo json_encode($result1);
+        // echo json_encode($result1);
         // echo json_encode($result2);
         // echo json_encode($result3);
          
