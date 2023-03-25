@@ -99,7 +99,7 @@
         } else {
             return false;
         }
-        
+
         }
 
     //create quote
