@@ -67,9 +67,9 @@
         // $category->id = $data->category_id;
         // $author->id = $data->author_id;
     
-        $result1 = $quote->isValidQuoId($quote);
-        $result2 = $quote->isValidAutId();
-        $result3 = $quote->isValidCatId();
+        // $result1 = $quote->isValidQuoId($quote);
+        // $result2 = $quote->isValidAutId();
+        // $result3 = $quote->isValidCatId();
         // $result3 = $category->isValidCatId($category);
         
         // echo json_encode($result1);
@@ -78,16 +78,16 @@
          
         
             
-        if($result1 == false) {
-        echo json_encode(array('message' => 'No Quotes Found'));
-        exit();
-         } else if ($result2 == false) {
-            echo json_encode(array('message' => 'author_id Not Found'));
-            exit();
-            } else if ($result3 == false) {
-                echo json_encode(array('message' => 'category_id Not Found'));
-                exit();
-                }  
+        // if($result1 == false) {
+        // echo json_encode(array('message' => 'No Quotes Found'));
+        // exit();
+        //  } else if ($result2 == false) {
+        //     echo json_encode(array('message' => 'author_id Not Found'));
+        //     exit();
+        //     } else if ($result3 == false) {
+        //         echo json_encode(array('message' => 'category_id Not Found'));
+        //         exit();
+        //         }  
                 
     
     ?>
