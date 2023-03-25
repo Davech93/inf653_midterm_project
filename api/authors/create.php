@@ -25,6 +25,7 @@
       $author->author = $data->author;
      } else {
       echo json_encode(array("message"=>"Missing Required Parameters"));
+      exit();
      }
       
     echo json_encode($data->author);
