@@ -199,11 +199,11 @@
     
         public function isValid($model){
 
-         if(!$model->read_single()){
-            return false;
-            exit();
+         if($model->read_single()){
+            echo json_encode($this->id);
+            return $this->id;
          } else {
-            return true;
+            return false;
          }
         
         
