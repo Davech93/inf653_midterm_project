@@ -138,10 +138,10 @@
         public function update() {
             //create query
             $query = 'UPDATE ' . $this->table . '
-            SET (quote, author_id, category_id) = (:quote, :author_id, :category_id)
+            SET (quote) = (:quote)
             WHERE (id = :id) 
-            OR (author_id = :author_id) 
-            OR (category_id = :category_id)';
+            AND (author_id = :author_id) 
+            AND (category_id = :category_id)';
 
             //prepare statement
             $stmt = $this->conn->prepare($query);
