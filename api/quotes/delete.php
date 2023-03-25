@@ -38,7 +38,7 @@
       echo json_encode(array("message"=>"No Quotes Found"));
       exit();
     } else{
-      echo json_encode(array("id"=>$result2);)
+      echo json_encode(array("id"=>$result2));
     }
           
     
