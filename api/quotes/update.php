@@ -56,8 +56,10 @@
         exit();
        }
    
-    //    echo ($quote->author_id);
-    //    echo ($quote->category_id);
+       echo ($quote->author_id);
+       echo ($author->id);
+       echo ($quote->category_id);
+       echo ($category->id);
 
         // $category->id = $data->category_id;
         // $author->id = $data->author_id;
@@ -66,9 +68,9 @@
         $result2 = $author->isValidAutId($author);
         $result3 = $category->isValidCatId($category);
         
-        // echo json_encode($result1);
-        // echo json_encode($result2);
-        // echo json_encode($result3);
+        echo json_encode($result1);
+        echo json_encode($result2);
+        echo json_encode($result3);
         
             
         if($result1 == false) {
