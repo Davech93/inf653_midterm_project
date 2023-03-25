@@ -160,24 +160,14 @@
             $stmt->bindParam(':author_id', $this->author_id);
             $stmt->bindParam(':category_id', $this->category_id);
 
-            $stmt->execute();
+           if( $stmt->execute()){
+            return true;
+           } 
 
-            $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        
-            if(!$row['id'] || !$row['author_id'] || !['category_id']) {
-              if (!$row['id']) {
-                $result = 1;
-                return $result;
-            } else if (!$row['author_id']){
-                $result = 2;
-                return $result;
-            } else if (!['category_id']){
-                $result = 3;
-                return $result;
-            }
+           
+          
                 
-        }
+        
 
           
             
@@ -351,5 +341,5 @@
 
                 
     
-    }
+    
      ?>

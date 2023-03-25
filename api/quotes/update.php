@@ -56,18 +56,18 @@
         exit();
        }
 
-       if($quote->update() == 1){
-        echo json_encode(array('message' => 'No Quotes Found'));
-        exit();      
-        } else if ($quote->update() == 2){
-        echo json_encode(array('message' => 'author_id Not Found'));
-        exit();
-        } else if ($quote->update() == 3){
-        echo json_encode(array('message' => 'category_id Not Found'));
-        exit();
-        } else {
+    //    if($quote->update() == 1){
+    //     echo json_encode(array('message' => 'No Quotes Found'));
+    //     exit();      
+    //     } else if ($quote->update() == 2){
+    //     echo json_encode(array('message' => 'author_id Not Found'));
+    //     exit();
+    //     } else if ($quote->update() == 3){
+    //     echo json_encode(array('message' => 'category_id Not Found'));
+    //     exit();
+            $quote->update();
             echo json_encode(array('id' => $quote->id, 'quote' => $quote->quote, 'author_id' => $quote->author_id, 'category_id' => $quote->category_id));
-        }
+    
    
     //    echo ($quote->author_id);
     //    echo ($quote->category_id);
