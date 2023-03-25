@@ -139,9 +139,9 @@
             //create query
             $query = 'UPDATE ' . $this->table . '
             SET quote = :quote
-            WHERE id = :id
-            OR author_id = :author_id 
-            OR category_id = :category_id';
+            WHERE :id = id
+            AND :author_id = author_id 
+            AND :category_id = category_id';
 
             //prepare statement
             $stmt = $this->conn->prepare($query);
