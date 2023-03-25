@@ -31,7 +31,7 @@
           exit();
     }
 
-    $result2 = $quote->delete();
+    $result2 = $quote->isValidQuoId($quote);
     echo json_encode($result2);
     
     if ($result2 == false){

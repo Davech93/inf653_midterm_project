@@ -188,12 +188,11 @@
         $stmt->bindParam(':id', $this->id);
 
         //execute query
-        $stmt->execute();
-         if($this->id == $quote->id){
-            echo json_encode($this->id);
-            return $this->id;
-
+        if ($stmt->execute()){
+            return true;
         }
+
+        
         //print error if something goes wrong
         printf("Error: %s. \n", $stmt->error);
         
@@ -212,6 +211,21 @@
     //                  return false;
     //              }
     //              }
+
+        public function isValidQuoId($model){
+
+            //$model->id = isset($_GET['category_id']) ? $_GET['category_id'] : 0;
+        
+            
+                $result = $model->read_single();
+                if($model->id && $model->quote) {
+                    
+                   return $model->id;
+                } else {
+
+                    return false;
+                }
+                }
     
     }
      ?>
