@@ -247,7 +247,7 @@
                     $stmt = $this->conn->prepare($query);
             
                     //bind ID
-                    $stmt->bindParam(':category_id', $this->$category_id);
+                    $stmt->bindParam(':category_id', $this->category_id);
             
                     //Execute Query
                     $stmt->execute();
@@ -294,7 +294,7 @@
                         $stmt = $this->conn->prepare($query);
                 
                         //bind ID
-                        $stmt->bindParam(':author_id', $this->$author_id);
+                        $stmt->bindParam(':author_id', $this->author_id);
                 
                         //Execute Query
                         $stmt->execute();
