@@ -59,12 +59,12 @@
     //    echo ($quote->author_id);
     //    echo ($quote->category_id);
 
-        $category->id = $data->category_id;
-        $author->id = $data->author_id;
+        // $category->id = $data->category_id;
+        // $author->id = $data->author_id;
     
         $result1 = $quote->isValidQuoId($quote);
-        $result2 = $author->isValidAutId($author);
-        $result3 = $category->isValidCatId($category);
+        $result2 = $author->isValidAutId($quote);
+        $result3 = $category->isValidCatId($quote);
         
         // echo json_encode($result1);
         // echo json_encode($result2);
