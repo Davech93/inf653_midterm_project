@@ -236,7 +236,7 @@
                   FROM 
                   ' . $this->table . ' q
                     WHERE
-                        q.id = ?, q.author_id = ?, q.category_id = ?
+                        q.id = ? AND q.author_id = ? AND q.category_id = ?
                         LIMIT 1 OFFSET 0';
             
                     //prepare statement
