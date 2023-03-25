@@ -81,11 +81,9 @@
                 echo json_encode(array('message' => 'category_id Not Found'));
                 exit();
                 } 
-        if ($quote->update()){
+        $quote->update()
             echo json_encode(array("id"=>$result1, "quote"=>$quote->quote, "author_id"=>$quote->author_id,"category_id"=>$quote->category_id ));
-            } else {
-            echo json_encode(array('message' => 'No Quotes Found'));
-            }
+            
                 
     
     ?>
