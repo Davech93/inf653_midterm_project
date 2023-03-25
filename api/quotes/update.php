@@ -18,7 +18,7 @@
 
 
     // get raw posted data
-    /$data = json_decode(file_get_contents("php://input"));
+    $data = json_decode(file_get_contents("php://input"));
     echo json_encode($data->id);
     echo json_encode($data->quote);
     echo json_encode($data->author_id);
