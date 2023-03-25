@@ -159,28 +159,19 @@
             $stmt->bindParam(':author_id', $this->author_id);
             $stmt->bindParam(':category_id', $this->category_id);
 
-            $stmt->execute();
-            $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        
-        if($row) {
-            //set properties
-        $this->id = $row['id'];
-        $this->quote = $row['quote'];
-        $this->author = $row['author_id'];
-        $this->category = $row['category_id'];
-        }
-        else {
-            $this->id = false;
-            $this->quote = false;
-            $this->author_id = false;
-            $this->category_id = false;
-        }
+            
     
             
 
             //execute query
-           
+            if($stmt->execute()){
+                return true;
+            }
+            //print error if something goes wrong
+            printf("Error: %s. \n", $stmt->error);
+
+            return false;
         }
 
 
