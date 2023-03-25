@@ -71,6 +71,9 @@
         echo json_encode($result1);
         // echo json_encode($result2);
         // echo json_encode($result3);
+        if($quote->update()){
+            echo json_encode(array("id"=>$quote->id, "quote"=>$quote->quote, "author_id"=>$quote->author_id,"category_id"=>$quote->category_id ));
+            } 
         
             
         if($result1 == false) {
@@ -82,10 +85,7 @@
             } else if ($result3 == false) {
                 echo json_encode(array('message' => 'category_id Not Found'));
                 exit();
-                } 
-        if($quote->update()){
-        echo json_encode(array("id"=>$quote->id, "quote"=>$quote->quote, "author_id"=>$quote->author_id,"category_id"=>$quote->category_id ));
-        }  
+                }  
                 
     
     ?>
