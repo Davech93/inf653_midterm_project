@@ -62,12 +62,12 @@
         echo json_encode(array('message' => 'No Quotes Found'));
         exit();   
         }  
-        $result2 = $quote->isValidAutId();
+        $result2 = $quote->isValidAutId($quote);
         if ($result2 == false){
          echo json_encode('message' => 'author_id Not Found');
          exit();   
         }
-        $result3 = $quote->isValidCatId():
+        $result3 = $quote->isValidCatId($quote):
         if ($result3 == false){
         echo json_encode('message' => 'category_id Not Found');
         exit();

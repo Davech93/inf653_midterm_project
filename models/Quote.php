@@ -235,105 +235,28 @@
                 }
 
 
-                public function isValidCatId(){
-                    $query = 'SELECT
-                    q.id,
-                    q.quote,
-                    q.author_id,
-                    q.category_id
-                  FROM 
-                  ' . $this->table . ' q
-                    WHERE
-                        q.category_id = :category_id
-                        AND q.author_id = :author_id
-                        AND q.id = :id
-                        LIMIT 1 OFFSET 0';
+                public function isValidCatId($model){        
             
-                    //prepare statement
-                    $stmt = $this->conn->prepare($query);
-            
-                    //bind ID
-                    $stmt->bindParam(':category_id', $this->category_id);
-                    $stmt->bindParam(':author_id', $this->author_id);
-                    $stmt->bindParam(':id', $this->id);
-            
-                    //Execute Query
-                    $stmt->execute();
-            
-                    $row = $stmt->fetch(PDO::FETCH_ASSOC);
-            
-                    
-                    if($row) {
-                        //set properties
-                    $this->id = $row['id'];
-                    $this->quote = $row['quote'];
-                    $this->author_id = $row['author_id'];
-                    $this->category_id = $row['category_id'];
-                    }
-                    else {
-                        $this->id = false;
-                        $this->quote = false;
-                        $this->author_id = false;
-                        $this->category_id = false;
-                    }
-
-                    if($this->quote && $this->category_id){
-                        return true;
-                    } else{
+                    $result = $model->read_single();
+                    if($model->category_id && $model->quote) {
+                        
+                       return true;
+                    } else {
+    
                         return false;
                     }
-
                     }
 
-
-                    public function isValidAutId(){
-                        $query = 'SELECT
-                        q.id,
-                        q.quote,
-                        q.author_id,
-                        q.category_id
-                      FROM 
-                      ' . $this->table . ' q
-                        WHERE
-                            q.author_id = :author_id
-                            AND q.category_id = :category_id
-                            AND q.id = :id
-                            LIMIT 1 OFFSET 0';
-                
-                        //prepare statement
-                        $stmt = $this->conn->prepare($query);
-                
-                        //bind ID
-                        $stmt->bindParam(':author_id', $this->author_id);
-                        $stmt->bindParam(':category_id', $this->category_id);
-                        $stmt->bindParam(':id', $this->id);
-                
-                        //Execute Query
-                        $stmt->execute();
-                
-                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-                
-                        
-                        if($row) {
-                            //set properties
-                        $this->id = $row['id'];
-                        $this->quote = $row['quote'];
-                        $this->author_id = $row['author_id'];
-                        $this->category_id = $row['category_id'];
-                        }
-                        else {
-                            $this->id = false;
-                            $this->quote = false;
-                            $this->author_id = false;
-                            $this->category_id = false;
-                        }
-    
-                        if($this->quote && $this->author_id){
-                            return true;
-                        } else{
+                    public function isValidAutId($model){        
+            
+                        $result = $model->read_single();
+                        if($model->author_id && $model->quote) {
+                            
+                           return true;
+                        } else {
+        
                             return false;
                         }
-    
                         }
 
                 
