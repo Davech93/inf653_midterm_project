@@ -7,8 +7,8 @@
 
     include_once '../../config/Database.php';
     include_once '../../models/Quote.php';
-    include_once '../../models/Author.php';
-    include_once '../../models/Category.php';
+    // include_once '../../models/Author.php';
+    // include_once '../../models/Category.php';
     
 
     //Instantiate DB & Connect
@@ -42,14 +42,14 @@
         exit();
        }
        if(isset($data->author_id)){
-        $author->id = $quote->author_id = $data->author_id;
+        $quote->author_id = $data->author_id;
         
        } else {
         echo json_encode(array("message"=>"Missing Required Parameters"));
         exit();
        }
        if(isset($data->category_id)){
-        $category->id = $quote->category_id = $data->category_id;
+        $quote->category_id = $data->category_id;
        
        } else {
         echo json_encode(array("message"=>"Missing Required Parameters"));
@@ -65,12 +65,13 @@
         // $author->id = $data->author_id;
     
         $result1 = $quote->isValidQuoId($quote);
-        $result2 = $author->isValidAutId($author);
-        $result3 = $category->isValidCatId($category);
+        $result2 = $quote->isValidAutId();
+        $result3 = $quote->isValidCatId();
+        // $result3 = $category->isValidCatId($category);
         
         echo json_encode($result1);
-        echo json_encode($result2);
-        echo json_encode($result3);
+        // echo json_encode($result2);
+        // echo json_encode($result3);
         
             
         if($result1 == false) {

@@ -230,6 +230,100 @@
                 }
                 }
 
+
+                public function isValidCatId(){
+                    $query = 'SELECT
+                    q.id,
+                    q.quote,
+                    q.author_id,
+                    q.category_id
+                  FROM 
+                  ' . $this->table . ' q
+                    WHERE
+                        q.category_id = ?
+                        LIMIT 1 OFFSET 0';
+            
+                    //prepare statement
+                    $stmt = $this->conn->prepare($query);
+            
+                    //bind ID
+                    $stmt->bindParam('q.category_id', $this->$category_id);
+            
+                    //Execute Query
+                    $stmt->execute();
+            
+                    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            
+                    
+                    if($row) {
+                        //set properties
+                    $this->id = $row['id'];
+                    $this->quote = $row['quote'];
+                    $this->author = $row['author_id'];
+                    $this->category = $row['category_id'];
+                    }
+                    else {
+                        $this->id = false;
+                        $this->quote = false;
+                        $this->author = false;
+                        $this->category = false;
+                    }
+
+                    if($this->quote && $this->category_id){
+                        return true;
+                    } else{
+                        return false;
+                    }
+
+                    }
+
+
+                    public function isValidAutId(){
+                        $query = 'SELECT
+                        q.id,
+                        q.quote,
+                        q.author_id,
+                        q.category_id
+                      FROM 
+                      ' . $this->table . ' q
+                        WHERE
+                            q.author_id = ?
+                            LIMIT 1 OFFSET 0';
+                
+                        //prepare statement
+                        $stmt = $this->conn->prepare($query);
+                
+                        //bind ID
+                        $stmt->bindParam('q.author_id', $this->$author_id);
+                
+                        //Execute Query
+                        $stmt->execute();
+                
+                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                
+                        
+                        if($row) {
+                            //set properties
+                        $this->id = $row['id'];
+                        $this->quote = $row['quote'];
+                        $this->author = $row['author_id'];
+                        $this->category = $row['category_id'];
+                        }
+                        else {
+                            $this->id = false;
+                            $this->quote = false;
+                            $this->author = false;
+                            $this->category = false;
+                        }
+    
+                        if($this->quote && $this->author_id){
+                            return true;
+                        } else{
+                            return false;
+                        }
+    
+                        }
+
                 
     
     }
