@@ -241,6 +241,8 @@
                   ' . $this->table . ' q
                     WHERE
                         q.category_id = :category_id
+                        AND q.author_id = :author_id
+                        AND q.id = :id
                         LIMIT 1 OFFSET 0';
             
                     //prepare statement
@@ -248,6 +250,8 @@
             
                     //bind ID
                     $stmt->bindParam(':category_id', $this->category_id);
+                    $stmt->bindParam(':author_id', $this->author_id);
+                    $stmt->bindParam(':id', $this->id);
             
                     //Execute Query
                     $stmt->execute();
@@ -288,6 +292,8 @@
                       ' . $this->table . ' q
                         WHERE
                             q.author_id = :author_id
+                            AND q.category_id = :category_id
+                            AND q.id = :id
                             LIMIT 1 OFFSET 0';
                 
                         //prepare statement
@@ -295,6 +301,8 @@
                 
                         //bind ID
                         $stmt->bindParam(':author_id', $this->author_id);
+                        $stmt->bindParam(':category_id', $this->category_id);
+                        $stmt->bindParam(':id', $this->id);
                 
                         //Execute Query
                         $stmt->execute();
