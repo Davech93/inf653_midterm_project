@@ -222,10 +222,7 @@
     //              }
     //              }
 
-        public function isValidQuoId($model){
-
-            //$model->id = isset($_GET['category_id']) ? $_GET['category_id'] : 0;
-        
+        public function isValidQuoId($model){        
             
                 $result = $model->read_single();
                 if($model->id && $model->quote) {
