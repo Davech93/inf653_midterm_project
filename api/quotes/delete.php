@@ -31,9 +31,8 @@
           exit();
     }
     
-    $result = $quote->isValid($quote, $quoteId);
-
-    if ($result == true){
+    $quote->read_single();
+    if($quote->id && $quote->quote) {
       $quote->delete();
     echo json_encode(array('id' => $quoteId));
     } else{

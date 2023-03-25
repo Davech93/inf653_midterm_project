@@ -197,24 +197,5 @@
             return false;
         }
     
-        public function isValid($model, $inId){
-
-            $model->id = isset($_GET['id']) ? $_GET['id'] :die();
-
-
-                $model->read_single();
-                echo json_encode($this->id);
-                echo json_encode($model->id);
-                echo json_encode($_GET['id']);
-                echo json_encode($inId);
-        
-                if($this->id && $this->quote) {
-                    return true;
-    
-                }
-                else {
-                    return false;
-                }
-            }
     }
      ?>
