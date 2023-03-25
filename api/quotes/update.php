@@ -55,6 +55,10 @@
         echo json_encode(array("message"=>"Missing Required Parameters"));
         exit();
        }
+
+       if($quote->update()){
+        echo json_encode(array("id"=>$quote->id, "quote"=>$quote->quote, "author_id"=>$quote->author_id,"category_id"=>$quote->category_id ));
+        }
    
        echo ($quote->author_id);
        echo ($quote->category_id);
@@ -71,9 +75,7 @@
         echo json_encode($result1);
         // echo json_encode($result2);
         // echo json_encode($result3);
-        if($quote->update()){
-            echo json_encode(array("id"=>$quote->id, "quote"=>$quote->quote, "author_id"=>$quote->author_id,"category_id"=>$quote->category_id ));
-            } 
+         
         
             
         if($result1 == false) {
