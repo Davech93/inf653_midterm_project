@@ -33,7 +33,7 @@
      //create author
      if($author->create()){
       //  echo json_encode(array("id" => $author->id,'message' => 'Author Deleted'));
-      $result = $quote->lastId();
+      $result = $author->lastId();
         
       //  $author->id = $id;
         echo json_encode(array( "id"=>$result, "author" => $author->author));
