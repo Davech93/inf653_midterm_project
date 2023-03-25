@@ -139,46 +139,35 @@
             //create query
             $query = 'UPDATE ' . $this->table . ' 
             SET quote = :quote
-            WHERE id = :id
-            AND author_id = :author_id 
-            AND category_id = :category_id';
+            WHERE id = :id';
 
             //prepare statement
-            // $stmt = $this->conn->prepare($query);
+            $stmt = $this->conn->prepare($query);
 
             //clean data
             $this->id = htmlspecialchars(strip_tags($this->id));
             $this->quote = htmlspecialchars(strip_tags($this->quote));
-            $this->author_id = htmlspecialchars(strip_tags($this->author_id));
-            $this->category_id = htmlspecialchars(strip_tags($this->category_id));
+            // $this->author_id = htmlspecialchars(strip_tags($this->author_id));
+            // $this->category_id = htmlspecialchars(strip_tags($this->category_id));
            
             $stmt = $this->conn->prepare("UPDATE " .  $this->table . " SET quote = :quote WHERE id = :id AND author_id = :author_id AND category_id = :category_id");
 
             //bind data
             $stmt->bindParam(':id', $this->id);
             $stmt->bindParam(':quote', $this->quote);
-            $stmt->bindParam(':author_id', $this->author_id);
-            $stmt->bindParam(':category_id', $this->category_id);
+            // $stmt->bindParam(':author_id', $this->author_id);
+            // $stmt->bindParam(':category_id', $this->category_id);
 
 
-            
-            try{
-                $stmt->execute([':quote'=>$this->quote, ':id'=>$this->id]);
-                $_SESSION['success'] = 'Stock updated successfully';
-                exit();
-            } catch(PDOException $e){
-                $_SESSION['error'] = $e->getMessage();
-                exit();
-            }
 
           
             
 
-            //execute query
-            // if($stmt->execute()){
-            //     return true;
-            // }
-            //print error if something goes wrong
+            // execute query
+            if($stmt->execute()){
+                return true;
+            }
+            // print error if something goes wrong
             printf("Error: %s. \n", $stmt->error);
 
             return false;
