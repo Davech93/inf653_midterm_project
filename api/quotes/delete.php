@@ -31,12 +31,12 @@
     }
     
     $result = $quote->isValid($quote);
-    if ($result == false){
-      echo json_encode(array('message'=>'No Quotes Found'));
-      exit();
-    } else {
+
+    if ($result == true){
       $quote->delete();
     echo json_encode(array('id' => $data->id));
+    } else{
+      echo json_encode(array('message'=>'No Quotes Found'));
     }
           
     
