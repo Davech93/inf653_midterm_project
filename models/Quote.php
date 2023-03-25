@@ -204,6 +204,7 @@
     if(!$_GET['id']){
         $result = $model->read_single();
         if($model->id && $model->quote) {
+           echo json_encode($result);
            return true;
         } else {
             return false;
