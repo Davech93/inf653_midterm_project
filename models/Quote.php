@@ -165,7 +165,8 @@
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         
-            if(!$row['id']) {
+            if(!$row['id'] || !$row['author_id'] || !['category_id']) {
+              if (!$row['id']) {
                 $result = 1;
                 return $result;
             } else if (!$row['author_id']){
@@ -176,6 +177,7 @@
                 return $result;
             }
                 
+        }
 
           
             
