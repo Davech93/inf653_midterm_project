@@ -199,23 +199,14 @@
     
         public function isValid($model){
 
-            $quote->id = isset($_GET['id']) ? $_GET['id'] :die();
+            $model->id = $_GET['id']; 
 
-            if($_GET['id'] == NULL){
-                $a = array('message' => 'No Quotes Found');
-                echo json_encode($a);
-            } else {
-               $result = $model->read_single();
-               echo json_encode($result);
-        
-                if($model->id && $model->quote) {
-                    echo json_encode(array('id' => $model->id));
-                    
-        
-        
+            if($model->read_single()){
+                return true;
+            } else{
+                return false;
+            }
         }
-    }
-}
 
 }
      ?>
