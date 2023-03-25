@@ -60,7 +60,7 @@
        
        }
        if(isset($data->author_id)){
-        $author->id = $data->category_id;
+        $author->id = $data->author_id;
        
        }
 
