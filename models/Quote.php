@@ -160,15 +160,30 @@
             $stmt->bindParam(':author_id', $this->author_id);
             $stmt->bindParam(':category_id', $this->category_id);
 
+            $stmt->execute();
 
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        
+            if(!$row['id']) {
+                $result = 1;
+                return $result;
+            } else if (!$row['author_id']){
+                $result = 2;
+                return $result;
+            } else if (!['category_id']){
+                $result = 3;
+                return $result;
+            }
+                
 
           
             
 
             // execute query
-            if($stmt->execute()){
-                return true;
-            }
+            // if($stmt->execute()){
+            //     return true;
+            // }
             // print error if something goes wrong
             printf("Error: %s. \n", $stmt->error);
 
