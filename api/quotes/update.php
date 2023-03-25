@@ -18,33 +18,33 @@
 
 
     // get raw posted data
-    // $data = json_decode(file_get_contents("php://input"));
-    echo json_encode($_GET['id']);
-    echo json_encode($_GET['quote']);
-    echo json_encode($_GET['author_id']);
-    echo json_encode($_GET['category_id']);
+    /$data = json_decode(file_get_contents("php://input"));
+    echo json_encode($data->id);
+    echo json_encode($data->quote);
+    echo json_encode($data->author_id);
+    echo json_encode($data->category_id);
 
 
-    if(isset($_GET['id'])){
-        $quote->id = $_GET['id'];
+    if(isset($data->id)){
+        $quote->id = $data->id;
        } else {
         echo json_encode(array("message"=>"Missing Required Parameters"));
         exit();
        }
-       if(isset($_GET['quote'])){
-        $quote->quote = $_GET['quote'];
+       if(isset($data->quote)){
+        $quote->quote = $data->quote;
        } else {
         echo json_encode(array("message"=>"Missing Required Parameters"));
         exit();
        }
-       if(isset($_GET['author_id'])){
-        $quote->$author_id = $_GET['author_id'];
+       if(isset($data->author_id)){
+        $quote->$author_id = $data->author_id;
        } else {
         echo json_encode(array("message"=>"Missing Required Parameters"));
         exit();
        }
-       if(isset($_GET['category_id'])){
-        $quote->$category_id = $_GET['category_id'];
+       if(isset($data->category->id)){
+        $quote->$category_id = $data->category_id;
        } else {
         echo json_encode(array("message"=>"Missing Required Parameters"));
         exit();
@@ -66,7 +66,7 @@
             
 
             if($quote->update()){
-            echo json_encode(array("id"=>$result1, "quote"=>$quote->quote, "author_id"=>$author->id,"category_id"=>$category->id ));
+            echo json_encode(array("id"=>$result1, "quote"=>$quote->quote, "author_id"=>$quote->author_id,"category_id"=>$quote->category_id ));
          } else {
             echo json_encode(array('message' => 'No Quotes Found'));
          }
