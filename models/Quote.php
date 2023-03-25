@@ -245,7 +245,7 @@
                     //bind ID
                     $stmt->bindParam(1, $this->id);
                     $stmt->bindParam(2, $this->author_id);
-                    $stmt->bindParam(3, $this->category->id);
+                    $stmt->bindParam(3, $this->category_id);
             
                     //Execute Query
                     $stmt->execute();
