@@ -240,14 +240,14 @@
                   FROM 
                   ' . $this->table . ' q
                     WHERE
-                        q.category_id = ?
+                        q.category_id = :category_id
                         LIMIT 1 OFFSET 0';
             
                     //prepare statement
                     $stmt = $this->conn->prepare($query);
             
                     //bind ID
-                    $stmt->bindParam('q.category_id', $this->$category_id);
+                    $stmt->bindParam(':category_id', $this->$category_id);
             
                     //Execute Query
                     $stmt->execute();
@@ -287,14 +287,14 @@
                       FROM 
                       ' . $this->table . ' q
                         WHERE
-                            q.author_id = ?
+                            q.author_id = :author_id
                             LIMIT 1 OFFSET 0';
                 
                         //prepare statement
                         $stmt = $this->conn->prepare($query);
                 
                         //bind ID
-                        $stmt->bindParam('q.author_id', $this->$author_id);
+                        $stmt->bindParam(':author_id', $this->$author_id);
                 
                         //Execute Query
                         $stmt->execute();
