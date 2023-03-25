@@ -19,10 +19,11 @@
     
     
     // get raw posted data
-    $data = json_decode(file_get_contents("php://input"));
-    
-    if(isset($data->id)){
-      $quote->id = $data->id;
+    // $data = json_decode(file_get_contents("php://input"));
+    $quoteId = isset($_GET['id']) ? $_GET['id'] :die();
+
+    if($quote->id){
+      $quoteId = $quote->id;
     } else {
       echo json_encode(array('message' => 'Missing Required Parameters'));
         //echo json_encode(array( "id"=>null, "quote" => null, "author_id"=> null, "category_id" => null));
@@ -30,11 +31,11 @@
           exit();
     }
     
-    $result = $quote->isValid($quote);
+    $result = $quote->isValid($quote, $quoteId);
 
     if ($result == true){
       $quote->delete();
-    echo json_encode(array('id' => $quote->id));
+    echo json_encode(array('id' => $quoteId));
     } else{
       echo json_encode(array('message'=>'No Quotes Found'));
     }
