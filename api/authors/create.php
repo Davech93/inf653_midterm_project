@@ -21,6 +21,15 @@
     //print_r($data);
     
     $author->author = $data->author;
+
+
+    if(!$data->author){
+      echo json_encode(array("message" => "Missing Required Parameters"));
+    }
+
+    if(!$data->id){
+      echo json_encode(array("message" => "Missing Required Parameters"));
+    }
     //if(isset($data->author)){
      //create author
      if($author->create()){
