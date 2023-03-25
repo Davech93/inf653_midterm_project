@@ -20,16 +20,16 @@
     $category = new Category($db);
 
     // get raw posted data
-    $data = json_decode(file_get_contents("php://input"));
+    // $data = json_decode(file_get_contents("php://input"));
 
-    if(isset($data->id)){
-        $quote->id = $data->id;
+    if(isset($_GET['id'])){
+        $quote->id = $_GET['id'];
        } else {
         echo json_encode(array("message"=>"Missing Required Parameters"));
         exit();
        }
-       if(isset($data->quote)){
-        $quote->quote = $data->quote;
+       if(isset($_GET['quote'])){
+        $quote->quote = $_GET['quote'];
        } else {
         echo json_encode(array("message"=>"Missing Required Parameters"));
         exit();
