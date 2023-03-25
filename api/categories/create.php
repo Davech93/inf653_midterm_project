@@ -25,7 +25,7 @@
       exit();
      }
       
-    echo json_encode($data->category);
+    
     //if(isset($data->category)){
      //create category
      if($category->create()){

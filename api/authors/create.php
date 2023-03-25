@@ -28,7 +28,7 @@
       exit();
      }
       
-    echo json_encode($data->author);
+    
     //if(isset($data->author)){
      //create author
      if($author->create()){
