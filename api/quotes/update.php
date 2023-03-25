@@ -16,6 +16,8 @@
 
     //Instantiate Category Object
     $quote = new Quote($db);
+    $author = new Author($db);
+    $category = new Category($db);
 
     // get raw posted data
     $data = json_decode(file_get_contents("php://input"));
