@@ -144,7 +144,7 @@
             AND category_id = :category_id';
 
             //prepare statement
-            $stmt = $this->conn->prepare($query);
+            // $stmt = $this->conn->prepare($query);
 
             //clean data
             $this->id = htmlspecialchars(strip_tags($this->id));
@@ -161,13 +161,23 @@
 
 
             
-    
+            try{
+                $stmt = $conn->prepare("UPDATE " $this->table . " SET quote = :quote WHERE id = :id AND author_id = :author_id AND category_id = :category_id");
+                $stmt->execute([':quote'=>$quote, ':id'=>$id]);
+                $_SESSION['success'] = 'Stock updated successfully';
+                exit();
+            } catch(PDOException $e){
+                $_SESSION['error'] = $e->getMessage();
+                exit();
+            }
+
+          
             
 
             //execute query
-            if($stmt->execute()){
-                return true;
-            }
+            // if($stmt->execute()){
+            //     return true;
+            // }
             //print error if something goes wrong
             printf("Error: %s. \n", $stmt->error);
 
