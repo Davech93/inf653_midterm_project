@@ -17,8 +17,8 @@
 
     //Instantiate Category Object
     $quote = new Quote($db);
-    $category = new Category($db);
-    $author = new Author($db);
+    // $category = new Category($db);
+    // $author = new Author($db);
 
 
     // get raw posted data
@@ -57,9 +57,8 @@
        }
    
        echo ($quote->author_id);
-       echo ($author->id);
        echo ($quote->category_id);
-       echo ($category->id);
+       
 
         // $category->id = $data->category_id;
         // $author->id = $data->author_id;
