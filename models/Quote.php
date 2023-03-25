@@ -163,7 +163,7 @@
 
             
             try{
-                $stmt->execute([':quote'=>$quote, ':id'=>$id]);
+                $stmt->execute([':quote'=>$this->quote, ':id'=>$this->id]);
                 $_SESSION['success'] = 'Stock updated successfully';
                 exit();
             } catch(PDOException $e){
