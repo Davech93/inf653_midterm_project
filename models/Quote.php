@@ -200,13 +200,14 @@
         public function isValid($model){
 
         if($model->id){
-        $model->read_single();
-        echo json_encode($model->read_single());
-        if($model->id && $model->quote) {
-           return true;
-        } else {
+
+         if(!$model->read_single()){
             return false;
-        }
+            exit();
+         } else {
+            return true;
+         }
+        
         }
         }
 
