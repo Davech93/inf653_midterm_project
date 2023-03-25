@@ -159,7 +159,7 @@
             $stmt->bindParam(':author_id', $this->author_id);
             $stmt->bindParam(':category_id', $this->category_id);
 
-            ($stmt->execute());
+            $stmt->execute();
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         
