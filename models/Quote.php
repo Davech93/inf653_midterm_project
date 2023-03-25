@@ -199,8 +199,6 @@
     
         public function isValid($model){
 
-        if($model->id){
-
          if(!$model->read_single()){
             return false;
             exit();
@@ -208,7 +206,7 @@
             return true;
          }
         
-        }
+        
         }
 
 }
