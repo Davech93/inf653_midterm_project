@@ -59,8 +59,8 @@
     //    echo ($quote->author_id);
     //    echo ($quote->category_id);
 
-        $quote->category_id = $data->category_id;
-        $quote->author_id = $data->author_id;
+        $category->id = $data->category_id;
+        $author->id = $data->author_id;
     
         $result1 = $quote->isValidQuoId($quote);
         $result2 = $author->isValidAutId($author);
