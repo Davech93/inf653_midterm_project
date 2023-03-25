@@ -67,9 +67,14 @@
          } else if ($result3 == false){
         echo json_encode(array('message' => 'category_id Not Found'));
         exit();
-         } else {
-            $quote->update();
+         } 
+            $author->id = $quote->author_id;
+            $category->id = $quote->category_id;
+
+            if($quote->update()){
             echo json_encode(array("id"=>$result1, "quote"=>$quote->quote, "author_id"=>$author->id,"category_id"=>$category->id ));
+         } else {
+            echo json_encode(array('message' => 'No Quotes Found'));
          }
     
     ?>
