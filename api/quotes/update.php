@@ -7,8 +7,7 @@
 
     include_once '../../config/Database.php';
     include_once '../../models/Quote.php';
-    include_once '../../models/Author.php';
-    include_once '../../models/Category.php';
+    
 
     //Instantiate DB & Connect
     $database = new Database();
@@ -35,13 +34,13 @@
         exit();
        }
        if(isset($_GET['author_id'])){
-        $author->id = $_GET['author_id'];
+        $quote->$author_id = $_GET['author_id'];
        } else {
         echo json_encode(array("message"=>"Missing Required Parameters"));
         exit();
        }
        if(isset($_GET['category_id'])){
-        $category->id = $_GET['category_id'];
+        $quote->$category_id = $_GET['category_id'];
        } else {
         echo json_encode(array("message"=>"Missing Required Parameters"));
         exit();
@@ -50,22 +49,13 @@
 
 
     
-        $result1 = $quote->isValidQuoId($quote);
-        $result2 = $author->isValidAutId($author);
-        $result3 = $category->isValidCatId($category);
+        $result1 = $quote->read_single3Param($quote);
+        
         echo json_encode($result1);
-        echo json_encode($result2);
-        echo json_encode($result3);
-        echo json_encode($quote->quote);
+        
             
         if($result1 == false) {
         echo json_encode(array('message' => 'No Quotes Found'));
-        exit();
-         } else if ($result2 == false){
-        echo json_encode(array('message' => 'author_id Not Found'));
-        exit();
-         } else if ($result3 == false){
-        echo json_encode(array('message' => 'category_id Not Found'));
         exit();
          } 
             

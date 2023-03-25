@@ -226,6 +226,47 @@
                     return false;
                 }
                 }
+
+                public function read_single3param(){
+                    $query = 'SELECT
+                    q.id,
+                    q.quote,
+                    q.author_id,
+                    q.category_id
+                  FROM 
+                  ' . $this->table . ' q
+                    WHERE
+                        q.id = ?, q.author_id = ?, q.category_id = ?
+                        LIMIT 1 OFFSET 0';
+            
+                    //prepare statement
+                    $stmt = $this->conn->prepare($query);
+            
+                    //bind ID
+                    $stmt->bindParam(1, $this->id);
+                    $stmt->bindParam(2, $this->author_id);
+                    $stmt->bindParam(3, $this->category->id);
+            
+                    //Execute Query
+                    $stmt->execute();
+            
+                    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            
+                    
+                    if($row) {
+                        //set properties
+                    $this->id = $row['id'];
+                    $this->quote = $row['quote'];
+                    $this->author = $row['author'];
+                    $this->category = $row['category'];
+                    }
+                    else {
+                        $this->id = false;
+                        $this->quote = false;
+                        $this->author = false;
+                        $this->category = false;
+                    }
+                    }
     
     }
      ?>
