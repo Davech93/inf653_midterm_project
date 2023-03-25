@@ -257,14 +257,14 @@
                         //set properties
                     $this->id = $row['id'];
                     $this->quote = $row['quote'];
-                    $this->author = $row['author'];
-                    $this->category = $row['category'];
+                    $this->author = $row['author_id'];
+                    $this->category = $row['category_id'];
                     }
                     else {
                         $this->id = false;
                         $this->quote = false;
-                        $this->author = false;
-                        $this->category = false;
+                        $this->author_id = false;
+                        $this->category_id = false;
                     }
                     }
     
