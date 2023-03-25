@@ -18,17 +18,25 @@
     // get raw posted data
     $data = json_decode(file_get_contents("php://input"));
 
-    $category->category = $data->category;
+    if(isset($data->category)){
+      $category->category = $data->category;
+     } else {
+      echo json_encode(array("message"=>"Missing Required Parameters"));
+      exit();
+     }
+      
+    echo json_encode($data->category);
     //if(isset($data->category)){
      //create category
      if($category->create()){
       //  echo json_encode(array("id" => $category->id,'message' => 'Author Deleted'));
-       
+      $result = $category->lastId();
         
       //  $category->id = $id;
-        echo json_encode(array( "id"=>$category->id, "category" => $category->category));
+        echo json_encode(array( "id"=>$result, "category" => $category->category));
       } else {
-        echo json_encode(array("message" => "Missing Required Parameters"));
+        $a = array("message" => "Missing Required Parameters");
+        echo json_encode($a);
     } 
 
     ?>

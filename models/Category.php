@@ -171,6 +171,13 @@
                 }
             
             }
+
+            public function lastId(){
+                $stmt2 = $this->conn->lastInsertId();
+                $result = ($stmt2);
+                
+                return $result;
+            }
         
      
      ?>

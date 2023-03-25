@@ -33,10 +33,10 @@
      //create author
      if($author->create()){
       //  echo json_encode(array("id" => $author->id,'message' => 'Author Deleted'));
-       
+      $result = $quote->lastId();
         
       //  $author->id = $id;
-        echo json_encode(array( "id"=>$author->id, "author" => $author->author));
+        echo json_encode(array( "id"=>$result, "author" => $author->author));
       } else {
         $a = array("message" => "Missing Required Parameters");
         echo json_encode($a);
