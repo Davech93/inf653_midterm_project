@@ -227,46 +227,7 @@
                 }
                 }
 
-                public function read_single3param(){
-                    $query = 'SELECT
-                    q.id,
-                    q.quote,
-                    q.author_id,
-                    q.category_id
-                  FROM 
-                  ' . $this->table . ' q
-                    WHERE
-                        id = :id AND author_id = :author_id AND category_id = :category_id
-                        LIMIT 1 OFFSET 0';
-            
-                    //prepare statement
-                    $stmt = $this->conn->prepare($query);
-            
-                    //bind ID
-                    $stmt->bindParam(':id', $this->id);
-                    $stmt->bindParam(':author_id', $this->author_id);
-                    $stmt->bindParam(':category_id', $this->category_id);
-            
-                    //Execute Query
-                    $stmt->execute();
-            
-                    $row = $stmt->fetch(PDO::FETCH_ASSOC);
-            
-                    
-                    if($row) {
-                        //set properties
-                    $this->id = $row['id'];
-                    $this->quote = $row['quote'];
-                    $this->author_id = $row['author_id'];
-                    $this->category_id = $row['category_id'];
-                    }
-                    else {
-                        $this->id = false;
-                        $this->quote = false;
-                        $this->author_id = false;
-                        $this->category_id = false;
-                    }
-                    }
+                
     
     }
      ?>
