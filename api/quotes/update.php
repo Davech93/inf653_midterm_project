@@ -19,6 +19,11 @@
 
     // get raw posted data
     // $data = json_decode(file_get_contents("php://input"));
+    echo json_encode($_GET['id']);
+    echo json_encode($_GET['quote']);
+    echo json_encode($_GET['author_id']);
+    echo json_encode($_GET['category_id']);
+
 
     if(isset($_GET['id'])){
         $quote->id = $_GET['id'];
