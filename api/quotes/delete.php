@@ -32,7 +32,7 @@
     }
 
     $result2 = $quote->isValidQuoId($quote);
-    echo json_encode($result2);
+    
     
     if ($result2 == false){
       echo json_encode(array("message"=>"No Quotes Found"));
