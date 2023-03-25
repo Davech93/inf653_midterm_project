@@ -57,8 +57,11 @@
        }
 
     //    if($quote->update() == 1){
-    //     echo json_encode(array('message' => 'No Quotes Found'));
-    //     exit();      
+        $result = $quote->isValidQuoId($quote);
+        if ($result == false){
+        echo json_encode(array('message' => 'No Quotes Found'));
+        exit();   
+        }   
     //     } else if ($quote->update() == 2){
     //     echo json_encode(array('message' => 'author_id Not Found'));
     //     exit();
