@@ -20,12 +20,13 @@
     $data = json_decode(file_get_contents("php://input"));
     //print_r($data);
     
-    $author->author = $data->author;
 
-
-    if(!$data->author){
-      echo json_encode(array("message" => "Missing Required Parameters"));
-    }
+    if(isset($data->author)){
+      $author->author = $data->author;
+     } else {
+      echo json_encode(array("message"=>"Missing Required Parameters"));
+     }
+      
     echo json_encode($data->author);
     //if(isset($data->author)){
      //create author
