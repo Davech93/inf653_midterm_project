@@ -19,7 +19,7 @@
     
     
     // get raw posted data
-    $data = json_decode(file_get_contents("php://input"));
+    // $data = json_decode(file_get_contents("php://input"));
     
     if(isset($data->id)){
       $quote->id =$data->id;
@@ -36,7 +36,7 @@
       exit();
     } else {
       $quote->delete();
-    echo json_encode(array('id' => $quote->id));
+    echo json_encode(array('id' => $data->id));
     }
           
     
