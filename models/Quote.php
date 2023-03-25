@@ -188,7 +188,8 @@
         $stmt->bindParam(':id', $this->id);
 
         //execute query
-        if($stmt->execute()) {
+        $stmt->execute();
+         if($this->id == $quote->id){
             echo json_encode($this->id);
             return $this->id;
 
