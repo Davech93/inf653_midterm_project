@@ -201,10 +201,7 @@
 
     $model->id = isset($_GET['id']) ? $_GET['id'] :die();
 
-    if($_GET['id'] == NULL){
-        $a = array('message' => 'No Quotes Found');
-        echo json_encode($a);
-    } else {
+    if(!$_GET['id']){
         $result = $model->read_single();
         if($model->id && $model->quote) {
            return true;
@@ -212,8 +209,6 @@
             return false;
         }
         }
-    
-    }
 
 }
      ?>

@@ -16,26 +16,30 @@
     $quote = new Quote($db);
 
 
-    $id = isset($_GET['id']) ? $_GET['id'] :die();
+    
     
     // get raw posted data
-    // $data = json_decode(file_get_contents("php://input"));
-    // $quote->id = $data->id;
-    $quote->id = $id;
+    $data = json_decode(file_get_contents("php://input"));
+    
+    if(isset($data->id)){
+      $quote->id =$data->id;
+    } else {
+      echo json_encode(array('message' => 'Missing Required Parameters'));
+        //echo json_encode(array( "id"=>null, "quote" => null, "author_id"=> null, "category_id" => null));
+       
+          exit();
+    }
     
     $result = $quote->isValid($quote);
-    if ($result == true){
-      
-            if($quote->delete()){
-              echo json_encode(array(["id"] => (int)$quote->id));
-            } else {
-              $b = array('id' => (int)$id, 'message'=>'No Quotes Found');
-              echo json_encode($b);
-            }
-      } else if ($result == false){
-        $a = array('id' => 0, 'message'=>'No Quotes Found');
-        echo json_encode($a);
+    if ($result == false){
+      echo json_encode(array('message'=>'No Quotes Found'));
+      exit();
+    } else {
+      $quote->delete();
+    echo json_encode(array('id' => $quote->id));
     }
+          
+    
 
     //set id to update
   
